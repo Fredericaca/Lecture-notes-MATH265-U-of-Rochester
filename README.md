@@ -9,8 +9,8 @@ https://www.overleaf.com/read/txvtjmjcxknb#1e3523
 Note: You need to change the file path of **header.tex** in Math265_ClassNotes_Fall2024.tex before compile(this project assmumes that audiences will have basic latex editing experience for background). Here is how:
 
 Change the following line of code in the Math265_ClassNotes_Fall2024.tex. 
-'''
+```
 \input{your/path/of/header.tex}
-'''
+```
 
 Pro advice: find *any available practice exam*(if you KNOW what I mean😎) and do practice question in the textbook *as much as you can*. Then you will get 80% for the most of the time.
