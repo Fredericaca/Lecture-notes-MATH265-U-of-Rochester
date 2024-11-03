@@ -1,0 +1,82 @@
+\makeatletter
+\ifx \nauthor\undefined
+  \def\nauthor{Kaifeng Lu}
+\else
+\fi
+
+\title{\coursenumber \, \coursename \, Class Notes}
+\author{Based on lectures by Prof. \lecturer \\\small Notes taken by \nauthor}
+\date{\term\ \year}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage[margin=1in]{geometry}
+\usepackage{listings}
+\usepackage{multicol,multirow}
+\usepackage[hidelinks]{hyperref}
+\usepackage{parskip}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\usepackage{mathtools}
+
+
+
+% Theorems
+\theoremstyle{definition}
+\newtheorem*{aim}{Aim}
+\newtheorem*{axiom}{Axiom}
+\newtheorem*{claim}{Claim}
+\newtheorem*{corollary}{Corollary}
+\newtheorem*{conjecture}{Conjecture}
+\newtheorem*{definition}{Definition}
+\newtheorem*{example}{Example}
+\newtheorem*{exercise}{Exercise}
+\newtheorem*{fact}{Fact}
+\newtheorem*{law}{Law}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{notation}{Notation}
+\newtheorem*{proposition}{Proposition}
+\newtheorem*{question}{Question}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{assumption}{Assumption}
+
+\newtheorem*{remark}{Remark}
+\newtheorem*{warning}{Warning}
+
+% Special sets
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+
+% Brackets
+\newcommand{\abs}[1]{\left\lvert #1\right\rvert}
+\newcommand{\norm}[1]{\left\lVert #1\right\rVert}
+\newcommand{\highlight}[1]{\textit{\textbf{\underbar{#1}}}}
+\newcommand{\bra}{\langle}
+\newcommand{\ket}{\rangle}
+
+%Sequence
+\newcommand{\seq}[2]{(#1_{#2})}
+
+%Abbv
+\newcommand{\st}{\text{ s.t. }}
+
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+    pdfpagemode=FullScreen
+}
+
