@@ -1807,5 +1807,31 @@ Let \(f:A\rightarrow B\) be a function where \(A,B\subseteq \R\). Let \(a\in A,L
     \end{proof}
 \end{theorem}
 
+\begin{example}
+    \(\ds\limx{0 }{x\sin(\frac{1 }{x})}=0\)
+    \begin{proof}
+        Notice that
+        \[-1\le \sin(\frac{1}{x })\le 1\Rightarrow-x\le x\sin(\frac{1}{x })\le x\]
+        Since 
+        \[\limx{0}{(-x)}=0=\limx{0}{(x)}\]
+        \[\limx{0}{x\sin(\frac{1}{x })}=0\]
+    \end{proof}
+\end{example}
 
+\newpage
+\begin{example}
+    Let \(\ds b\in\R, b>0\). Then \(\ds\limx{0}{x^b}=0\).
+    Notice that when \(x\in[0,1]\)
+    \[x^{\left\lceil b \right\rceil}\le x^b<x^{\left\lfloor b \right\rfloor}\]
+    The rest is left as exercise.
+\end{example}
+
+\begin{theorem}
+    Let \(A\subseteq\R;\ f,g,h:A\rightarrow\R\), \(c \) be a cluster point of \(A\). 
+    If \(\ds\limx{c }{f }>0\), then \(\ds \exists \delta>0\st\neighbor{\delta}{c}\st \forall x\in A\cap\neighbor{\delta}{c }\backslash\{c\}\),
+    \[f(x)>0\]
+    \begin{proof}[Proof. Excercise.]
+        
+    \end{proof}
+\end{theorem}
 \end{document}
