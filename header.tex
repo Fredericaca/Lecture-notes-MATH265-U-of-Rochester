@@ -4,8 +4,14 @@
 \else
 \fi
 
+\makeatletter
+\ifx \email\undefined
+  \def\email{\href{klu15@u.rochester.edu}{klu15 at u dot rochester dot edu}}
+\else
+\fi
+
 \title{\coursenumber \, \coursename \, Class Notes}
-\author{Based on lectures by Prof. \lecturer \\\small Notes taken by \nauthor}
+\author{Based on lectures by Prof. \lecturer \\\small Notes taken by \nauthor\\\small Errata: \,\email}
 \date{\term\ \year}
 
 \usepackage{amsmath}
@@ -24,9 +30,7 @@
 \usepackage{wrapfig}
 \usepackage{mathtools}
 
-
-
-% Theorems
+% Theorems-renew
 \theoremstyle{definition}
 \newtheorem*{aim}{Aim}
 \newtheorem*{axiom}{Axiom}
@@ -55,6 +59,7 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\F}{\mathbb{F}}
+\newcommand{\neighbor}[2]{V_{#1}{(#2)}}
 
 % Brackets
 \newcommand{\abs}[1]{\left\lvert #1\right\rvert}
@@ -68,7 +73,10 @@
 
 %Abbv
 \newcommand{\st}{\text{ s.t. }}
+\newcommand{\limx}[2]{\lim_{x\rightarrow #1} {#2}}
+\newcommand{\ds}{\displaystyle}
 
+%RenewCommand
 \renewcommand\qedsymbol{$\blacksquare$}
 
 \hypersetup{
@@ -76,7 +84,20 @@
     citecolor=black,
     filecolor=black,
     linkcolor=black,
-    urlcolor=black
+    urlcolor=black,
     pdfpagemode=FullScreen
 }
 
+%Figures
+\newcommand{\sidefig}[2]{
+  \begin{wrapfigure}{#1}{1.7\textwidth}
+    \includegraphics[width=0.6\textwidth]{image/#2}
+    \centering
+  \end{wrapfigure}
+}
+\newcommand{\centerfig}[1]{
+  \begin{figure}[h]
+    \includegraphics[width=0.6\textwidth]{image/#1}
+    \centering
+  \end{figure}
+}

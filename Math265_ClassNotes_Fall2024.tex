@@ -23,7 +23,7 @@
 
 \begin{document}
 \maketitle
-
+\centerfig{cover.jpg}
 \newpage
 
 \section{Preliminaries}
@@ -85,7 +85,7 @@ where instead of writing \(a(1), a(2), \dots\), we write it as \(a_1, a_2, \dots
 
 \begin{definition}[\textbf{Converge to x}]
     A sequence \((x_n)\in\R\) \highlight{converges} to \(x\in\R\) if 
-    \[\forall \epsilon >0,\, \exists N_\epsilon \in \N \text{ such that }n\ge N_\epsilon \rightarrow\abs{x_n - x} <\epsilon\]
+    \[\forall \varepsilon >0,\, \exists N_\varepsilon \in \N \text{ such that }n\ge N_\varepsilon \rightarrow\abs{x_n - x} <\varepsilon\]
     We write \[\lim_{n\to\infty}x_n = \lim_{n\to\infty}(x_n) = x.\]\\
 \end{definition}
 
@@ -100,14 +100,14 @@ where instead of writing \(a(1), a(2), \dots\), we write it as \(a_1, a_2, \dots
 \end{theorem}
 \begin{proof}
     Let \((x_n)\) be a sequence of real numbers. Suppose \(x,x'\) are limits of \((x_n)\). We want to prove \(x = x'\) by contradiction.
-    \\\\Assume \(\abs{x-x'} > 0\). If we consider \(\epsilon := \frac{1}{3}\abs{x-x'}>0\), then\\
-    \indent \(\text{The existence of } \lim_{x_n \to x}\text{implies that } \exists N_1 \in \N \text{ such that } \abs{x_n-x} < \epsilon\text{ if }n\ge \N_1. \)\\
-    \indent \(\text{Similarly, existence of } \lim_{x_n \to x'} \text{implies that } \exists N_2 \in \N \text{ such that } \abs{x_n-x'} < \epsilon\text{ if }n\ge \N_2. \)\\
+    \\\\Assume \(\abs{x-x'} > 0\). If we consider \(\varepsilon := \frac{1}{3}\abs{x-x'}>0\), then\\
+    \indent \(\text{The existence of } \lim_{x_n \to x}\text{implies that } \exists N_1 \in \N \text{ such that } \abs{x_n-x} < \varepsilon\text{ if }n\ge \N_1. \)\\
+    \indent \(\text{Similarly, existence of } \lim_{x_n \to x'} \text{implies that } \exists N_2 \in \N \text{ such that } \abs{x_n-x'} < \varepsilon\text{ if }n\ge \N_2. \)\\
     Thus,
     \begin{align*}
         \abs{x-x'} & \le \abs{x-x_{N_1+N_2}+x_{N_1+N_2}-x'} & \\
                    & \le \abs{x-x_{N_1+N_2}}+\abs{x_{N_1+N_2}-x'} \text{ by triangle inequality}\\
-                   & < \epsilon+\epsilon \\
+                   & < \varepsilon+\varepsilon \\
                    & = \frac{2}{3}\abs{x-x'}
     \end{align*}
     Then, 
@@ -118,16 +118,16 @@ where instead of writing \(a(1), a(2), \dots\), we write it as \(a_1, a_2, \dots
 
 \begin{example}
     \[\lim_{n\to \infty}(\frac{1}{n}) = 0\]
-    Goal: \(\forall \epsilon>0,\) want to find \(N_\epsilon\) such that \(\abs{\frac{1}{n}-0} < \epsilon\) for \(n>N\), 
+    Goal: \(\forall \varepsilon>0,\) want to find \(N_\varepsilon\) such that \(\abs{\frac{1}{n}-0} < \varepsilon\) for \(n>N\), 
     so it suffices to show that \\
-    \[\frac{1}{n}<\epsilon \Leftrightarrow \frac{1}{\epsilon} < n\]
+    \[\frac{1}{n}<\varepsilon \Leftrightarrow \frac{1}{\varepsilon} < n\]
 \end{example}
 
 \begin{proof}
-    Let \(\epsilon>0\). Apply Archimedean's property to \(\frac{1}{\epsilon}\), then
+    Let \(\varepsilon>0\). Apply Archimedean's property to \(\frac{1}{\varepsilon}\), then
     \begin{align*}
-        & \exists N\in \N \text{ such that }\frac{1}{\epsilon}<N \\
-        \Rightarrow & \forall n \ge N, \abs{\frac{1}{n}-0} = \frac{1}{n}\le \frac{1}{N} < \epsilon.\\
+        & \exists N\in \N \text{ such that }\frac{1}{\varepsilon}<N \\
+        \Rightarrow & \forall n \ge N, \abs{\frac{1}{n}-0} = \frac{1}{n}\le \frac{1}{N} < \varepsilon.\\
         \Rightarrow & \lim_{n \to \infty}\frac{1}{n} = 0
     \end{align*}
 \end{proof}
@@ -136,9 +136,9 @@ where instead of writing \(a(1), a(2), \dots\), we write it as \(a_1, a_2, \dots
     Let \((x_n)\) be a sequence of real numbers, and let \(x \in \R\). The following are equivalent:
 \begin{enumerate}
     \item \(x_n \rightarrow x\)
-    \item \(\forall \epsilon > 0, \exists N \in \N \text{ such that } \abs{x_n-x}<\epsilon,\text{ for }n\ge \N \)
-    \item \(\dots \dots x - \epsilon<x_n<x+\epsilon\dots\dots\)
-    \item \(\forall\epsilon\text{-neighborhood } V_\epsilon(x),\exists N \in \N \text{ such that } x_n \in V_\epsilon(x) \text{ for } n\ge N\)\\
+    \item \(\forall \varepsilon > 0, \exists N \in \N \text{ such that } \abs{x_n-x}<\varepsilon,\text{ for }n\ge \N \)
+    \item \(\dots \dots x - \varepsilon<x_n<x+\varepsilon\dots\dots\)
+    \item \(\forall\varepsilon\text{-neighborhood } V_\varepsilon(x),\exists N \in \N \text{ such that } x_n \in V_\varepsilon(x) \text{ for } n\ge N\)\\
 \end{enumerate}
 \highlight{Sketch of proof:}
 \[(1)\Leftrightarrow(2)\Leftrightarrow(3)\Leftrightarrow(4)\]
@@ -149,8 +149,8 @@ where instead of writing \(a(1), a(2), \dots\), we write it as \(a_1, a_2, \dots
 \end{proposition}
 
 \begin{proof}
-    Let \(\epsilon > 0\). Consider \[N = \lceil\frac{1}{2}(\frac{1}{2\epsilon})^2\rceil\in\N\]
-    \[n>N\Rightarrow n>\frac{1}{2}(\frac{1}{2\epsilon})^2 \Rightarrow \frac{1}{2\sqrt{2n}}<\epsilon\Rightarrow\abs{\sqrt{2n+1}-\sqrt{2n}} = \dots = \frac{1}{\sqrt{2n+1}+\sqrt{2n}}<\epsilon\]
+    Let \(\varepsilon > 0\). Consider \[N = \lceil\frac{1}{2}(\frac{1}{2\varepsilon})^2\rceil\in\N\]
+    \[n>N\Rightarrow n>\frac{1}{2}(\frac{1}{2\varepsilon})^2 \Rightarrow \frac{1}{2\sqrt{2n}}<\varepsilon\Rightarrow\abs{\sqrt{2n+1}-\sqrt{2n}} = \dots = \frac{1}{\sqrt{2n+1}+\sqrt{2n}}<\varepsilon\]
 \end{proof}
 
 \begin{remark}
@@ -169,20 +169,20 @@ where instead of writing \(a(1), a(2), \dots\), we write it as \(a_1, a_2, \dots
 
 \begin{proof}
     \((\Rightarrow)\)\\
-    Suppose \(x_n\to x\). Let\[\epsilon>0, \exists N_\epsilon >0, \text{ such that } \abs{x_n-x}<\epsilon \text{ for }n\ge N_\epsilon\]
-    Consider \({N_\epsilon}':=N_\epsilon + m\) then
-    \[n+m \ge {N_\epsilon}' \Rightarrow n\ge N_\epsilon \Rightarrow n+m\ge N_\epsilon \Rightarrow \abs{x_{n+m}-x}<\epsilon\]
-    It follows that \[n\ge N_\epsilon \Rightarrow n+m \ge N_\epsilon \Rightarrow \abs{x_{n+m}-x}<\epsilon\]
+    Suppose \(x_n\to x\). Let\[\varepsilon>0, \exists N_\varepsilon >0, \text{ such that } \abs{x_n-x}<\varepsilon \text{ for }n\ge N_\varepsilon\]
+    Consider \({N_\varepsilon}':=N_\varepsilon + m\) then
+    \[n+m \ge {N_\varepsilon}' \Rightarrow n\ge N_\varepsilon \Rightarrow n+m\ge N_\varepsilon \Rightarrow \abs{x_{n+m}-x}<\varepsilon\]
+    It follows that \[n\ge N_\varepsilon \Rightarrow n+m \ge N_\varepsilon \Rightarrow \abs{x_{n+m}-x}<\varepsilon\]
     \newpage
     \((\Leftarrow)\)\\
     Suppose \(x_{n+m}\rightarrow x\).
-    \[\forall \epsilon>0,\exists N_\epsilon>0 \text{ such that } \abs{x_{n+m}<\epsilon}, \forall n\ge N_\epsilon\]
-    Consider \(N:=N_\epsilon+m\). Then 
+    \[\forall \varepsilon>0,\exists N_\varepsilon>0 \text{ such that } \abs{x_{n+m}<\varepsilon}, \forall n\ge N_\varepsilon\]
+    Consider \(N:=N_\varepsilon+m\). Then 
     \begin{align*}
-        & n\ge N = N_\epsilon+m \\
-        & \Rightarrow n-m \ge N_\epsilon \\
-        & \Rightarrow\abs{x_{(n-m)+m}-x}<\epsilon \\
-        & \Rightarrow\abs{x_n-x}<\epsilon
+        & n\ge N = N_\varepsilon+m \\
+        & \Rightarrow n-m \ge N_\varepsilon \\
+        & \Rightarrow\abs{x_{(n-m)+m}-x}<\varepsilon \\
+        & \Rightarrow\abs{x_n-x}<\varepsilon
     \end{align*}
 \end{proof}
 
@@ -199,9 +199,9 @@ where instead of writing \(a(1), a(2), \dots\), we write it as \(a_1, a_2, \dots
 
 \begin{proof}
     We know that
-    \[\forall \epsilon>0, \exists N\ge 0\text{ s.t. } \abs{a_n}<\frac{\epsilon}{c},\, \forall n\ge N\]
+    \[\forall \varepsilon>0, \exists N\ge 0\text{ s.t. } \abs{a_n}<\frac{\varepsilon}{c},\, \forall n\ge N\]
     Consider \(N'=max\{N,m\}, \forall n\ge N'\). Then 
-    \[\abs{x_n-x}\le Ca_n = c\abs{a_n}<c\cdot\frac{\epsilon}{c} = \epsilon\]
+    \[\abs{x_n-x}\le Ca_n = c\abs{a_n}<c\cdot\frac{\varepsilon}{c} = \varepsilon\]
     \[\Rightarrow x_n\rightarrow x\]
 \end{proof}
 
@@ -282,11 +282,11 @@ where instead of writing \(a(1), a(2), \dots\), we write it as \(a_1, a_2, \dots
             \draw (0,-0.5) node{0};
             
             \filldraw[black] (3,0) circle (2pt);
-            \draw (3,-0.5) node{\(x-\epsilon\)};
+            \draw (3,-0.5) node{\(x-\varepsilon\)};
             \draw[thick] (3,0) -- (3,0.3);
 
             \filldraw[black] (-3,0) circle (2pt);
-            \draw (-3,-0.5) node{\(x+\epsilon\)};
+            \draw (-3,-0.5) node{\(x+\varepsilon\)};
             \draw[thick] (-3,0) -- (-3,0.3);
 
             \filldraw[black] (6,0) circle (2pt);
@@ -296,7 +296,7 @@ where instead of writing \(a(1), a(2), \dots\), we write it as \(a_1, a_2, \dots
     \end{center}
 
     \begin{proof}
-        By definition of convergent sequence, let \(\epsilon=1\):
+        By definition of convergent sequence, let \(\varepsilon=1\):
         \[\exists N>0\st\forall n\ge N, \abs{x_n-x}<1\]
         Thus we have
         \begin{align*}
@@ -340,17 +340,17 @@ where instead of writing \(a(1), a(2), \dots\), we write it as \(a_1, a_2, \dots
     \newpage
     \begin{proof}[Proof of Sum]:
 
-        \(\forall \epsilon>0\),
-        \[\exists N_1\in\N \st \forall n\ge N_1, \abs{x_n-x}<\frac{\epsilon}{2}\]
-        \[\exists N_2\in\N \st \forall n\ge N_2, \abs{y_n-y}<\frac{\epsilon}{2}\]
+        \(\forall \varepsilon>0\),
+        \[\exists N_1\in\N \st \forall n\ge N_1, \abs{x_n-x}<\frac{\varepsilon}{2}\]
+        \[\exists N_2\in\N \st \forall n\ge N_2, \abs{y_n-y}<\frac{\varepsilon}{2}\]
         Consider \[N:=\max{\{N_1,N_2\}}\]
         Then
         \begin{align*}
             \forall n\ge N, &\abs{(x_n+y_n)-(x+y)}\\
             =&\abs{x_n-x+y_n-y}\\
             \le& \abs{x_n-x}+\abs{y_n-y}\\
-            =&\frac{\epsilon}{2}+\frac{\epsilon}{2}\\
-            =&\epsilon
+            =&\frac{\varepsilon}{2}+\frac{\varepsilon}{2}\\
+            =&\varepsilon
         \end{align*}
     \end{proof}
 
@@ -366,16 +366,16 @@ where instead of writing \(a(1), a(2), \dots\), we write it as \(a_1, a_2, \dots
     \begin{proof}[Proof of Product]:
         Since \(\seq{x}{n}\) is convergent, it is also bounded. Thus,
         \[\exists M\in\N \st \forall n\in\N, \abs{x_n}\le M\]
-        By definition of convergence, \(\forall \epsilon>0\):
-        \[\exists N_1>0\st \forall n\ge N,\abs{x_n-x}<\frac{\epsilon}{2\abs{y}}\]
-        \[\exists N_2>0\st \forall n\ge N,\abs{y_n-y}<\frac{\epsilon}{2M}\]
+        By definition of convergence, \(\forall \varepsilon>0\):
+        \[\exists N_1>0\st \forall n\ge N,\abs{x_n-x}<\frac{\varepsilon}{2\abs{y}}\]
+        \[\exists N_2>0\st \forall n\ge N,\abs{y_n-y}<\frac{\varepsilon}{2M}\]
         Then, \(\exists N = \max{\{N_1,N_2\}}\st \forall n\ge N,\)
         \begin{align*}
             \abs{x_n y_n-xy}&=\abs{x_n y_n-x_n y+x_n y-xy}\\
             &=\abs{x_n(y_n-y)-y(x_n-x)}\\
             &\le \abs{x_n}\abs{y_n-y}+\abs{y}\abs{x_n-x}\\
             &\le M \cdot\abs{y_n-y}+\abs{y} \abs{x_n-x}\\
-            &<M\cdot \frac{\epsilon}{2M}+\abs{y}\cdot \frac{\epsilon}{2\abs{y}}=\epsilon
+            &<M\cdot \frac{\varepsilon}{2M}+\abs{y}\cdot \frac{\varepsilon}{2\abs{y}}=\varepsilon
         \end{align*}
     \end{proof}
 
@@ -408,10 +408,10 @@ where instead of writing \(a(1), a(2), \dots\), we write it as \(a_1, a_2, \dots
         \(\exists G\in\N \st \forall n\in\N\)
         \[\abs{x_n}\le G, \abs{y_n}\le G\]
         Thus \(\forall n>0\)
-        \[\exists N_2>0\st\forall n\ge N_2, \abs{x_n-x}<\frac{\epsilon}{2GF}\]
-        \[\exists N_3>0\st\forall n\ge N_3, \abs{y_n-y}<\frac{\epsilon}{2GF}\]
+        \[\exists N_2>0\st\forall n\ge N_2, \abs{x_n-x}<\frac{\varepsilon}{2GF}\]
+        \[\exists N_3>0\st\forall n\ge N_3, \abs{y_n-y}<\frac{\varepsilon}{2GF}\]
         Define \(N:=\max{\{N_1,N_2,N_3\}}\), then \(\exists N\in\N \st \forall n>N\),
-        \[\abs{\frac{x_n}{y_n}-\frac{x}{y}}<F(G\cdot\frac{\epsilon}{2GF}+G\cdot\frac{\epsilon}{2GF})=\epsilon\]
+        \[\abs{\frac{x_n}{y_n}-\frac{x}{y}}<F(G\cdot\frac{\varepsilon}{2GF}+G\cdot\frac{\varepsilon}{2GF})=\varepsilon\]
 
     \end{proof}
 \end{theorem}
@@ -419,16 +419,16 @@ where instead of writing \(a(1), a(2), \dots\), we write it as \(a_1, a_2, \dots
 \begin{theorem}
     If \(\seq{x}{n}\) is a convergent sequence in \(\R\) of non-negative terms with \(\seq{x}{n}\rightarrow x\), then \(x\ge 0\).
     \begin{proof}[Sketch]:
-        Assume \(x<0\), choose \(\epsilon \le \abs{x}\), then \(\forall n > N, x_n<0\), which is a contradiction.
+        Assume \(x<0\), choose \(\varepsilon \le \abs{x}\), then \(\forall n > N, x_n<0\), which is a contradiction.
         \begin{center}
             \begin{tikzpicture}
                 \draw[thick,->] (-8.9,0) -- (2,0) node[anchor=north west] {x};
                 \filldraw[black] (0,0) circle (2pt);
                 \draw (0,-0.5) node{0};
                 \filldraw[black] (-6,0) circle (2pt);
-                \draw (-6,-0.5) node{\(x+\epsilon\)};
+                \draw (-6,-0.5) node{\(x+\varepsilon\)};
                 \filldraw[black] (-2,0) circle (2pt);
-                \draw (-2,-0.5) node{\(x-\epsilon\)};
+                \draw (-2,-0.5) node{\(x-\varepsilon\)};
                 \filldraw[black] (-4,0) circle (2pt);
                 \draw (-4,-0.5) node{\(x\)};
             \end{tikzpicture}
@@ -463,15 +463,15 @@ where instead of writing \(a(1), a(2), \dots\), we write it as \(a_1, a_2, \dots
     \[\lim{\seq{x}{n}}=\lim{\seq{y}{n}}=\lim{\seq{z}{n}}\]
     
     \begin{proof}
-        Let \(\forall \epsilon >0\).
+        Let \(\forall \varepsilon >0\).
 
         Write \(L=\lim{\seq{x}{n}}\). Then by definition of limit,
         
         \(\exists N_1\in\N \st \forall n\ge N\),
-        \[\abs{x_n-L}<\epsilon, \abs{z_n-L}<\epsilon\]
+        \[\abs{x_n-L}<\varepsilon, \abs{z_n-L}<\varepsilon\]
         \begin{align*}
-            \Rightarrow&& -\epsilon<x_n-L&\le y_n-L\le z_n-L<\epsilon\\
-            \Rightarrow&& \abs{y_n-L}&<\epsilon\\
+            \Rightarrow&& -\varepsilon<x_n-L&\le y_n-L\le z_n-L<\varepsilon\\
+            \Rightarrow&& \abs{y_n-L}&<\varepsilon\\
         \end{align*}
         Thus \(\seq{y}{n}\) converges to \(L\) by definition of limit.\\
     \end{proof}
@@ -509,20 +509,20 @@ where instead of writing \(a(1), a(2), \dots\), we write it as \(a_1, a_2, \dots
 \begin{theorem}
     Suppose \(\seq{x}{n}\) is a sequence of non-negative real numbers, satisfiying \(x_n\rightarrow x\).
     Then \(\sqrt{x_n}\rightarrow\sqrt{x}\).
-    \begin{proof} Let \(\forall \epsilon>0\)
+    \begin{proof} Let \(\forall \varepsilon>0\)
 
         \highlight{Case1:} \(x=0\)
 
-        \(\exists N\in\N \st \forall n\ge N\), \[\abs{x_n-0}<\epsilon^2\]
-        \[\Rightarrow \abs{\sqrt{x}-0}<\epsilon\]
+        \(\exists N\in\N \st \forall n\ge N\), \[\abs{x_n-0}<\varepsilon^2\]
+        \[\Rightarrow \abs{\sqrt{x}-0}<\varepsilon\]
 
         \highlight{Case2:} \(x>0\)
 
-        \(\exists N \st \forall n>N,\) \[\abs{x_n-x}<\sqrt{x}\cdot\epsilon\]
+        \(\exists N \st \forall n>N,\) \[\abs{x_n-x}<\sqrt{x}\cdot\varepsilon\]
         Notice that
         \begin{align*}
             \abs{\sqrt{x_n}-\sqrt{x}}&=\abs{\frac{x_n-x}{\sqrt{x_n}+\sqrt{x}}}\\
-            &\le \frac{\abs{x_n-x}}{\sqrt{x}}<\epsilon
+            &\le \frac{\abs{x_n-x}}{\sqrt{x}}<\varepsilon
         \end{align*}
     \end{proof}
 \end{theorem}
@@ -580,32 +580,32 @@ Moreover, if \((x_n)\) is increaseing, then
 
     Write \(x = \sup{\{x_n:n\in\N\}}\).
 
-    Let \(\epsilon>0\). Since \(x = \sup{(x_n)}\):
-    \[x-\epsilon \text{ is NOT an upper boudn of } \seq{x}{n}\]
+    Let \(\varepsilon>0\). Since \(x = \sup{(x_n)}\):
+    \[x-\varepsilon \text{ is NOT an upper boudn of } \seq{x}{n}\]
     Then 
-    \[\exists N\in\N \st x_N > x-\epsilon\]
+    \[\exists N\in\N \st x_N > x-\varepsilon\]
     Since \(\seq{x}{n}\) is increasing,
-    \[\forall n\ge N,\, x_n>x-\epsilon\]
+    \[\forall n\ge N,\, x_n>x-\varepsilon\]
 
-    On the other hand,\(x+\epsilon\) is an supper bound since x is an upper bound. Thus,
-    \[x_n<x+\epsilon\]
-    \[\Rightarrow \forall n\ge N, x-\epsilon<x_n<x+\epsilon\]
-    \[\Rightarrow \abs{x_n - x}<\epsilon\Rightarrow\seq{x}{n}\rightarrow x\]
+    On the other hand,\(x+\varepsilon\) is an supper bound since x is an upper bound. Thus,
+    \[x_n<x+\varepsilon\]
+    \[\Rightarrow \forall n\ge N, x-\varepsilon<x_n<x+\varepsilon\]
+    \[\Rightarrow \abs{x_n - x}<\varepsilon\Rightarrow\seq{x}{n}\rightarrow x\]
 
     \highlight{Case 2:} \(\seq{x}{n}\) is decreasing.
 
-    Write \(y = \inf{\seq{x}{n}}\). Let \(\epsilon>0\)
+    Write \(y = \inf{\seq{x}{n}}\). Let \(\varepsilon>0\)
 
     Since \(y = \inf{(x_n)}\),
-    \[y+\epsilon \text{is NOT and upper bound of }\seq{x}{n}\]
+    \[y+\varepsilon \text{is NOT and upper bound of }\seq{x}{n}\]
     Thus
-    \[\exists N \in\N \st x_n<y+\epsilon\]
+    \[\exists N \in\N \st x_n<y+\varepsilon\]
     Since \(\seq{x}{n}\) is decreasing,
-    \[\forall n>N, x_n<y+\epsilon\]
+    \[\forall n>N, x_n<y+\varepsilon\]
     
-    On the other hand, \(y-\epsilon\) is a lower bound since \(y\) is a lower bound. Hence, 
-    \[\forall n\in\N,  y-\epsilon<x_n\]
-    \[\forall n\ge N, y-\epsilon<x_n<y+\epsilon \Rightarrow\abs{x_n-y}<\epsilon\]
+    On the other hand, \(y-\varepsilon\) is a lower bound since \(y\) is a lower bound. Hence, 
+    \[\forall n\in\N,  y-\varepsilon<x_n\]
+    \[\forall n\ge N, y-\varepsilon<x_n<y+\varepsilon \Rightarrow\abs{x_n-y}<\varepsilon\]
     \[\Rightarrow \seq{x}{n}\rightarrow y\]
 
     \begin{remark}
@@ -711,14 +711,14 @@ Textbook p.75: A sequence that converges to \(\sqrt{a}\) for \(a>0\).\newpage
     Suppose \((x_n)\) converges to \(x\). Then \(x_{x_k}\rightarrow x\) for any subsequence of \((x_n)\).
 \end{theorem}
 \begin{proof}
-    Let \(\epsilon > 0\), then 
-    \[\exists N_\epsilon >0 \text{ s.t. } \abs{x_n-x} < \epsilon \text{ for }n>N_\epsilon.\]
+    Let \(\varepsilon > 0\), then 
+    \[\exists N_\varepsilon >0 \text{ s.t. } \abs{x_n-x} < \varepsilon \text{ for }n>N_\varepsilon.\]
     Note that \[n_k \ge k,\,\forall k \in \N .\]
     \begin{exercise}
         By induction, \(n_1\ge 1, n_2 \ge n_1 \ge 1 \Rightarrow n_2 \ge 2\)
     \end{exercise}
-    When \(k>N_\epsilon,\, n_k>N_\epsilon\), thus
-    \[\abs{x_{n_k}-x}<\epsilon\]
+    When \(k>N_\varepsilon,\, n_k>N_\varepsilon\), thus
+    \[\abs{x_{n_k}-x}<\varepsilon\]
     Therefore\[(x_{n_k})\rightarrow x\]
 \end{proof}
 
@@ -726,9 +726,9 @@ Textbook p.75: A sequence that converges to \(\sqrt{a}\) for \(a>0\).\newpage
     Let \((x_n)\) be a sequence of real numbers, and let \(x\in \R\). Then the following are equivalent:
     \begin{enumerate}
         \item \((x_n)\) does not converge to \(x\).
-        \item \(\exists \epsilon_0 >0, \text{ s.t. } \forall k \in \N, \exists n_k \in \N \text{ s.t. }\) 
-        \[n_k\ge k\, \& \, \abs{x_{n_k}-x}>\epsilon_0\]
-        \item \(\exists \epsilon_0 >0 \) and a subsequence \(\seq{x}{n_k}\) s.t. \[\abs{x_{n_k}-x}>\epsilon_0,\, \forall k \in \N\]
+        \item \(\exists \varepsilon_0 >0, \text{ s.t. } \forall k \in \N, \exists n_k \in \N \text{ s.t. }\) 
+        \[n_k\ge k\, \& \, \abs{x_{n_k}-x}>\varepsilon_0\]
+        \item \(\exists \varepsilon_0 >0 \) and a subsequence \(\seq{x}{n_k}\) s.t. \[\abs{x_{n_k}-x}>\varepsilon_0,\, \forall k \in \N\]
     \end{enumerate}
 
     \begin{example}
@@ -838,13 +838,13 @@ Textbook p.75: A sequence that converges to \(\sqrt{a}\) for \(a>0\).\newpage
     Let \((x_n)\) be a bounded sequence, and \(x\in\R\) has the property that every convergent subsequence of \((x_n)\) converges to \(x\). 
     Then \(x_n \text{ converges to } x\)
     \begin{proof}
-        Let \(\forall\epsilon>0\)
+        Let \(\forall\varepsilon>0\)
 
         By Bolzano-Weierstrass theorem, \(\exists\) a convergent subsequence \((x_{n_i})\) such that
-        \[\exists N_\epsilon\in\N \text{ s.t. for } i>N_\epsilon, \abs{x_{n_i}-x}<\epsilon\]
+        \[\exists N_\varepsilon\in\N \text{ s.t. for } i>N_\varepsilon, \abs{x_{n_i}-x}<\varepsilon\]
         
         Assume \((x_n)\) does not converge to \(x\). Then by previous theorem of subsequence,
-        \[\exists \epsilon_0 >0 \text{ and a subsequence }(x_{n_k}) \text{ s.t. }\abs{x_{n_k}-x}>\epsilon_0, \forall k\in\N\]
+        \[\exists \varepsilon_0 >0 \text{ and a subsequence }(x_{n_k}) \text{ s.t. }\abs{x_{n_k}-x}>\varepsilon_0, \forall k\in\N\]
         
         Since \((x_n)\) is bounded, \((x_{n_k})\) is also bounded. Thus there exists a convergent subsequence of \((x_{n_k})\) as \((x_{n_{k_i}})\).
 
@@ -879,13 +879,13 @@ Textbook p.75: A sequence that converges to \(\sqrt{a}\) for \(a>0\).\newpage
     Let \((x_n)\) be a bounded sequence, and \(x\in\R\) has the property that every convergent subsequence of \((x_n)\) converges to \(x\). 
     Then \(x_n \text{ converges to } x\)
     \begin{proof}
-        Let \(\forall\epsilon>0\)
+        Let \(\forall\varepsilon>0\)
 
         By Bolzano-Weierstrass theorem, \(\exists\) a convergent subsequence \((x_{n_i})\) such that
-        \[\exists N_\epsilon\in\N \text{ s.t. for } i>N_\epsilon, \abs{x_{n_i}-x}<\epsilon\]
+        \[\exists N_\varepsilon\in\N \text{ s.t. for } i>N_\varepsilon, \abs{x_{n_i}-x}<\varepsilon\]
         
         Assume \((x_n)\) does not converge to \(x\). Then by previous theorem of subsequence,
-        \[\exists \epsilon_0 >0 \text{ and a subsequence }(x_{n_k}) \text{ s.t. }\abs{x_{n_k}-x}>\epsilon_0, \forall k\in\N\]
+        \[\exists \varepsilon_0 >0 \text{ and a subsequence }(x_{n_k}) \text{ s.t. }\abs{x_{n_k}-x}>\varepsilon_0, \forall k\in\N\]
         
         Since \((x_n)\) is bounded, \((x_{n_k})\) is also bounded. Thus there exists a convergent subsequence of \((x_{n_k})\) as \((x_{n_{k_i}})\).
 
@@ -988,8 +988,8 @@ Textbook p.75: A sequence that converges to \(\sqrt{a}\) for \(a>0\).\newpage
     Let \((x_n)\) be a bounded sequence of real numbers, and let \(x^*\in\R\). Then TFAE:
     \begin{enumerate}
         \item \(x^* = \limsup(x_n)\)
-        \item If \(\epsilon>0\), there are at most a finite number of \(n\in\N\) s.t.
-        \(x^*+\epsilon <x_n\), but infinitely many n for which \(x^* - \epsilon<x_n\)
+        \item If \(\varepsilon>0\), there are at most a finite number of \(n\in\N\) s.t.
+        \(x^*+\varepsilon <x_n\), but infinitely many n for which \(x^* - \varepsilon<x_n\)
         \item If \(u_m=\sup{\{x_n|n\ge m\}}\)(sup of (m-1)-th tail), then \(x*=\inf{\{u_m|m\in\N\}} = \lim{u_m}\)
         \item If \(S\) is the set of subsequential limits of \(x_n\), then \(x^*=\sup S\).\\
     \end{enumerate}
@@ -1010,36 +1010,36 @@ Textbook p.75: A sequence that converges to \(\sqrt{a}\) for \(a>0\).\newpage
     \end{corollary}
 
     \begin{proof}[Proof of thm. (a) \(\Rightarrow\) (b)]
-        Let \(\epsilon >0\). Then
-        \[x^*+\epsilon>x^* = X =\inf{\{v\in\R | v<x_n \text{ for at most a finite number of n.}\}}\]
-        \[\Rightarrow \exists v\in\R \text{ s.t. } x^*\le v < x^*+\epsilon\]
+        Let \(\varepsilon >0\). Then
+        \[x^*+\varepsilon>x^* = X =\inf{\{v\in\R | v<x_n \text{ for at most a finite number of n.}\}}\]
+        \[\Rightarrow \exists v\in\R \text{ s.t. } x^*\le v < x^*+\varepsilon\]
         and there are only finitely mant n with \(v<x_n\).
         
-        For any \(n\) for which \(x^*+\epsilon < x_n\), \(v<x_n\). Thus there are only finitely many such n.
+        For any \(n\) for which \(x^*+\varepsilon < x_n\), \(v<x_n\). Thus there are only finitely many such n.
 
-        If \(x^*-\epsilon \notin X\), then there are infinityly many \(n\) such that \(x^* - \epsilon<x_n\)
+        If \(x^*-\varepsilon \notin X\), then there are infinityly many \(n\) such that \(x^* - \varepsilon<x_n\)
     \end{proof}
     \newpage
 
     \begin{proof}[Proof of thm. (b) \(\Rightarrow\) (c)]
-        Fix \(\epsilon>0\).
+        Fix \(\varepsilon>0\).
 
-        By (b), there are only finitely many n with \(x^*+\epsilon<x\).
+        By (b), there are only finitely many n with \(x^*+\varepsilon<x\).
 
         Take \(N\in\N\) large enough such that
         \begin{align*}
-            &&x^*+\epsilon&\ge x_n&\forall n\ge N\\
-            &\Rightarrow&x^*+\epsilon &\ge u_N\\
-            &\Rightarrow&x^*+\epsilon &\ge \lim{u_n}\\
+            &&x^*+\varepsilon&\ge x_n&\forall n\ge N\\
+            &\Rightarrow&x^*+\varepsilon &\ge u_N\\
+            &\Rightarrow&x^*+\varepsilon &\ge \lim{u_n}\\
             &\Rightarrow&x^* &\ge \lim{u_m} &\forall n\ge N
         \end{align*}
 
-        On the other hand, there are infinitely many n with \(x^*-\epsilon<x_n\le u_n\).
+        On the other hand, there are infinitely many n with \(x^*-\varepsilon<x_n\le u_n\).
 
         \(\text{Thus, there exists a subsequence of }u_n\text{, say }u_{n_k}\text{, satisfies}\)
         \begin{align*}
-            &&x^*-\epsilon&\le u_{n_k}\\
-            &\Rightarrow &x^*-\epsilon &\le \lim{u_{n_k}}=\lim{\seq{u}{n}}\\
+            &&x^*-\varepsilon&\le u_{n_k}\\
+            &\Rightarrow &x^*-\varepsilon &\le \lim{u_{n_k}}=\lim{\seq{u}{n}}\\
             &\Rightarrow &x*&\le \lim{\seq{u}{n}}
         \end{align*}
     \end{proof}
@@ -1075,28 +1075,28 @@ Textbook p.75: A sequence that converges to \(\sqrt{a}\) for \(a>0\).\newpage
         \[x^*=\sup{S}\]
         \[\Rightarrow x^*=\limsup{x_n}=\inf{\{v\in\R | v<x_n \text{for at most finite many of n}\}}\]
 
-        Fix \(\epsilon>0\)
+        Fix \(\varepsilon>0\)
 
-        There is no subsequence of \(x_n\) which has a limit exceeding \(x^*+\epsilon\).
+        There is no subsequence of \(x_n\) which has a limit exceeding \(x^*+\varepsilon\).
         \begin{align*}
-            &\Rightarrow \text{ There is only finitely many n with }x_n>x^*+\epsilon.\\
-            &\Rightarrow &x^*+\epsilon&\in X\\
-            &\Rightarrow &\inf{X} &\le x^*+\epsilon\\
-            &\Rightarrow &\limsup{x_n}&\le x^*+\epsilon\\
+            &\Rightarrow \text{ There is only finitely many n with }x_n>x^*+\varepsilon.\\
+            &\Rightarrow &x^*+\varepsilon&\in X\\
+            &\Rightarrow &\inf{X} &\le x^*+\varepsilon\\
+            &\Rightarrow &\limsup{x_n}&\le x^*+\varepsilon\\
             &\Rightarrow &\limsup{x_n}&\le x^*
         \end{align*}
 
-        Next, consider \(x^*-\epsilon\)
+        Next, consider \(x^*-\varepsilon\)
 
-        Then, there exists a subsequential limit of \(x_n\) which is greater or equal to \(x^*-\frac{1}{2}\epsilon\).
+        Then, there exists a subsequential limit of \(x_n\) which is greater or equal to \(x^*-\frac{1}{2}\varepsilon\).
         
         There exists a convergent subsequence of \(\seq{x}{n}\), say \(\seq{x}{n_k}\), such that 
         \begin{align*}
-            &&\lim{\seq{x}{n_k}}\ge x^*-\frac{1}{2}\epsilon\\
-            &\Rightarrow&\text{ There are infinitely many n with } x^*&>x^*-\epsilon.&\\
-            &\Rightarrow&\forall a\in X, x^*-\epsilon &\le a\\
-            &\Rightarrow&x^*-\epsilon &\le \inf{X}\\
-            &\Rightarrow&\limsup{x_n}&\ge x^*-\epsilon\\
+            &&\lim{\seq{x}{n_k}}\ge x^*-\frac{1}{2}\varepsilon\\
+            &\Rightarrow&\text{ There are infinitely many n with } x^*&>x^*-\varepsilon.&\\
+            &\Rightarrow&\forall a\in X, x^*-\varepsilon &\le a\\
+            &\Rightarrow&x^*-\varepsilon &\le \inf{X}\\
+            &\Rightarrow&\limsup{x_n}&\ge x^*-\varepsilon\\
             &\Rightarrow&\limsup{x_n}&\ge x^*
         \end{align*}
         
@@ -1110,23 +1110,23 @@ Textbook p.75: A sequence that converges to \(\sqrt{a}\) for \(a>0\).\newpage
 \begin{definition}[\textbf{Cauchy Sequence}]
     A sequence \(\seq{x}{n}\) is \highlight{Cauchy sequence} if 
     
-    \(\forall \epsilon>0, \exists H\in\N \st \forall n,m\in\N, n>0,m>0\),
-    \[\abs{x_n-x_m}<\epsilon\]
+    \(\forall \varepsilon>0, \exists H\in\N \st \forall n,m\in\N, n>0,m>0\),
+    \[\abs{x_n-x_m}<\varepsilon\]
 
     \begin{example}(\(\frac{1}{n}\)) is a Cauchy sequence.
         \begin{proof}
             Observe that \(\forall n,m\in\N, n\ge m\),
             \[\abs{\frac{1}{n}-\frac{1}{m}}=\abs{\frac{m-n}{mn}}=\frac{n-m}{mn}\le\frac{n}{mn}<\frac{1}{m}\]
-            Choose \(H=\lceil \frac{1}{\epsilon} \rceil+1\), Then
+            Choose \(H=\lceil \frac{1}{\varepsilon} \rceil+1\), Then
 
             \(\forall n,m\ge H\),
-            \[\abs{\frac{1}{n}-\frac{1}{m}}\le \frac{1}{m}<\epsilon\]
+            \[\abs{\frac{1}{n}-\frac{1}{m}}\le \frac{1}{m}<\varepsilon\]
         \end{proof}
     \end{example}
 
     \begin{example}\((-1)^n\) is not a Cauchy sequence.
         \begin{proof}
-            Choose \(\epsilon_0=\frac{1}{2}, \forall H\in\N,\) choose \(n,m\ge H \st n\) is even, \(m\) is odd. Then 
+            Choose \(\varepsilon_0=\frac{1}{2}, \forall H\in\N,\) choose \(n,m\ge H \st n\) is even, \(m\) is odd. Then 
             \[\abs{(-1)^n-(-1)^m}=\abs{1-(-1)}=2>\frac{1}{2}\]
             Thus \((-1)^n\) does not satisfies the definition of Cauchy sequence.\\
         \end{proof}
@@ -1138,12 +1138,12 @@ Textbook p.75: A sequence that converges to \(\sqrt{a}\) for \(a>0\).\newpage
     \begin{proof}
         Let \(\lim{\seq{x}{n}}=x\).
 
-        \highlight{Goal:} \[\abs{x_n-x}<\epsilon\Rightarrow\abs{x_n-x_m}<\epsilon\]
-        \(\forall n,m\ge N_\epsilon,\)
+        \highlight{Goal:} \[\abs{x_n-x}<\varepsilon\Rightarrow\abs{x_n-x_m}<\varepsilon\]
+        \(\forall n,m\ge N_\varepsilon,\)
         \begin{align*}
             \abs{x_n-x_m} &= \abs{(x_n-x)+(x-x_m)}\\
             &\le \abs{x_n-x}+\abs{x-x_m} \text{ by triangle inequality}\\
-            &<\frac{1}{2}\epsilon+\frac{1}{2}\epsilon=\epsilon
+            &<\frac{1}{2}\varepsilon+\frac{1}{2}\varepsilon=\varepsilon
         \end{align*}
     \end{proof}
 \end{theorem}
@@ -1152,7 +1152,7 @@ Textbook p.75: A sequence that converges to \(\sqrt{a}\) for \(a>0\).\newpage
 \begin{lemma}
     If \(\seq{x}{n}\) is Cauchy, the it is bounded.
     \begin{proof}
-        Choose \(\epsilon=1,\exists H\ge 0 \st \forall n,m\ge H\),
+        Choose \(\varepsilon=1,\exists H\ge 0 \st \forall n,m\ge H\),
         \[\abs{x_n-x_m}<1\]
         Since the choice of \(m\) satisfies \(m\ge H\), we may choose \(m=H\st\)
         \[\abs{x_n-x_H}<1\]
@@ -1177,20 +1177,20 @@ Textbook p.75: A sequence that converges to \(\sqrt{a}\) for \(a>0\).\newpage
         
         Let \(\lim\seq{x}{n_k}=x\).
 
-        \highlight{Goal:} \(\forall \epsilon>0, \exists N\in\N \st \forall n\ge N\)
-        \[\abs{x_n-x}<\epsilon\]
+        \highlight{Goal:} \(\forall \varepsilon>0, \exists N\in\N \st \forall n\ge N\)
+        \[\abs{x_n-x}<\varepsilon\]
         We will use the trick of \highlight{insert subsequence:}
 
-        By definition of convergence, \(\forall \epsilon>0, \exists N_\epsilon\in\N \st \forall k\ge N_\epsilon\)
-        \[\abs{x_{n_k}-x}<\frac{1}{2}\epsilon\]
-        By definition of Cauchy sequence, \(\forall \epsilon>0, \exists H\in\N,H\ge 0 \st \forall n,m\ge H\)
-        \[\abs{x_n-x_m}<\frac{1}{2}\epsilon\]
+        By definition of convergence, \(\forall \varepsilon>0, \exists N_\varepsilon\in\N \st \forall k\ge N_\varepsilon\)
+        \[\abs{x_{n_k}-x}<\frac{1}{2}\varepsilon\]
+        By definition of Cauchy sequence, \(\forall \varepsilon>0, \exists H\in\N,H\ge 0 \st \forall n,m\ge H\)
+        \[\abs{x_n-x_m}<\frac{1}{2}\varepsilon\]
         
-        Thus \(\forall k\ge \max\{H,N_\epsilon\}\),
+        Thus \(\forall k\ge \max\{H,N_\varepsilon\}\),
         \begin{align*}
             \abs{x_k-x} &= \abs{(x_k-x_{n_k})+(x_{n_k}-x)}\\
-            &\le \abs{x_k-x_{n_K}}+\abs{x_{n_k}-x}\text{ since }n_k\ge k\ge \max\{H, N_\epsilon\}\\
-            &<\frac{1}{2}\epsilon+\frac{1}{2}\epsilon=\epsilon
+            &\le \abs{x_k-x_{n_K}}+\abs{x_{n_k}-x}\text{ since }n_k\ge k\ge \max\{H, N_\varepsilon\}\\
+            &<\frac{1}{2}\varepsilon+\frac{1}{2}\varepsilon=\varepsilon
         \end{align*}
     \end{proof}
 \end{theorem}
@@ -1209,7 +1209,7 @@ Textbook p.75: A sequence that converges to \(\sqrt{a}\) for \(a>0\).\newpage
         \end{align*}
         since there are (m-n)'s terms on the right side of the equation. 
 
-        So we choose \(\epsilon_0=\frac{1}{2},\forall H\ge 0, \text{ choose }n=H,m=2H\), then
+        So we choose \(\varepsilon_0=\frac{1}{2},\forall H\ge 0, \text{ choose }n=H,m=2H\), then
         \[\abs{h_m-h_n}\ge \frac{m-n}{m}=\frac{1}{2}\]
         Thus, \(\seq{h}{n}\) is NOT Cauchy.
     \end{proof}
@@ -1278,9 +1278,9 @@ Textbook p.75: A sequence that converges to \(\sqrt{a}\) for \(a>0\).\newpage
     \[\frac{1}{2}L\cdot y_n<x_n<2L\cdot y_n\]
     \highlight{Goal:} Claim+Comparison Theorem=Proof.
 
-    By definition of limit, \(\forall \epsilon>0, \exists N\in\N \st \forall n>N\),
-    \[L-\epsilon<\frac{x_n }{y_n }<L+\epsilon\]
-    Choose \(\epsilon=\frac{1}{2}L\), we have 
+    By definition of limit, \(\forall \varepsilon>0, \exists N\in\N \st \forall n>N\),
+    \[L-\varepsilon<\frac{x_n }{y_n }<L+\varepsilon\]
+    Choose \(\varepsilon=\frac{1}{2}L\), we have 
     \[\frac{1}{2}L\cdot y_n<x_n<\frac{3}{2}L<2L\cdot y_n\]
     since \(L>0\) and these are positive sequences.
 
@@ -1301,10 +1301,10 @@ Textbook p.75: A sequence that converges to \(\sqrt{a}\) for \(a>0\).\newpage
 \end{definition}
 
 \begin{theorem}[\textbf{Cauchy Criterion for Series}] 
-    The series \(\sum x_i \) \highlight{converges} if and only if \(\forall \epsilon >0, \exists M\in\N \st \forall n,m\in\N, n>m\ge M\),
-    \[\abs{x_{m+1}+x_{m+2}+\dots+x_{n-1}+x_{n}}<\epsilon\]
+    The series \(\sum x_i \) \highlight{converges} if and only if \(\forall \varepsilon >0, \exists M\in\N \st \forall n,m\in\N, n>m\ge M\),
+    \[\abs{x_{m+1}+x_{m+2}+\dots+x_{n-1}+x_{n}}<\varepsilon\]
     Or we write it as 
-    \[\abs{s_k-s_m}<\epsilon\]
+    \[\abs{s_k-s_m}<\varepsilon\]
     \begin{proof}[\textit{Proof: Exercise.}]
     \end{proof}
 \end{theorem}
@@ -1396,9 +1396,9 @@ Let \(f:A\rightarrow B\) be a function where \(A,B\subseteq \R\). Let \(a\in A,L
 
         (\(\Leftarrow\))
 
-        \(\forall\delta>0,\exists N_\epsilon>0\st\)
-        \[\abs{a_{N_\epsilon}-c}<\delta\]
-        Note that \(a_{N_\epsilon}\in A\textbackslash\{c\}\) where \(c\) is a cluster point of \(A\).
+        \(\forall\delta>0,\exists N_\varepsilon>0\st\)
+        \[\abs{a_{N_\varepsilon}-c}<\delta\]
+        Note that \(a_{N_\varepsilon}\in A\textbackslash\{c\}\) where \(c\) is a cluster point of \(A\).
     \end{proof}
     \newpage
 
@@ -1431,10 +1431,10 @@ Let \(f:A\rightarrow B\) be a function where \(A,B\subseteq \R\). Let \(a\in A,L
 \end{theorem}
 
 \begin{definition}[\textbf{Delta-Epsilon Definition of Limit}]
-    Let \(A\in\R\), \(c\) is a cluste point of \(A\), \(f:A\rightarrow\R\). A real number L is the \highlight{limit of f at c} if 
+    Let \(A\subseteq\R\), \(c\) is a cluste point of \(A\), \(f:A\rightarrow\R\). A real number L is the \highlight{limit of f at c} if 
 
-    \(\forall \epsilon>0, \exists\delta>0 \st \forall x\in A,\)
-    \[0<\abs{x-c }<\delta \rightarrow \abs{f(x)-L}<\epsilon\]
+    \(\forall \varepsilon>0, \exists\delta>0 \st \forall x\in A,\)
+    \[0<\abs{x-c }<\delta \rightarrow \abs{f(x)-L}<\varepsilon\]
 \end{definition}
 
 \begin{theorem}[\textbf{Uniqueness of Limit}]
@@ -1442,18 +1442,18 @@ Let \(f:A\rightarrow B\) be a function where \(A,B\subseteq \R\). Let \(a\in A,L
     \begin{proof}
         We will prove this by contradiction.
 
-        Let \(L_1\) and \(L_2\) be limits of \(f \) at \(c \). Assume \(L_1\neq L_2 \). Choose \(\epsilon=\frac{\abs{L_1-L_2}}{2}>0\). Then,
-        \[\exists \delta_1\st 0<\abs{x-c}<\delta_1\Rightarrow\abs{f(x)-L_1}<\frac{\epsilon}{2}\]
-        \[\exists \delta_2\st 0<\abs{x-c}<\delta_2\Rightarrow\abs{f(x)-L_2}<\frac{\epsilon}{2}\]
+        Let \(L_1\) and \(L_2\) be limits of \(f \) at \(c \). Assume \(L_1\neq L_2 \). Choose \(\varepsilon=\frac{\abs{L_1-L_2}}{2}>0\). Then,
+        \[\exists \delta_1\st 0<\abs{x-c}<\delta_1\Rightarrow\abs{f(x)-L_1}<\frac{\varepsilon}{2}\]
+        \[\exists \delta_2\st 0<\abs{x-c}<\delta_2\Rightarrow\abs{f(x)-L_2}<\frac{\varepsilon}{2}\]
         Consider \(\delta:=\min\{\delta_1,\delta_2\}\). 
 
         Since \(c\) is a cluster point, \(\exists x_0\in A\st\) 
         \[0<\abs{x_0-c}<\delta\]
-        Since \[\abs{f(x_0)-L_1}<\frac{\epsilon}{2},\abs{f(x_0)-L_2}<\frac{\epsilon}{2}\]
+        Since \[\abs{f(x_0)-L_1}<\frac{\varepsilon}{2},\abs{f(x_0)-L_2}<\frac{\varepsilon}{2}\]
         We have 
         \begin{align*}
             \abs{L_1-L_2}&\le \abs{L_1-f(x_0)}+\abs{f(x_0)-L_2}\\
-            &<\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon\\
+            &<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon\\
             &=\frac{\abs{L_1-L_2}}{2}
         \end{align*}
         which is a contradiction.\\
@@ -1473,8 +1473,8 @@ Let \(f:A\rightarrow B\) be a function where \(A,B\subseteq \R\). Let \(a\in A,L
     Let \(f:A\rightarrow \R\) and \(c \) be a cluster point of \(f \). The following are equivalent:
     \begin{enumerate}
         \item \(\lim_{x\rightarrow c }f(x)=L\)
-        \item \(\forall\, V_\epsilon(L)\,\epsilon\text{-neighborhood of L, }\exists\, V_\delta(c)\,\delta\text{-neighborhood of }c\st\)
-        \[x\in V_\delta(c)\cap (A\backslash\{c\})\Rightarrow f(x)\in V_\epsilon(c)\]
+        \item \(\forall\, V_\varepsilon(L)\,\varepsilon\text{-neighborhood of L, }\exists\, V_\delta(c)\,\delta\text{-neighborhood of }c\st\)
+        \[x\in V_\delta(c)\cap (A\backslash\{c\})\Rightarrow f(x)\in V_\varepsilon(c)\]
     \end{enumerate}
     \centerfig{LimitFunction.png}
 \end{theorem}
@@ -1482,22 +1482,330 @@ Let \(f:A\rightarrow B\) be a function where \(A,B\subseteq \R\). Let \(a\in A,L
 \begin{example}
     \(\lim_{x\rightarrow c}f(x)=a\).
     \begin{proof}
-        \(\forall \epsilon>0, \exists\delta=1\st\)
-        \[x\in \neighbor{\delta}{c}\cap(\R\backslash\{c\})\Rightarrow f(x)=a\in\neighbor{\epsilon}{L}\]
+        \(\forall \varepsilon>0, \exists\delta=1\st\)
+        \[x\in \neighbor{\delta}{c}\cap(\R\backslash\{c\})\Rightarrow f(x)=a\in\neighbor{\varepsilon}{L}\]
     \end{proof}
 \end{example}
 
 \begin{example}
     \(\lim_{x\rightarrow c}f(x)=c\).
     \begin{proof}
-        \(\forall \epsilon>0,\exists \delta=\epsilon\st\)
+        \(\forall \varepsilon>0,\exists \delta=\varepsilon\st\)
         \begin{align*}
             &x\in\neighbor{\delta }{c }\cap (A\backslash\{c \})\\
             \Rightarrow& f(x)=x\in\neighbor{\delta }{c }\cap(A\backslash\{c \})\\
-            \Rightarrow&f(x)\in\neighbor{\epsilon }{c }\cap(A\backslash\{c \})\subseteq \neighbor{\epsilon }{c }
+            \Rightarrow&f(x)\in\neighbor{\varepsilon }{c }\cap(A\backslash\{c \})\subseteq \neighbor{\varepsilon }{c }
         \end{align*}
         
     \end{proof}
 \end{example}
+
+\newpage
+\begin{example}
+    \[\limx{c }{x^2}=c^2\]
+    \begin{proof}
+        \highlight{Goal}: \(\forall \varepsilon>0\), find a \(\delta(c,\varepsilon)>0\) \st
+        \[\text{if }0<\abs{x-c}<\delta\text{, then }\abs{x^2-c^2}<\varepsilon\]
+        which is equivalent to show
+        \[\abs{x+c}\abs{x-c}<\varepsilon\]
+
+        Since the choice of \(\delta\) is dependent on \(\varepsilon\) and \(c\) only, \(\abs{x-c}\) can be easily confined with some constant. 
+        Let's assume that
+        \[\abs{x-c}<1\]
+        Now, the only task left is to find a way to confine \(\abs{x+c}\) with a constant by manipulating \(\abs{x-c}<1\). 
+
+        Here we will apply a common trick that estimates addition \(\abs{x+c}\) with subtraction \(\abs{x-c}\):
+        \[\abs{x}-\abs{c} \le \abs{x-c} < 1 \text{ by triangle inequality.}\]
+        Rearranging the inequality, we have:
+        \[\abs{x}<\abs{c}+1\]
+        Adding the second \(\abs{c}\) to both side of inequality, then, we apply triangle inequality again:
+        \[\abs{x+c}\le\abs{x}+\abs{c}<2\abs{c}+1\]
+        \[\abs{x+c}<2\abs{c}+1\]
+        Notice that this is equivalent to show
+        \[\abs{x+c}\abs{x-c}<(2\abs{c}+\delta)\abs{x-c}<\varepsilon\]
+        Rearrange the constant factor \[\abs{x-c}<\frac{\varepsilon}{2\abs{c}+1}\]
+        Thus, our choice of \(\delta\) must satisfies two conditions at the same time:
+
+        \begin{equation*}
+            \begin{cases}
+                \abs{x-c}<1 \\
+                \abs{x-c}<\frac{\varepsilon}{2\abs{c}+1}
+            \end{cases}
+        \end{equation*}
+        We achieve this by simply choosing
+        \[\delta=\min\left\{\frac{\varepsilon}{2\abs{c}+1},1\right\}\]
+    \end{proof}
+\end{example}
+
+\begin{remark}[\highlight{The Toolbox of Proofs}]
+    The readers should develop their "toolbox" of proof techniques. 
+    That is, the \highlight{estimation against a constant} + manipulation of \highlight{triangle inequality} + choice of \(\delta\) that satisfies \highlight{multiple conditions}.
+\end{remark}
+
+\newpage
+\begin{example}[Harder]
+    \[\limx{c}{\frac{1}{x}}=\frac{1}{c}\]
+    \begin{proof}        
+        Observe that
+        \[\abs{\frac{1}{x }-\frac{1}{c}}=\frac{\abs{x-c}}{\abs{cx}}\]
+        Here, we cannot choose \(\abs{x-c}\) smaller than some constant(why? try it on your own). Instead,
+        we choose \[\abs{x-c}<\frac{\abs{c }}{2 }\]
+        By triangle inequality,
+        \[\frac{\abs{c }}{2 }<\abs{x}<\frac{3\abs{c }}{2 }\]
+        Multiply \(\abs{c}\) to each term of the inequality,
+        \[\frac{c^2}{2 }<\abs{cx}<\frac{3c^2}{2 }\]
+        Thus
+        \[\frac{1 }{\abs{cx }}<\frac{2 }{c^2 }\]
+        It follows that 
+        \[\frac{\abs{x-c }}{\abs{cx }}<\frac{2}{c^2}\abs{x-c }\]
+        In order to make the left term of the inequality less than \(\varepsilon\), 
+        it suffices to confine 
+        \[\frac{2}{c^2}\abs{x-c}<\varepsilon\]
+        \[\abs{x-c}<\frac{c^2}{2}\varepsilon\]
+
+        Thus, our choice of \(\delta\) must satisfies two conditions at the same time:
+        \begin{equation*}
+            \begin{cases}
+                \abs{x-c}<\frac{\abs{c }}{2 } \\
+                \abs{x-c}<\frac{c^2}{2}\varepsilon
+            \end{cases}
+        \end{equation*}
+        We achieve this by simply choosing
+        \[\delta=\min\left\{\frac{\abs{c }}{2 },\frac{c^2}{2}\varepsilon\right\}\]
+
+    \end{proof}
+\end{example}
+
+\begin{remark}[\highlight{Factoring }\(\abs{x-c}\)]
+    Since we have the premice of \(\abs{x-c }<\delta\) for free, it would be much easier for us to 
+    confine \(\abs{f(x)-L}\) if we factor \(\abs{x-c}\) from the difference.
+\end{remark}
+
+\newpage
+
+\begin{example}[Much Harder]
+    \[\forall n\in\N, \limx{c }{x^n }=c^n\]
+    \begin{proof}
+        By difference of \(n\)-th powers factorization
+        \[\abs{x^n-c^n }=\abs{x-c}\abs{\sum_{i=0}^{n-1 }x^i c^{n-1-i}}\le \abs{x-c }\cdot\sum_{i=0}^{n-1 }\abs{x}^i \abs{c}^{n-1-i}\]
+        If \[\abs{x-c }<1\]
+        then by triangle inequality,
+        \[\abs{x }<\abs{c }+1\]
+        It follows that
+        \[\abs{x^n-c^n}<\abs{x-c}\cdot\sum_{i=0}^{n-1 }(\abs{c}+1)^i \abs{c^{n-1-i}}\]
+        Similar to the previous example, it suffices to confine 
+        \[\abs{x-c}\cdot\sum_{i=0}^{n-1 }(\abs{c}+1)^i \abs{c^{n-1-i}}<\varepsilon\] 
+        \[\abs{x-c}<\frac{\varepsilon}{\sum_{i=0}^{n-1 }(\abs{c}+1)^i \abs{c^{n-1-i}}}\]
+        Thus, choose 
+        \[\delta =\min\{1, \frac{\varepsilon}{\sum_{i=0}^{n-1 }(\abs{c}+1)^i \abs{c^{n-1-i}}}\}\]
+    \end{proof}
+\end{example}
+
+\begin{remark}[\highlight{Estimate \(x\) against \(c\)}]
+    This is another trick by triangle inequality:
+    
+    If \(\exists k\in\R,k>0\st\abs{x-c }<k\), then \(\abs{x}<\abs{c}+k\)\\
+\end{remark}
+
+\begin{remark}[\highlight{difference of \(n\)-th powers factorization}]
+    \[(x^n-c^n)=(x-c)(x^{n-1}+cx^{n-2}+\dots+c^{n-2}x+c^{n-1})=(x-c)\sum_{i=0}^{n-1 }x^i c^{n-1-i}\]
+\end{remark}
+
+\newpage
+
+\begin{example}[\highlight{Some Tedious Factorization}]
+    \[\limx{2}{\frac{x^3+2x-1}{6x^2-5}}=\frac{11}{19}\]
+    \begin{proof}
+        \[\abs{\frac{x^3+2x-1}{6x^2-5}-\frac{11}{19}}=\abs{\frac{19x^3-66x^2+38x+36}{19(6x^2-5)}}\]
+        By some tedious factorization,
+        \[...=\abs{x-2}\frac{\abs{19x^3-28x-18}}{19\abs{6x^2-5}}\]
+        We estimate \(\abs{x-2 }\) with constant 1
+        \[\abs{x-2}<1\]
+        \[1<x<3\text{ or }\abs{x }<3\]
+        It follows that 
+        \[1<x^2<9\]
+        \[1<6x^2-5<49\]
+        \[1>\frac{1}{6x^2-5}>\frac{1}{49}\]
+        So
+        \[\frac{1}{19\abs{6x^2-5}}<\frac{1}{19}\]
+        Similarly,
+        \[\abs{19x^3-66x^2+38x+36}\le19\abs{x}^2+28\abs{x}+18 <19\cdot3^2+28\cdot3+18=273\]
+        Thus
+        \[...\le \abs{x-2}\cdot\frac{273}{19}<\varepsilon\]
+        \[\abs{x-2}<\frac{19}{273}\varepsilon\]
+        We conclude that it suffices to choose 
+        \[\delta=\min\left\{1, \frac{19}{273}\varepsilon\right\}\]
+
+    \end{proof}
+\end{example}
+\newpage
+
+\begin{theorem}[\highlight{Sequential Criterion of Limits}]
+    Let \(f:A\rightarrow\R\) and let \(c \) be a cluster point of A. \(\limx{c }{f }=L\) if and only if 
+    for all sequence \(\seq{x }{n }\in A\) that converge to \(c \) and \(\seq{x }{n }\neq c, \forall n \in \N\), 
+    \((f(x_n))\) converges to \(L \).
+
+    \begin{proof}[Proof. \((\Rightarrow)\)]
+        By definition of convergent sequence, \(\forall \delta>0, \exists K\in\N \st \forall n\in\N, n\ge K,\) 
+        \[\abs{x_n-c}<\delta\]
+        By definition of limit, \(\forall \varepsilon>0, \exists \delta>0 \st \forall x\in A,\) 
+        \[\abs{x-c}<\delta\Rightarrow\abs{f(x )-L}<\varepsilon\]
+        Thus, choose \(\delta\) given \(\varepsilon\), and choose \(K\) given \(\delta\), we have:
+        \[\abs{x_n-c}<\delta\Rightarrow\abs{f(x_n)-L}<\varepsilon\]
+    \end{proof}
+
+    \begin{proof}[\((\Leftarrow)\)]
+        We will prove this by contrapositive.
+
+        Assume that there exists \(\varepsilon_0>0\) and a \(\seq{x }{n }\in A \) converges to \(c \) with \(\seq{x }{n }\neq c\) 
+        such that for all \(n\in\N\)
+        \[0<\abs{x_n-c}<\frac{1}{n}\Rightarrow\abs{f(x_n)-L}\ge\varepsilon_0\]
+        Thus the function does not have a limit at \(c\). We thereby conclude the converse of the statement.\\
+    \end{proof}
+
+\end{theorem}
+
+\begin{theorem}[\highlight{Sequential Criterion of Divergence}]
+    Let \(A\subseteq\R,f:A\rightarrow\R\), \(c \) be a cluster point of \(A\), 
+    \(\seq{x }{n }\rightarrow c\st\seq{x }{n }\neq c\), and \(L\in\R\)\footnote{The following theorems are NOT equivalent!!}.
+    \begin{enumerate}
+        \item \(L\) is NOT the limit of \(f\) at \(c\) \(\iff\) \(f(x_n)\) does NOT converge to \(L\).
+        \item \(f\) diverges \(\iff\) \(f(x_n)\) does NOT converge.
+    \end{enumerate}
+
+    \begin{proof}[Proof. Exercise.]
+    \end{proof}
+\end{theorem}
+
+\begin{example}
+    \[\limx{0}{\dfrac{1}{x }}\text{ does NOT exists in } \R\]
+    \begin{proof}
+        Let \(\seq{x }{n }=\frac{1 }{n }\rightarrow 0\). Then 
+        \[f(x_n)=\dfrac{1}{\frac{1}{n}}=n\rightarrow\infty\]
+    \end{proof}
+\end{example}
+
+\newpage
+\begin{example}
+    \[\limx{0}{\sin(\frac{1}{x })} \text{ DNE in } \R\]
+    \centerfig{diverge-sin.jpg}
+    \begin{proof}
+        Let \(\seq{x }{n }=\dfrac{1 }{2n\pi}\rightarrow 0\) and \(\seq{y }{n }=\dfrac{1 }{\dfrac{1}{2}\pi + 2n\pi}\rightarrow 0\). Then 
+        \[f(x_n)=\sin(2n\pi)=0\]
+        \[f(y_n)=\sin(\dfrac{1}{2}\pi+2n\pi)=1\]
+        Thus limit of \(f\) at \(0\) does NOT exists in \(\R\).\\
+    \end{proof}
+\end{example}
+
+\begin{example}
+    \begin{definition}[\highlight{Signum Function}] Let \(A\subseteq\R\) and \(sgn(x):A\rightarrow\R\st\)
+        \[sgn(x)=\begin{cases}
+            1 & \text{if }x>0\\
+            0 & \text{if }x=0\\
+            -1 & \text{if }x<0
+        \end{cases}\]
+    \end{definition}
+
+    \[\limx{0}{sgn(x)}\text{ DNE in }\R\]
+    \begin{proof}
+        Let \(\seq{x }{n }=\dfrac{1 }{n}\rightarrow 0\) and \(\seq{y }{n }=\dfrac{1 }{-n}\rightarrow 0\). Then 
+        \[f(x_n)=sgn(n)=1\]
+        \[f(y_n)=sgn(-n)=-1\]
+        Thus limit of \(f\) at \(0\) does NOT exists in \(\R\).\\
+    \end{proof}
+
+\end{example}
+\newpage
+
+\subsection{Limit Theorem}
+
+\begin{definition}[\highlight{Bounded Neighborhood of c}]
+    Let \(A\subseteq\R,f:A\rightarrow\R\), \(c \) be a cluster point of \(A\). 
+    Then we say \(f\) is a \highlight{bounded Neighborhood of c} if 
+    there exists \(\delta>0\text{ and }\exists M>0\st\forall x\in A\cap\neighbor{\delta}{c }\)
+    \[\abs{f(x )}\le M\]
+\end{definition}
+
+\begin{theorem}[\highlight{Existence of Bounded Neighborhood at Limit}]
+    If \(f\) has a limit at \(c\), then \(f\) is bounded on some neighborhood of \(c\).
+    \begin{proof}
+        By definition of limit, \(\forall \epsilon>0, \exists \delta>0 \st \forall x\in A\backslash\{c \}\)
+        \[0<\abs{x-c}<\delta\Rightarrow\abs{f(x)-L}<\epsilon\]
+        By triangle inequality,
+        \[\abs{f(x)}-\abs{L}\le\abs{f(x)-L}<\epsilon\]
+        \[\abs{f(x)}<\abs{L}+\epsilon\]
+        If \(f(c)\) is not defined on \(A\), then let \(M=\abs{L}+\epsilon\). If \(f(c)\) is defined on \(A\), 
+        then let \(M=\max\{f(c), \abs{L}+\varepsilon\}\). Since the choice of \(\varepsilon\) is arbitrary, 
+        we will choose \(\epsilon=1\). Thus, 
+        \[f(x)\le M\]
+    \end{proof}
+\end{theorem}
+
+\begin{definition}
+    Let \(A\subseteq\R;\ f,g:A\rightarrow\R\), \(c \) be a cluster point of \(A\). Then \(\forall x\in A\)
+    \begin{itemize}
+        \item \highlight{Sum} of function: \((f+g)(x)=f(x)+g(x)\).
+        \item \highlight{Difference:} \((f-g)(x)=f(x)-g(x)\).
+        \item \highlight{Multiple: } \((bf)(x)=b\cdot f(x)\) for some \(b\in \R\).
+        \item \highlight{Product:} \((f\cdot g)(x)=f(x)\cdot g(x)\).
+        \item \highlight{Quotient:} \((\dfrac{f}{g})(x)=\dfrac{f(x)}{g(x)}\) if \( g(x)\neq 0\).\\
+    \end{itemize}
+\end{definition}
+
+\begin{theorem}[\highlight{Limit Theorem}]
+    If \(\exists L,M\in R\st\limx{c }{f(x )}=L \) and \(\limx{c }{g(x )}=M\), then 
+    \begin{itemize}
+        \item \(\limx{c}{(f+g)(x)}=L+M\).
+        \item \(\limx{c}{(f-g)(x)}=L-M\).
+        \item \(\limx{c}{(bf)(x)}=b\cdot L\).
+        \item \(\limx{c}{(f\cdot g)(x)}=L\cdot M\).
+        \item \(\limx{c}{(\dfrac{f}{g})(x)}=\dfrac{L }{M}\) if \(\limx{c }{g(x )}\neq 0\).
+    \end{itemize}
+
+    \begin{proof}[Proof. Exercise.]
+        
+    \end{proof}
+\end{theorem}
+
+\begin{remark}
+    Always check conditions befor applying: this is true only if both \(f\) and \(g\) has a limit at \(c\) !
+\end{remark}
+
+\newpage
+\begin{example}
+    \(\displaystyle\limx{4}{\frac{(x-4)(x+3)}{4(x-4)(x-5)}}=\limx{4}{\frac{x+3}{4(x-5)}}=-\frac{7}{4}\)\\
+\end{example}
+
+\begin{corollary}[\highlight{Polynomial Function}]
+    \[\limx{c }{p(x)}=\limx{c }{\sum_{i=0}^{n}a_i\cdot x^i}=\sum_{i=0}^{n}a_i\cdot\limx{c }{x^i}=\sum_{i=0}^{n}a_i\cdot x^i=p(c)\]
+\end{corollary}
+
+\begin{corollary}[\highlight{Rational Function}]
+    For polynomial functions \(\ds p(x),q(x)\st \\\limx{c}{p(x)}\rightarrow p(c), \limx{c}{q(x)}\rightarrow q(c)\neq 0\),
+    \[\limx{c }{\frac{p(x )}{q(x )}}=\frac{p(c )}{q(c )}\]
+\end{corollary}
+
+\begin{theorem}
+    Let \(A\subseteq\R;\ f,g:A\rightarrow\R\), \(c \) be a cluster point of \(A\). 
+    
+    If \(\exists a,b\in\R, \forall x\in A, x\neq c\) satisfiying 
+    \[a\le f(x)\le b\text{ and }\limx{c}{f}=L\]
+    then \[a\le\limx{c}{f}\le b\]
+    \begin{proof}
+        \(\ds \forall \seq{x }{n }\in A\backslash\{c\}, \seq{x }{n }\rightarrow c,\)
+        \[a\le f(x_n)\le b\Rightarrow a\le L \le b\]
+    \end{proof}
+\end{theorem}
+
+\begin{theorem}[\highlight{Squeeze Theorem}]
+    Let \(A\subseteq\R;\ f,g,h:A\rightarrow\R\), \(c \) be a cluster point of \(A\). 
+
+    If \(\ds\forall x\in A, x\neq c\), \[f(x)\le g(x) \le h(x)\text{ and }\limx{c}{f}=L=\limx{c}{h}\]
+    then 
+    \[\limx{c }{g}=L\]
+    \begin{proof}[Proof. Exercise. Try sequeeze theorem of sequence.]
+    \end{proof}
+\end{theorem}
+
 
 \end{document}
