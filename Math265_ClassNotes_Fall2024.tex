@@ -1776,11 +1776,11 @@ Let \(f:A\rightarrow B\) be a function where \(A,B\subseteq \R\). Let \(a\in A,L
     \(\displaystyle\limx{4}{\frac{(x-4)(x+3)}{4(x-4)(x-5)}}=\limx{4}{\frac{x+3}{4(x-5)}}=-\frac{7}{4}\)\\
 \end{example}
 
-\begin{corollary}[\highlight{Polynomial Function}]
+\begin{corollary}[\hypertarget{polynomial-functions}{\highlight{Polynomial Function}}]
     \[\limx{c }{p(x)}=\limx{c }{\sum_{i=0}^{n}a_i\cdot x^i}=\sum_{i=0}^{n}a_i\cdot\limx{c }{x^i}=\sum_{i=0}^{n}a_i\cdot x^i=p(c)\]
 \end{corollary}
 
-\begin{corollary}[\highlight{Rational Function}]
+\begin{corollary}[\hypertarget{rational-functions}{\highlight{Rational Function}}]
     For polynomial functions \(\ds p(x),q(x)\st \\\limx{c}{p(x)}\rightarrow p(c), \limx{c}{q(x)}\rightarrow q(c)\neq 0\),
     \[\limx{c }{\frac{p(x )}{q(x )}}=\frac{p(c )}{q(c )}\]
 \end{corollary}
@@ -1834,4 +1834,84 @@ Let \(f:A\rightarrow B\) be a function where \(A,B\subseteq \R\). Let \(a\in A,L
         
     \end{proof}
 \end{theorem}
+
+\newpage
+\section{Continuous Functions}
+\begin{definition}[\highlight{Counituous}]
+    Let \(A\subseteq\R,\ f:A\rightarrow\R\), \(c \in A\). 
+
+    We say \(f \) is \highlight{countinuous at c} if 
+
+    \(\forall \varepsilon>0, \exists \delta>0 \st \forall x\in A\)
+    \[\abs{x-c}<\delta\Rightarrow\abs{f(x)-f(c)}<\varepsilon\]
+
+    We say \(f\) is \highlight{discontinuous at c} if \(f\) is NOT continuous at c.\\
+\end{definition}
+
+\begin{definition}[\highlight{Using Neighborhood}]
+    Let \(A\subseteq\R,\ f:A\rightarrow\R\), \(c \in A\). Then \(f\) is continuous at \(c\) if and only if\\
+    \(\forall \varepsilon>0 \text{ and its } \varepsilon \text{-neighborhood at }f(c),\ \neighbor{f(c)}{\varepsilon},\ \exists \delta>0 \text{ and its }\delta \text{-neighborhood at c },\ \neighbor{c}{\varepsilon},\ \st\)
+    \[f(\neighbor{\delta}{c}\cap A)\subseteq \neighbor{\varepsilon }{f(c )}\]
+    \centerfig[0.9]{def-conti-nbhd.jpg}
+\end{definition}
+
+\begin{remark}[\hypertarget{conti-criterion}{\highlight{Comparison with Limit Definition}}]\ 
+    Continuity has 3 good properties that will be useful in the future study of Real Analysis:
+    \begin{itemize}
+        \item If c is a \highlight{cluster point} of \(A\), then \(f\) is \highlight{continuous} if and only if
+        \begin{enumerate}
+            \item \(f(x)\) is defined at c.
+            
+            \textbf{Counter-example:} Any function \(f:\Q\rightarrow\R\) is \textit{undefined} at \(\R\backslash\Q\) and thus \textit{discontinuous} at \(\R\backslash\Q\).
+
+            \item \(\ds\limx{c }{f(x )}\) exists.\\
+            \textbf{Counter-example:} \(\ds \frac{1}{x} \) is \textit{undefined} at 0 and thus \textit{discontinuous} at 0.
+
+            \item \(\ds f(c)=\limx{c }{f(x )}\).\\
+            \textbf{Counter-example:} \(\ds f(x)=\begin{cases}
+                1, & \text{if }x\neq 0 \\
+                0, & \text{if }x=0
+            \end{cases}\) is discontinuous at 0 as \\ \(\ds f(c) = 0 \neq 1=\limx{c }{f(x )}\)
+        \end{enumerate}
+        \item If c is \highlight{NOT a cluster point} of A, then c is an \highlight{isolated point}, and
+        
+        \(\ds \exists\neighbor{\delta}{c }\cap A=\{c \}\). Notice that an \highlight{isolated point} is \highlight{automatically continuous} 
+        as it \textit{satisfies} the definition of continuity at c. This is because
+        \[\abs{x-c}=\abs{c-c}=0<\delta\Rightarrow\abs{f(x)-f(c)}=\abs{f(c)-f(c)}=0<\varepsilon\]
+    \end{itemize}
+\end{remark}
+
+\newpage
+\begin{theorem}[\highlight{Sequential Criterion for Continuity}]\ 
+
+    Let \(A\subseteq\R,\ f:A\rightarrow\R\), \(c \in A\). Then \(f\) is continuous at \(c\) if and only if 
+    
+    \(\forall \seq{x }{n }\subseteq A\ \st\seq{x }{n }\rightarrow c,\ f(\seq{x }{n })\rightarrow f(c)\).
+    \begin{proof}[Proof. \((\Rightarrow)\)]
+        Continuity of \(f\) at c implies limit of \(f\) at c exists\footnote{proof by definition}. Thus we simply apply sequential criterion of limit.
+
+        \((\Leftarrow)\). This is exactly the statement of sequential criterion for limit at c. Thus, 
+        \[\exists\limx{c }{f(x)}=f(c)\]
+        Notice that \(c\in A\) implies that f is defined on \(c\). Thus, we conclude that \(f\) is continuous on c by previous \hyperlink{conti-criterion}{remark in p.43}
+    \end{proof}
+\end{theorem}
+
+\begin{corollary}[\highlight{Sequential Criterion for Discontinuity}]\ 
+
+    Let \(A\subseteq\R,\ f:A\rightarrow\R\), \(c \in A\). Then \(f\) is discontinuous at \(c\) if and only if 
+    
+    \(\exists \seq{x }{n }\subseteq A\ \st\seq{x }{n }\rightarrow c,\ f(\seq{x }{n })\not\rightarrow f(c)\).
+    \begin{proof}[Proof. Similar. Left to reader as exercise.]
+        
+    \end{proof}
+\end{corollary}
+
+\begin{example}
+    \begin{itemize}\ 
+        \item \hyperlink{polynomial-functions}{Polynomial functions} are continuous in \(\R\)(try to prove it!).
+        \item \hyperlink{rational-functions}{Rational functions} are continuous in \(\R\)(try to prove it!).
+    \end{itemize}
+    
+\end{example}
+
 \end{document}
