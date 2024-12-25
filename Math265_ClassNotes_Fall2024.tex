@@ -1837,6 +1837,7 @@ Let \(f:A\rightarrow B\) be a function where \(A,B\subseteq \R\). Let \(a\in A,L
 
 \newpage
 \section{Continuous Functions}
+\subsection{Continuity}
 \begin{definition}[\highlight{Counituous}]
     Let \(A\subseteq\R,\ f:A\rightarrow\R\), \(c \in A\). 
 
@@ -1881,7 +1882,6 @@ Let \(f:A\rightarrow B\) be a function where \(A,B\subseteq \R\). Let \(a\in A,L
     \end{itemize}
 \end{remark}
 
-\newpage
 \begin{theorem}[\highlight{Sequential Criterion for Continuity}]\ 
 
     Let \(A\subseteq\R,\ f:A\rightarrow\R\), \(c \in A\). Then \(f\) is continuous at \(c\) if and only if 
@@ -1902,16 +1902,150 @@ Let \(f:A\rightarrow B\) be a function where \(A,B\subseteq \R\). Let \(a\in A,L
     
     \(\exists \seq{x }{n }\subseteq A\ \st\seq{x }{n }\rightarrow c,\ f(\seq{x }{n })\not\rightarrow f(c)\).
     \begin{proof}[Proof. Similar. Left to reader as exercise.]
-        
+        \ \\
     \end{proof}
 \end{corollary}
 
-\begin{example}
-    \begin{itemize}\ 
+\begin{example} We begin with polynomial and rational functions:
+    \begin{itemize}
+        \item Constant function \(f(x)=b\) is continuous in \(\R\).
+        \item Linear function \(f(x)=ax+b\) is continuous in \(\R\).
+        \item Quadratic function\(f(x)=x^2\) is continuous in \(\R\).
+        \item \(f(x)=\dfrac{1}{x^2}\) is continuous in \(\R\).
         \item \hyperlink{polynomial-functions}{Polynomial functions} are continuous in \(\R\)(try to prove it!).
         \item \hyperlink{rational-functions}{Rational functions} are continuous in \(\R\)(try to prove it!).
+        \item \(f(x)=\dfrac{1}{x}\) is NOT continuous at 0.
+        \item \(f(x)=sgn(x)\) is NOT continuous at 0.\\
     \end{itemize}
-    
 \end{example}
+
+\newpage
+
+\begin{example}[\highlight{Dirichlet’s ‘‘discontinuous function’’}]\ 
+
+    Let \(A=\R\) and define Dirichlet’s ‘‘discontinuous function’’ by 
+    \[f(x)=\begin{cases*}
+        1 & if \(x\in\Q\) (rational)\\
+        0 & if \(x\in\R\backslash\Q\) (irrational)
+    \end{cases*}\]
+    \highlight{Claim:} this function is discontinuous on \(\R\).
+    \begin{proof}
+        Let \(c\in A\).
+        \begin{itemize}
+            \item If \(c\in\Q\), then \(\ds\exists \seq{x }{n }\in \R\backslash\Q\ \st\forall n\in\N,\)
+            \[c<\seq{x }{n }<c+\frac{1 }{n }\]
+            By squeeze theorem,
+            \[\lim{c}\le\lim{\seq{x }{n }}\le\lim{(c+\frac{1}{n})}\]
+            \[\seq{x}{n }\rightarrow c,\ (c+\frac{1}{n})\rightarrow c\]
+            \[\lim{f(x_n)}=1\neq0=\lim{f(c+\dfrac{1}{n })}\]
+            Thus, by Sequential Criterion of Discontinuity, \(f\) is discontinuous for all \(c\in\Q\).
+            \item If \(c\in\R\backslash\Q\), then we adopt similar strategy. The rest of proofs is left as exercise.
+        \end{itemize}
+    \end{proof}
+\end{example}
+
+\begin{example}[\highlight{Thomae’s function}] *Notice that this example is harder. We skip it on class.
+
+    Let \(f:\R^+\rightarrow \R\) defined by 
+    \[f(x)=\begin{cases*}
+        0 & if \(x\in \R\backslash\Q\) (irrational)\\
+        \frac{1}{q} & if \(x=\frac{p}{q}\in\Q\) (rational)
+    \end{cases*}\]
+    \highlight{Claim:} \(f\) is discontinuous on \(\Q\) and continuous on \(\R^+\backslash\Q\).
+    \centerfig{thomae's-function}
+    \begin{proof}\ 
+        \begin{itemize}
+            \item If \(c\) is rational, then \(\exists\seq{x }{n }\in\R^+\backslash\Q+\st \seq{x }{n }\rightarrow c\). Then we have 
+            \[\lim f(x_n)\rightarrow 0\neq \dfrac{1}{q}=f(c)\]
+            Since funtion value does not equal to limit value at c, \(f\) is discontinuous at \(c\in\Q\)
+            \item If \(c\) is irrational,
+            \highlight{Goal:} show that \(\forall \varepsilon>0, \exists \delta>0\st \forall x\in R^+,\)
+            \[\abs{x-c}<\delta\Rightarrow\abs{f(x)-f(c)}=\abs{f(x)}<\varepsilon\]
+            \begin{itemize}
+                \item If \(x\in \R^+\backslash\Q\), then \(\abs{f(x)}=0<\varepsilon\) for some arbitrary choice of \(\delta\).
+                \item If \(x\in \Q\), then by Archimedean Property, we could find a \(\frac{1}{n_0}>\varepsilon\). 
+                
+                Notice that there are only finite number of \(n\in\N\) such that \(n<n_0\). Thus, there are only 
+                finite number of \(\dfrac{p}{q}\in(c-1,c+1)\) with denominator \(q<n_0\). Hence we could choose \(\delta\) so small that 
+                the \(\neighbor{\delta }{c }\) contains no rational numbers with denominator less than \(n_0\). It follows that 
+                \[\abs{x-b}<\delta \Rightarrow \abs{f(x)-f(c)}=\abs{f(x)}\le \dfrac{1}{n_0}<\epsilon\]
+                Thus, \(f\) is continuous at \(c\in\R\backslash\Q\)
+                
+            \end{itemize}
+        \end{itemize}
+    \end{proof}
+\end{example}
+
+\newpage
+\subsection{Combinations of Continuous Functions}
+\begin{theorem}
+    Let \(A\subseteq\R,\ f,g:A\rightarrow\R\), \(c \in A\), \(b\in R\). Suppose \(f,\ g\) are \highlight{continuous} on \(c\), then the following combination of functions are \highlight{continuous}:
+    \begin{itemize}
+        \item \highlight{Addition:} \(f+g\)
+        \item \highlight{Subtraction:} \(f-g\)
+        \item \highlight{Product:} \(f\cdot g\)
+        \item \highlight{Multiplication:} \(b\cdot f\)
+        \item \highlight{Quotient:} \(\dfrac{f }{g}\) if \(g(x)\neq 0\)
+        \item \highlight{Absolute:} \(\abs{f}(x)\)
+        \item \highlight{Square Root:} \(\sqrt{f}(x)\)
+    \end{itemize}
+    \begin{proof}\ 
+        \begin{itemize}
+            \item If \(c\) is not a cluster point of \(A\), then the theorem is automatically correct.
+            \item If \(c\) is a cluster point of \(A\), then we only need to show that the function value 
+            at \(c\) is equal to the limit of function at \(c\). Detailed proof are left as exercise.
+        \end{itemize}
+    \end{proof}
+\end{theorem}
+\begin{example}
+    \begin{itemize}\ 
+        \item Polynomial functions are continuous on \(\R\). 
+        \item Rational functions are continuous on \(\R\).\\
+    \end{itemize}
+\end{example}
+
+\begin{example}\ 
+    \begin{itemize}
+        \item \(\sin(x)\) is continuous on \(\R\).
+        \begin{proof}
+            Notice that \(\forall x, y, z\in \R\), we have 3 inequalitis:
+            \[\abs{\sin(z)\le \abs{z},\ \abs{\cos(z)}\le 1},\ \sin(x)-\sin(y)=2\sin[\dfrac{1}{2}(x-y)]\cdot \cos[\dfrac{1}{2}(x+y)]\]
+            Hence if \(c\in\R\), we have 
+            \[\abs{\sin(x)-\sin(c)}\le 2\cdot \frac{1}{2}\abs{x-c}\cdot 1=\abs{x-c}\]
+            Thus \(\sin(x)\) is continuous on \(\R\).
+        \end{proof}
+        \item \(\cos(x)\) is continuous on \(\R\)
+        \begin{proof}[Proof. Exercise]
+            Similar techniques as above.
+        \end{proof}
+        \item \(\tan(x),\ \cot,\ \sec,\ \csc\) are all continuous on \textit{where they are defined}.
+        \begin{proof}
+            Combinations of continuous functions on their domain are continuous.\\
+        \end{proof}
+    \end{itemize}
+\end{example}
+
+\begin{theorem}
+    Let \(A,B\subseteq\R,\ f:A\rightarrow\R,\ g:B\rightarrow\R,\ c \in A\, \st f(A)\subseteq B\). Suppose \(f\) is continuous at \(c\in A\), 
+    \(g\) is \highlight{continuous} on \(b=f(c)\in B\), then the composition \(g \circ f\) is \highlight{continuous} at \(c\). 
+    
+    \begin{proof}
+        Since \(f\) is continuous at \(c\), \(\forall \varepsilon>0,\ \exists \delta>0\ \st\forall x\in A\), 
+        \[\abs{x-c}<\delta\Rightarrow\abs{f(x)-f(c)}<\varepsilon\]
+        Since \(g\) is continuous at \(b=f(c),\ f(A)\subseteq B\), \(\forall \zeta>0,\ \exists \varepsilon>0\ \st\forall f(x)\in B\), 
+        \[\abs{f(x)-b}<\varepsilon\Rightarrow\abs{g(f(x))-g(b)}<\zeta\]
+        Thus,
+        \[\abs{x-c}<\delta\Rightarrow\abs{g(f(x))-g(b)}=\abs{g\circ f(x)-g\circ f(c)}<\zeta\]
+    \end{proof}
+    \centerfig[0.6]{composition-function}
+\end{theorem}
+
+\begin{example}
+    \(\sqrt{x^2+1}\) is continuous on \(\R\).
+    \begin{proof}[Proof. Exercise]        
+    \end{proof}
+\end{example}
+
+
 
 \end{document}

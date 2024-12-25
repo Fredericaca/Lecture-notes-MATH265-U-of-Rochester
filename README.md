@@ -16,9 +16,23 @@ Change the following line of code in the Math265_ClassNotes_Fall2024.tex.
 \input{your/path/of/header.tex}
 ```
 
+## Rate My Course
+
+| Tag            | Description  |
+| -------------- | ------------ |
+| Overall Rating | 2/5          |
+| Final Grade    | A/86%        |
+| Difficulty     | 5/5          |
+| Reading        | 5h / week    |
+| Avg. HW Time   | 10h / week   |
+| Accessibility  | 4/5          |
+| Experience     | 2/5          |
+| P.f. or Calc.  | Proof only   |
+
 ## Pro advice: 
-- [x] Find ***any*** *available practice exam*(if you KNOW what I mean😎) and do them. 
-- [x] Do practice question in the textbook ***as much as you can***.
-- [x] Then you will get **80%** for the most of the exams. 
-- [x] Don't worry cuz you will almost always get a **83%**, which is a solid ***A***.
-- [x] [StackExchange](https://math.stackexchange.com/ "Best alternative for Chat ;)") will be your second best friend.(First best friend? No, ***JUST*** office hours and TA's.)
+- [x] Do NOT escape ***Office hours*** where you could solve most of your inhumane **homework**.
+- [x] ***READ extensively***. **Textbook is much more helpful** than lecture. Follow the syllabus.
+- [x] ***Do PROBLEMS*** on books. Do them ***as much as you can***. 
+- [x] For this semester, **83%+** overall grade will ensure a solid ***A***. However, cutoffs will change a little for each semester.
+- [x] Find ***any*** *available practice exam* (if you KNOW how to get them😎). 
+- [x] [StackExchange](https://math.stackexchange.com/ "Best alternative for Chat ;)") will be your second best friend.(First best friend? Not some \*BOT\*, ***JUST*** office hours and TA's.)
