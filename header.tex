@@ -95,9 +95,16 @@
     \centering
   \end{wrapfigure}
 }
-\newcommand{\centerfig}[1]{
+% \newcommand{\centerfig}[1]{
+%   \begin{figure}[h]
+%     \includegraphics[width=0.6\textwidth]{image/#1}
+%     \centering
+%   \end{figure}
+% }
+\newcommand{\centerfig}[2][0.6]{
   \begin{figure}[h]
-    \includegraphics[width=0.6\textwidth]{image/#1}
+    \includegraphics[width=#1 \textwidth]{image/#2}
     \centering
   \end{figure}
 }
+
