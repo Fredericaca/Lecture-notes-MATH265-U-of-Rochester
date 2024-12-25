@@ -2046,6 +2046,193 @@ Let \(f:A\rightarrow B\) be a function where \(A,B\subseteq \R\). Let \(a\in A,L
     \end{proof}
 \end{example}
 
+\newpage
 
+\subsection{Continuous Function on Bounded Intervals}
+Continuous function on \highlight{closed bounded interval} has many good properties.\\
+
+\begin{definition}[\highlight{Bounded Function}]
+    A function \(f:A\rightarrow\R\) is said to be \highlight{bounded on A} if \(\exists M>0\st\forall x\in A\)
+    \[\abs{f(x)}\le M\] 
+    A function is \highlight{unbounded} if \(\forall M>0,\ \exists x_M\in A\st\)
+    \[\abs{f(x)}>M\]
+\end{definition}
+
+\begin{example}
+    \(\ds f(x)=\frac{1}{x }\) is unbounded on \(A=(0,\infty)\).
+    \begin{proof}
+        By Archimedean Property, \(\forall M>0,\exists x_M=\frac{1}{M+1}\in A\st\)
+        \[\abs{f(\frac{1}{M+1})}=\abs{\frac{1}{\frac{1}{M+1}}}=\abs{M+1}>M\]
+        We thereby conclude that \(\dfrac{1}{x}\) is unbounded on \(A\).
+    \end{proof}
+\end{example}
+
+\begin{theorem}[\highlight{Boundness Theorem}]
+    Let \(a,b\in\R,\ a<b,\ I=[a,b]\) a \highlight{closed bounded interval}. If \(f:I\rightarrow\R\) is countinuous on \(I\), 
+    then \(f\) is bounded on \(I\).
+    \begin{proof}
+        Assume \(f\) is not bounded on \(I\). Then, by definition, \(\forall n\in\N,\ \exists x_n\in I\st\)
+        \[\abs{f(x_n)}>n\]
+        Since \(I\) is bounded, the sequence \(\seq{x }{n }\in I\) is bounded. Therefore, 
+        by the Bolzano-Weierstrass Theorem, there exists a convergent subsequence \(\seq{x}{n_k}\rightarrow x\) for some number \(x\in I\). 
+        Since \(f\) is continuous on \(I\), \[f(x_{n_k})\rightarrow f(x)\]
+        We thereby conclude that \(f(x_{n_k})\) is a bounded sequence, which is a contradiction to unboundedness of \(f(x_{n_k})\)
+        \[\forall k\in\N, n_k\in\N,\ \abs{f(x_{n_k})}>n_k\ge k\]
+    \end{proof}
+
+    \begin{remark}
+        We will give 3 counter-examples to show that all of three conditions are necessary for Boundedness Theorem to be true.
+        \begin{itemize}
+            \item Interval must be \highlight{closed}\\
+            \textbf{Counter-example:} \(f(x)=\dfrac{1}{x }\) on \((0,1]\) is countinous but unbounded.
+            \item Interval must be \highlight{bounded}\\
+            \textbf{Counter-example:} \(g(x)=x\) is continuous but unbounded on \([0,\infty)\).
+            \item The function must be \highlight{continous}\\
+            \textbf{Counter-example:} Define \(h:[0,1]\rightarrow\R,\ h(x)=\begin{cases*}
+                \frac{1}{x} & if \(x\in(0,1]\)\\
+                1 & if \(x=0\)
+            \end{cases*}\) is discontinuous and unbounded.
+            
+        \end{itemize}
+    \end{remark}
+\end{theorem}
+\newpage
+\begin{definition}[\highlight{Maximum and Minimum}]
+    Let \(A\in\R,\ f:A\rightarrow\R\). 
+    
+    We say that \(f\) has an \highlight{absolute maximum} on \(A\) if 
+    \(\exists x^*\in A\st\forall x\in A\)\[f(x^*)\ge f(x)\]
+    We say that \(f\) has an \highlight{absolute minimum} on \(A\) if 
+    \(\exists x_*\in A\st\forall x\in A\)\[f(x_*)\le f(x)\]
+\end{definition}
+
+\begin{remark}
+    Continuous function on a \highlight{bounded set A} does not necessarily have an maximum or minimum 
+    on \(A\). For example:
+    \begin{itemize}
+        \item \(f(x)=\dfrac{1}{x}\) has NO absolute maximum or absolute minimum on \(A=(0,\infty)\)
+        \item \(g(x)=x^2\) has only absolute minimum \(x_*=0\) on \(\R\).\\
+    \end{itemize}
+\end{remark}
+
+\begin{theorem}[\highlight{Maximum-Minimum Theorem}]
+    Let \(I=[a,b]\in\R\) be a \highlight{closed bounded} \highlight{interval}, \(f:I\rightarrow\R\) be \highlight{countinuous} on \(I\). Then \(f\) has an absolute maximum 
+    and absolute minimum on \(I\). 
+    \begin{proof}
+        By previous theorem, \(f\) is bounded on \(I\). Thus, 
+        \[\exists s^*=\sup f(I), \beta=\inf f(I)\]
+        We will first proof that \(f\) has an absolute maximum. It suffices to 
+        show that \[\exists x^*\in I\st f(x^*)=\sup f(I)\]
+        Since \(s^*=\sup f(I)\), then \(\forall n\in\N, s^*-\dfrac{1}{n}\) is not an upper bound of the set \(f(I)\).\\
+        Consequently, \(\exists x_n\in I\st\forall n\in\N\)
+        \[s^*-\frac{1}{n }<f(x^*)\le s^*\]
+        Since \(I\) is bounded, \(\seq{x }{n }\) is bounded, by the Bolzano-Weierstrass Theorem, 
+        there exists a subsequence \(\seq{x }{n_k }\in I\st\seq{x }{n_k }\rightarrow x^*\).\\
+        Since \(f\) is continuous on \(I\),
+        \[\lim(f(x_{n_k}))=f(x*)\]
+        By squeeze theorem,
+        \[\lim (s^*-\frac{1}{n_k })\le\footnote{The reader should find out why the strict inequality become weak inequality when limit applies.} \lim f(x_{n_k})\le \lim s^*\]
+        \[s^*\le f(x^*)\le s^*\]
+        \[s^*=f(x^*)\]
+        Thus we conclude that \(x^*\) is the absolute maximum of \(f\) on \(I\). The proof of absolute minimum is left as exercise using similar techniques.
+    \end{proof}
+\end{theorem}
+
+\newpage
+
+The proof of next theorem provides an algorithm, know as \highlight{Bisection Method}, to calculate root to certain level of accuracy.\\
+
+\begin{theorem}[\highlight{Location of Roots}]
+    Let \(I=[a,b],\ f:I\rightarrow\R\) be continuous on \(I\). If \(f(a)<0<f(b)\) or \(f(b)<0<f(a)\), 
+    then \(\exists c\in(a, b)\st f(c)=0\).
+
+    \begin{proof}
+        WLOG, let's assume that \(f(a)<0<f(b)\). Define a sequence of closed bounded nested interval \(I_n\) and midpoint\(p_n\) \(\st \forall n\in\N\):
+        \[a_1=a,\ b_1=b,\ I_1=[a_1,b_1],\ p_1=\frac{1}{2}(a_1+b_1)\]
+        Notice that if \(f(p_n)=0\), then\(c=p_n\) and we are done. If not, then 
+        \[I_n=\begin{cases*}
+            [a_{n-1},p_{n-1}] & if \(f(p_{n-1})>0\)\\
+            [p_{n-1},a_{n-1}] & if \(f(p_{n-1})<0\)
+        \end{cases*}\subset I_{n-1}\]
+        Observe that \begin{itemize}
+            \item \(\{I_n\}\) is a infinite sequence of \highlight{nested intervals} where \(\forall n\in\N, I_n\subset I_{n-1}\)
+            \item \(\lim\{b_n-a_n\}=\lim\{\dfrac{b-a}{2^{n-1}}\}=0\Rightarrow \lim\seq{a }{n }=\lim\seq{b }{n }\)
+        \end{itemize}
+        Then by Nested Interval Property, \[\exists c\in [a,b]\st \forall n\in\N,\ c\in I_n,\ \bigcap_{n=1}^{\infty}I_n=\{c\}\]
+        Also notice that \[a_n<c<b_n\Rightarrow\lim\seq{a }{n }\le c\le\lim\seq{b }{n }\]
+        By Sqeeze Theorem \[\lim\seq{a }{n }= c=\lim\seq{b }{n }\]
+        Notice that \[\begin{cases*}
+            f(a_n)<0 \Rightarrow &\(\lim f(a_n)\le 0\)\\
+            0<f(b_n) \Rightarrow &\(0 \le\lim f(b_n)\)\\
+        \end{cases*}\]
+        Thus \[c=\lim\seq{a }{n }=\lim\seq{b }{n }=0\]
+    \end{proof}
+\end{theorem}
+
+\newpage
+
+\begin{theorem}[\highlight{Bolzano's Intermediate Value Theorem}]
+    Let \(I\in\R\text{ be an interval}\footnote{Not necessarily closed or bounded. Thus this theorem is stronger},\ 
+    f:I\rightarrow\R\) be continuous on \(I\). If \(\exists a,b\in I, k\in \R\st\)\[f(a)<k<f(b)\]
+    then \(\exists c\in I\st\) \[f(a)<f(c)=k<f(b)\].
+    \begin{proof}
+        WLOG, assume \(a<b\) and define \(g(x)=f(x)-k\). Then 
+        \[g(a)<0<g(b)\]
+        By previous theorem, \(\exists c,\ a<c<b\st 0=g(c)=f(c)-k\). Thus 
+        \[f(c)=k\]
+        The similar proof also allpies for \(b<a\).
+    \end{proof}
+\end{theorem}
+
+\begin{corollary}
+    Let \(I=[a,b],\ f:I\rightarrow\R\) be continuous on \(I\). If \(\exists k\in\R\st \)
+    \[\inf f(I)\le k\le\sup f(I)\]
+    then \(\exists c\in I\st\)
+    \[f(c)=k\]
+    \begin{proof}
+        This is a direct result of previous theorem.
+    \end{proof}
+\end{corollary}
+
+\begin{corollary}
+    Let \(I=[a,b],\ f:I\rightarrow\R\) be continuous on \(I\). Then 
+    \[f(I)=[\inf f(I), \sup f(I)]\]
+    \begin{proof}
+        Let \(m=\inf f(I),\ M=\sup f(I)\). We know by the Maximum-Mininum Theorem that 
+        \(m,M\in f(I)\). Thus 
+        \[f(I)\subseteq[m,M]\]
+        Then by Bolzano's Intermediate Value Theorem, \(\forall k\in[m,M], \exists c_k\in I\st\)
+        \(k=f(c_k)\). We thereby conclude that 
+        \[[m,M]\subseteq f(I)\]
+        It follows that 
+        \[f(I)=[m,M]\]
+        
+    \end{proof}
+\end{corollary}
+
+\newpage
+
+\begin{remark}
+    \highlight{End points may not be extreme points}. Counter example:
+    \centerfig{endpoint-not-extreme.jpg}
+    \[f:[a,b]\rightarrow\R,\ f(I)\neq [f(a),f(b)]\]
+\end{remark}
+
+\begin{theorem}[\highlight{Preservation of Interval Theorem}]\ 
+
+    Let \(I\in\R\text{ be an interval}\footnote{Not necessarily closed or bounded. Thus this theorem is stronger},\ 
+    f:I\rightarrow\R\) be continuous on \(I\). Then the set \(f(I)\) is an interval.
+    \begin{proof}
+        Let \(\alpha, \beta\in f(I)\) with \(\alpha<\beta\). Then \(\exists a,b\in I\st \)
+        \[\alpha=f(a),\ \beta=f(b)\]
+        By Bolzano's Intermediate Value Theorem, \(\forall k\in(\alpha, \beta),\ \exists c_k\in I\st\ f(c)=k\in f(I)\).
+        Thus 
+        \[[\alpha,\beta]\subseteq f(I)\]
+        We conclude that \(f(I)\) is an interval
+    \end{proof}
+\end{theorem}
+
+\newpage
+\subsection{Uniform Continuity}
 
 \end{document}
