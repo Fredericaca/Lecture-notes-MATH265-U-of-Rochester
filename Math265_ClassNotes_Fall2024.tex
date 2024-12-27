@@ -2098,7 +2098,7 @@ Continuous function on \highlight{closed bounded interval} has many good propert
 \end{theorem}
 \newpage
 \begin{definition}[\highlight{Maximum and Minimum}]
-    Let \(A\in\R,\ f:A\rightarrow\R\). 
+    Let \(A\subseteq\R,\ f:A\rightarrow\R\). 
     
     We say that \(f\) has an \highlight{absolute maximum} on \(A\) if 
     \(\exists x^*\in A\st\forall x\in A\)\[f(x^*)\ge f(x)\]
@@ -2234,5 +2234,120 @@ The proof of next theorem provides an algorithm, know as \highlight{Bisection Me
 
 \newpage
 \subsection{Uniform Continuity}
+Recall the definition of continuity of \(f\) at \(u\in A\): 
 
+Let \(A\subseteq\R,\ f:A\rightarrow\R,\ \forall \varepsilon>0, \exists\delta(\varepsilon, u)\st \forall x\in A\)
+\[\abs{x-u}<\delta(\varepsilon, u)\Rightarrow \abs{f(x)-f(u)}<\varepsilon\]
+Here we emphasize that the choice of \(delta\) depends on \highlight{both \(\varepsilon \) and \(u\in A\)}. 
+This implies that the change of function value \(f(u)\) depends on choice of \(u\). 
+Consider \(f(x)=\sin(\dfrac{1}{x})\). As \(x\) approaches 0, the function value changes more rapidly.\\
+
+\begin{example}
+    In this example, \(\delta\) depends on \(\varepsilon\) only:
+
+    Let \(f:\R\rightarrow\R,\ f(x)=2x\). Then 
+    \[\abs{f(x)-f(u)}=2\abs{x-u}\]
+    So it suffice to choose \(\delta=\dfrac{\varepsilon}{2}\).
+\end{example}
+
+\begin{example}
+    However, in certain cases, \(\delta\) depends on both \(\varepsilon\) and \(u\).
+
+    Let \(g:(0,\infty)\rightarrow\R,\ g(x)=\dfrac{1}{x}\). Then 
+    \[\abs{f(x)-f(u)}=\abs{\frac{u-x}{ux}}\]
+    It suffices to choose \(\delta(\varepsilon, u)=\inf\{\dfrac{1}{2}u, \dfrac{1}{2}u^2\varepsilon\}\). 
+    
+    Notice that there is no way to choose a \(\delta\) that will work for all \(u>0\). \(\delta\) must depends on the position of \(u\). 
+    As \(u\) tends to 0, the persissible value of \(\delta\) tends to 0.
+    
+\end{example}
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}{.45\textwidth}
+        \centering
+        \includegraphics[width=0.8\linewidth]{image/uniform_1.jpg}
+    \end{subfigure}
+    \begin{subfigure}{.45\textwidth}
+        \centering
+        \includegraphics[width=0.8\linewidth]{image/uniform_2.jpg}
+    \end{subfigure}
+\end{figure}
+
+\newpage
+\begin{definition}[\highlight{Uniform Continuity}]
+    Let \(A\subseteq\R,\ f:A\rightarrow\R\). We say that \(f\) is \highlight{uniformly continuous on \(A\)} if 
+    
+    \(\forall \varepsilon>0, \exists\delta(\varepsilon)\st\forall x,y\in A\)
+    \[\abs{x-y}<\delta\Rightarrow\abs{f(x)-f(y)}<\varepsilon\]
+\end{definition}
+
+\begin{theorem}[\highlight{Non-uniform Continuity Criterion}]
+    Let \(A\subseteq\R,\ f:A\rightarrow\R\). The following statements are equivalent:
+    \begin{itemize}
+        \item \(f\) is NOT uniformly continuous.
+        \item \(\exists \varepsilon_0>0\st\forall \delta>0,\ \exists x_\delta,\ u_\delta\in A\st\)
+        \[\abs{x_\delta-u_\delta}<\delta\Rightarrow\abs{f(x_\delta)-f(u_\delta)}\ge \varepsilon_0\]
+        \item \(\exists \varepsilon_0>0,\ \exists \seq{x }{n },\ \seq{u }{n }\in A\st\forall n\in \N\)
+        \[\lim(x_n-u_n)=0\text{ and }\abs{f(x_n)-f(u_n)}\ge\varepsilon_0\]
+    \end{itemize}
+    \begin{proof}[Proof. Exercise.]
+        
+    \end{proof}
+\end{theorem}
+
+\begin{theorem}[\highlight{Uniform Continuity Theorem}]
+    Let \(I\) be a \highlight{closed bounded interval} and let \(f:I\rightarrow\R\) be \highlight{continuous} on \(I\). 
+    Then \(f\) is \highlight{uniformly continuous} on \(I\).
+    \begin{proof}
+        Assume \(f\) is not uniformly continuous on \(I\). Then by precedence result, 
+        \(\exists \varepsilon_0>0,\ \exists \seq{x }{n },\ \seq{u }{n },\ \in I\st\forall n\in\N\)
+        \[\lim(x_n-y_n)=0\text{ and }\abs{f(x_n)-f(u_n)}\ge\varepsilon_0\]
+        Since \(I\) is bounded, the sequence \(\seq{x}{n}\) is bounded. By Bolzano-Weierstrass Theorem, 
+        there exists a convergent subsequence \(\seq{x }{n_k },\ \seq{u }{n_k }\) of \(\seq{x }{n },\ \seq{u }{n }\) where 
+        \[\lim(x_{n_k}-y_{n_k})=0\text{ and }\abs{f\seq{x }{n_k }-f\seq{u }{n_k }}\ge\varepsilon_0\]
+        Since \(I\) is continuous on \(I\)
+        \[\lim f\seq{x }{n_k }=f(\lim\seq{x}{n_k}),\ \lim f\seq{u }{n_k}=f(\lim\seq{u }{n_k})\]
+        Thus \[\lim (f\seq{x }{n_k})=\lim (f\seq{u}{n_k})\Rightarrow \lim (f\seq{x }{n_k }-f\seq{x }{n_k })=0\]
+        contradicts our assumption.
+        We conclude that \(f\) must be uniformly continuous.
+    \end{proof}
+\end{theorem}
+\newpage
+\highlight{Note:} The next property conveniently ensures uniform continuity without requiring \(A\) to be a closed and bounded interval.\\
+
+\begin{definition}[\highlight{Lipschitz Functions}]
+    Let \(A\subseteq\R,\ f:A\rightarrow\R\). If there exists a constant \(K>0\) such that \(\forall x,\ u\in A\)
+    \[\abs{f(x)-f(u)}\le K\abs{x-u}\]
+    then \(f\) is said to be a \highlight{Lipschitz function} (\highlight{Lipschitz continuous}, or just \highlight{Lipschitz}) on \(A\).\\
+\end{definition}
+
+\begin{remark}[\highlight{Lipschitze Function and Gradient}]
+    Rewrite the condition, we have \[\abs{\frac{f(x)-f(u)}{x-u}}\le K\]
+    It follows that the absolute value is the gradient of a line segment joining the points \((x,f(x)),\ (u,f(u))\). 
+    Thus, \(f\) is Lipschitz if and only if the gradient of all line segments joining two points on the graph of \(y=f(x)\) over \(I\) are boudned by some \(K\).\\
+\end{remark}
+
+\begin{theorem}
+    Let \(A\subseteq\R,\ f:A\rightarrow\R\). If \(f\) is \highlight{Lipschitz}, then it is \highlight{uniformly continuous} on \(A\).
+    \begin{proof}
+        For all \(\varepsilon>0\), we simply choose \(\delta=\dfrac{\varepsilon }{K}\). Then 
+        \[\abs{x-u}<\delta\Rightarrow\abs{f(x)-f(u)}<K\cdot\frac{\varepsilon }{K }=\varepsilon\]
+        Thus \(f\) is uniformly continuous on \(A\)
+    \end{proof}
+\end{theorem}
+
+\begin{remark}
+    The \highlight{converse} may NOT true!
+
+    \textbf{Counter-example:} \(f(x)=\sqrt{x}\) on \([0,1]\) is uniformly continuous but NOT Lipschitz.\\
+\end{remark}
+
+\begin{example}
+    If \(f(x)=x^2\) on \(A=[0,b]\) where \(b>0\), then \(\forall x,\ u\in [0,b]\)
+    \[\abs{f(x)-f(u)}=\abs{x+u}\abs{x-u}\le 2b\abs{x-u}\]
+    It follows that \(f\) is Lipschitz on \(A\) given \(K=2b\), and thus \(f\) is uniformly continuous.
+\end{example}
+
+
+    
 \end{document}
