@@ -2343,11 +2343,53 @@ Consider \(f(x)=\sin(\dfrac{1}{x})\). As \(x\) approaches 0, the function value 
 \end{remark}
 
 \begin{example}
-    If \(f(x)=x^2\) on \(A=[0,b]\) where \(b>0\), then \(\forall x,\ u\in [0,b]\)
-    \[\abs{f(x)-f(u)}=\abs{x+u}\abs{x-u}\le 2b\abs{x-u}\]
-    It follows that \(f\) is Lipschitz on \(A\) given \(K=2b\), and thus \(f\) is uniformly continuous.
+    If \(f(x)=x^2\) on \(A=[0,b]\) where \(b>0\), then \(\forall x,\ y\in [0,b]\)
+    \[\abs{f(x)-f(y)}=\abs{x+y}\abs{x-y}\le 2b\abs{x-y}\]
+    It follows that \(f\) is Lipschitz on \(A\) given \(K=2b\), and thus \(f\) is uniformly continuous.\\
 \end{example}
 
+\begin{theorem}
+    Let \(A\subseteq\R,\ f:A\rightarrow\R\). If \(f\) is uniformly continuous on \(A\), and \(\seq{x }{n }\in A\) is a Cauchy sequence, 
+    then \((f\seq{x}{n})\) is a Cauchy sequence in \(R\).
+    \begin{proof}
+        \(\forall \varepsilon>0, \exists \delta>0\st \forall x,y\in \delta\)
+        \[\abs{x-y}<\delta\Rightarrow\abs{f(x)-f(y)}<\varepsilon\]
+        Since \(\seq{x }{n } \) is Cauchy, for given \(\delta>0,\ \exists N_\delta\in\N\st \forall n,m\in\N,\ n,m>N_\delta\)
+        \[\abs{x_n-x_m}<\delta\Rightarrow\abs{f(x_n)-f(x_m)}<\varepsilon\]
+        We conclude that \((f\seq{x }{n })\) is Cauchy.
+    \end{proof}
+\end{theorem}
+\newpage
 
+\begin{theorem}[\highlight{Continuous Extension Theorem}]
+    A function \(f\) is \highlight{uniformly continuous} on \highlight{open} interval \(I=(a,b)\) if and only if 
+    it can be \highlight{defined at the endpoints} \(a\) and \(b\) 
+    such that the extended function is continuous on \([a,b]\).
+    \begin{proof}[Proof. \((\Leftarrow)\)] This direction is trivial.
+        
+        \((\Rightarrow)\) Suppose \(f:(a,b)\rightarrow\R\) is uniformly continuous.
+
+        \highlight{Goal:} Define \(f\)'s extended function \(F:[a,b]\rightarrow\R\st\) 
+        \[F|_{(a,b)}=f,\ F \text{ is continuous}\] 
+        Notice that this is equivalent to show \(\ds\limx{a}{f(x)}\) and \(\ds\limx{b}{f(x)}\) exist and define \[F(x)=\begin{cases*}
+            f(x) & if \(x\in(a,b)\)\\
+            \ds\limx{a}{f(x)}& if \(x=a\)\\
+            \ds\limx{b}{f(x)}& if \(x=b\)
+        \end{cases*}\]
+
+        Choose \(\seq{x }{n }\in (a,b)\st \seq{x }{n }\rightarrow a\). Thus, \(\seq{x }{n }\) is Cauchy, and by preceding theorem, \((f\seq{x }{n })\) is Cauchy. 
+        Let \(L=\lim(f\seq{x}{n})\). Then \(\forall \seq{y}{n }\in(a,b)\st\seq{y}{n }\rightarrow a\),
+        \[\lim(x_n-y_n)=a-a=0\]
+        By uniform continuity, we have 
+        \begin{align*}
+            \lim(f\seq{y }{n })&=\lim(f\seq{y }{n }-f\seq{x }{n })+\lim(f\seq{x }{n })\\
+            &=0+L=L
+        \end{align*}
+        Thus, for all sequence \(\seq{u }{n }\) converging to \(a\), \((f\seq{x }{n })\rightarrow L\). By sequential criterion of limit, 
+        \(\ds L=\limx{a}{f(x)}\). If we define \(f(a)=L\), then \(f\) is continuous at \(a\).
+
+        The same argument applies to \(b\). Thus, we conclude that \(f\) has a continuous extension to the interval \([a,b]\)
+    \end{proof}
+\end{theorem}
     
 \end{document}
