@@ -29,15 +29,15 @@
 \section{Preliminaries}
 % \newpage
 
-% \subsection{Sets and Functions}
+\subsection{Sets and Functions}
 
 % \newpage
 
-% \subsection{Mathematical Induction}
+\subsection{Mathematical Induction}
 
 % \newpage
 
-% \subsection{Finite and Infinite Sets}
+\subsection{Finite and Infinite Sets}
 
 \newpage
 
@@ -430,9 +430,116 @@
 
 \subsection{The Completeness Property of $\R$}
 
+\begin{definition}
+    Let \(S\subseteq\R\) be a nonempty.
+    \begin{enumerate}
+        \item \(S\) is said to be \highlight{boudned above} if there exists a number \(u\in\R\) such that \(s\le u\) for all \(s\in S\). 
+        We say \(u\) is an \highlight{upper bound} of \(S\).
+        \item \(S\) is said to be \highlight{boudned below} if there exists a number \(u\in\R\) such that \(u\ge s\) for all \(s\in S\). 
+        We say \(u\) is an \highlight{lower bound} of \(S\).
+        \item \(S\) is said to be \highlight{boudned} if it is both bounded above and below.
+        \item We say \(S\) is \highlight{unbounded} if it is not bounded above or bounded below.\\
+    \end{enumerate}
+\end{definition}
 
+\begin{definition}
+    Let \(S\subseteq\R\) be nonempty.
+    \begin{enumerate}
+        \item If \(S\) is bounded above, then \(u\) is the \highlight{supremum} or \highlight{least upper bound} of \(S\) if 
+        \begin{itemize}
+            \item \(u\) is an upper bound, and
+            \item If \(v\) is an upper bound of \(S\), then \(u\le v\).
+        \end{itemize}
+        \item If \(S\) is bounded below, then \(w\) is the \highlight{infimum} or \highlight{greatest lower bound} of \(S\) if 
+        \begin{itemize}
+            \item \(w\) is an lower bound, and
+            \item If \(t\) is an lower bound of \(S\), then \(t\le w\).
+        \end{itemize}
+    \end{enumerate}
+    Supremum and infimum are denoted by 
+    \[\sup S,\ \inf S\] 
+\end{definition}
 
-% \newpage
+\begin{proposition}
+    If \(S\) is bounded above, then \(\sup S\) is \highlight{unique}.
+    \begin{proof}
+        Suppose \(u_1,\ u_2\) are supremum of \(S\). Since \(u_1\) is the supremum of \(S\) and  \(u_2\) is the upper bound of \(S\), 
+        \[u_1\le u_2\]
+        Similarly, we have 
+        \[u_2\le u_1\]
+        Thus 
+        \[u_1=u_2\]
+    \end{proof}
+\end{proposition}
+
+\begin{theorem}
+    Let \(S\subseteq\R\) be nonempty. If \(\exists u=\sup S\), then the following statements are equivalent:
+    \begin{enumerate}
+        \item If \(v\) is an upper bound of \(S\), then \(u\le v\).
+        \item If \(z<u\), then \(z\) is not an upper bound of \(S\).
+        \item If \(z<u\), then there exists \(s_z\in S\) such that \(z<s_z\).
+        \item If \(\varepsilon>0\), then there exists \(s_\varepsilon\in S\) such that \(u-\varepsilon<s_\varepsilon\).\\
+    \end{enumerate}
+    \begin{proof}[Proof. Exercise.]
+        
+    \end{proof}
+\end{theorem}
+
+\newpage
+
+\begin{lemma}[\highlight{Alternative Definition}]
+    Let \(S\subseteq\R\) be nonempty. \(\exists u=\sup S\) iff 
+    \begin{itemize}
+        \item \(s\le u\) for all \(a\in S\).
+        \item If \(v<u\), then there exists \(s'\in S\) such that \(v<s'\).
+    \end{itemize}
+    \begin{proof}[Proof. Exercise.]
+        
+    \end{proof}
+\end{lemma}
+
+\begin{lemma}[\highlight{\(\varepsilon\) Definition}]
+    An upper bound \(u\) of nonempty set \(S\subseteq\R\) is the supremum of \(S\) iff 
+    
+    \(\forall \epsilon>0,\ \exists s_\epsilon\in S\st\)
+    \[u-\varepsilon<s_\varepsilon\]
+    \begin{proof}
+        (\(\Rightarrow\)) Suppose \(u=\sup S\). \(\forall \varepsilon>0, u-\varepsilon\) is NOT an upper bound of \(S\). Thus 
+        \[\exists s_\varepsilon\in S\st u-\varepsilon<s_\varepsilon\]
+
+        (\(\Leftarrow\)) Suppose \(u\) is an upper bound satisfying: \(\forall \epsilon>0,\ \exists s_\epsilon\in S\st u-\varepsilon<s_\varepsilon\). 
+        
+        Let \(v\) be an upper bound of \(S\).
+
+        \highlight{Goal:} \(u\le v\)
+
+        Assume \(u>v\). Let \(\varepsilon=u-v>0\). Then \(\exists s_\varepsilon\in S\st u-\varepsilon<s_\varepsilon\).
+        Thus \(u-\varepsilon\) is NOT an upper bound of \(S\), which is a contradiction.
+
+        We thereby conclude that \(u\le v\).\\
+    \end{proof}
+\end{lemma}
+
+\begin{remark}[\highlight{Maximum v.s. Supremum}]
+    If a set is bounded above, then the \highlight{maximum} of a set may not exist, but the \highlight{supremum} of the set always exists.\\   
+    \begin{example}
+        Let \(S=(1,2)\). Then there does NOT exist a maximum of \(S\) , but \(\exists\sup S=2\)
+    \end{example}
+
+    This is also true for \highlight{minimum} and \highlight{infimum}.\\
+\end{remark}
+
+\begin{remark} If a set \(S\) is bounded above, then \(\sup S\) may NOT be an element of \(S\).\\
+    \begin{example}
+        Let \(S=(1,2)\). \(\exists\sup S=2\notin S\)\\
+    \end{example}
+\end{remark}
+
+\begin{axiom}[\highlight{Completeness Property of \(\R\)}]
+    
+\end{axiom} Every nonempty set of real numbers has a supremum in \(\R\cup\{\infty\}\).
+
+\newpage
 
 % \subsection{Applications of Supremum}
 
