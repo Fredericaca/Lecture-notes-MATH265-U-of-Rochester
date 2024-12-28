@@ -27,7 +27,6 @@
 \newpage
 
 \section{Preliminaries}
-Still working on it...(missed 1st month due to late enrollment)
 % \newpage
 
 % \subsection{Sets and Functions}
@@ -40,17 +39,252 @@ Still working on it...(missed 1st month due to late enrollment)
 
 % \subsection{Finite and Infinite Sets}
 
-% \newpage
+\newpage
 
 \section{The Real Numbers}
-Still working on it...
-% \newpage
 
-% \subsection{The Algebraic and Order Properties of $\R$}
+\subsection{The Algebraic and Order Properties of \(\R\)}
 
-% \newpage
+\begin{axiom}[\highlight{Algebraic Property of \(\R\)}]
+    On the set R of real numbers there are two binary operations, denoted by \(+\) and \(\cdot\) called \highlight{addition} and \highlight{multiplication}, respectively. 
+    These operations satisfy the following properties.
 
-% \subsection{Absolute Value and the Real Line}
+    \highlight{Axioms for Addition}
+
+    \textbf{(A1)} For all \(a,b\in\R,\ a+b=b+a\) (\textit{commutative property of addition})
+
+    \textbf{(A2)} For all \(a,b,c\in\R,\ (a+b)+c=a+(b+c)\) (\textit{associative property of addition})
+
+    \textbf{(A3)} There exists an element \(0\in\R\) such that \(0+a=a+0=a\) for all \(a\in\R\)
+    \\(\textit{existence of zero element (additive identity)})
+
+    \textbf{(A4)} For all \(a\in\R\), there exists an element \(-a\in\R\st a+(-a)=(-a)+a=0\) \\
+    (\textit{existence of negative element (additive inverse)})
+
+    \highlight{Axioms for Multiplication}
+
+    \textbf{(M1)} For all \(a,b\in\R,\ a\cdot b=b\cdot a\) (\textit{commutative property of multiplication})
+
+    \textbf{(M2)} For all \(a,b,c\in\R,\ (a\cdot b)\cdot c=a\cdot (b\cdot c)\) (\textit{associative property of multiplication})
+
+    \textbf{(M3)} There exists an element \(1\in\R,\ 1\neq0,\st 1\cdot a=a\cdot 1=a\) for all \(a\in\R\) \\(\textit{existence of unit element (multiplicative identity)})
+
+    \textbf{(M4)} For all \(a\in\R,\ a\neq0\), there exists an element \(\dfrac{1}{a}\in\R\st a\cdot \dfrac{1}{a}=\dfrac{1}{a}\cdot a=1\) \\(\textit{existence of reciprocals (multiplicative inverse)})
+
+    \highlight{Distributive Law}
+
+    \textbf{(D)} For all \(a,b,c\in\R,\ a\cdot(b+c)=a\cdot b+a\cdot c\) (\textit{distributive law of multiplication over addition})\\
+
+\end{axiom}
+\begin{theorem}\ 
+
+    \textbf{(a)} If \(z,a\in\R\) with \(z+a=a\), then \(z=0\).
+
+    \textbf{(b)} If \(u,b\in\R,\ u,b\neq0\) with \(u\cdot b=b\), then \(u=0\).
+
+    \textbf{(c)} If \(a\in\R\), then \(a\cdot 0=0\).
+    
+    \begin{proof}
+        \textbf{(a)} Axiom (A3), (A4), (A2) gives \[z=z+0=z+(a+(-a))=(z+a)+(-a)=a+(-a)=0\]
+        \textbf{(b)} Axiom (M3), (M4), (M2) gives \[u=u\cdot1=u\cdot(b\cdot\frac{1}{b})=(u\cdot b)\cdot \frac{1}{b}=b\cdot\frac{1}{b}=1\]
+        \textbf{(c)} Axiom (M3), (D), (A3), theorem (a) gives
+        \[a+a\cdot 0=a\cdot 1+a\cdot 0=a\cdot(1+0)=a\cdot1=a\]
+        \[a\cdot0=0\]
+    \end{proof}
+\end{theorem}
+\newpage
+
+\begin{theorem}\ 
+
+    \textbf{(a)} If \(a,b\in\R,\ a\neq0\) with \(a\cdot b=1\), then \(b=\dfrac{1}{a}\).
+
+    \textbf{(b)} If \(a\cdot b=0\), then either \(a=0\) or \(b=0\).
+    
+    \begin{proof}
+        \textbf{(a)} Axiom (M3), (M4), (M2), \(a\cdot b=1\), (M3) gives 
+        \[b=1\cdot b=(\frac{1}{a }\cdot a)\cdot b=\frac{1}{a}\cdot(a\cdot b)=\frac{1}{a }\cdot 1=\frac{1}{a}\]
+        \textbf{(b)} It suffices to assume \(a\neq0\) and prove \(b=0\). (M2), (M4), (M3), and previous theorem(c) gives
+        \[b=1\cdot b=(\frac{1}{a}\cdot a)\cdot b=\frac{1}{a}\cdot(a\cdot b)=\frac{1}{a}\cdot 0=0\]
+    \end{proof}
+\end{theorem}
+
+\begin{definition}\ 
+    \begin{itemize}
+        \item We define \(-\), called \highlight{substraction}, as \(a-b=a+(-b)\) for all \(a,b\in\R\).
+        \item We define \(\div\), called \highlight{division}, as \(a\div b=a\cdot b=\dfrac{a }{b }\) for all \(a,b\in\R\).
+        \item We define \(a^n\), called \highlight{natural power}, as \(a^n=(((a\cdot a)\cdot a)\cdot \dots )\cdot a\) (n-times) for all \(a\in\R,\ n\in\N\).\\
+    \end{itemize}
+\end{definition}
+
+\begin{theorem}[\highlight{\(\sqrt{2}\) Is Irrational Number}] There is no rational number \(r\in\Q\) such that \(r^2=2\).
+    \begin{proof}
+        We will prove this by \highlight{contradiction}. 
+        
+        Assume there are \(p,q\in\Z\) satisfying \((\dfrac{p }{q })^2=2\). Without loss of generality, assume \(p,q>0\) and \(\gcd(p,q)=1\). Then 
+        \[p^2=2q^2\]
+        So \(p^2\) is even. This implies that \(p\) is also even(try to prove it!). Let \(p=2m\) for some \(m\in\Z\). Then 
+        \[p^2=4m^2=2q^2\]
+        \[2m^2=q^2\]
+        By the same argument, if \(q^2\) is even, then \(q\) is even.
+        Since \(p,q\) are even, \(\gcd(p,q)\) is at least 2, which contradicts our condition.\\
+    \end{proof}
+\end{theorem}
+
+\newpage
+\begin{axiom}[\highlight{Order of \(\R\)}] There is a non-empty set \(\mathbb{P}\subset\R\) called the set of \highlight{positive real} \highlight{numbers} that satisfies the following properties:
+    
+    \begin{enumerate}
+        \item If \(a,b\in\mathbb{P}\), then \(a+b\in\mathbb{P}\).
+        \item If \(a,b\in\mathbb{P}\), then \(a\cdot b\in\mathbb{P}\).
+        \item If \(a\in\R\), then one and only one of following holds:
+        \[a\in\mathbb{P},\ a=0,\ -a\in\mathbb{P}\]
+    \end{enumerate}
+    \highlight{Note:} for all \(a\in\R\)
+    \begin{itemize}
+        \item we write \(a>0\) and say \(a\) is \highlight{positive} if \(a\in\mathbb{P}\), 
+        \item we write \(a\ge 0\) and say \(a\) is \highlight{non-negative} if \(a\in\mathbb{P}\cup\{0\}\).
+        \item we write \(a<0\) and say \(a\) is \highlight{negative} if \(a\in\mathbb{P}\), 
+        \item we write \(a\le 0\) and say \(a\) is \highlight{non-positive} if \(-a\in\mathbb{P}\cup \{0\}\).\\
+    \end{itemize}
+    
+\end{axiom}
+
+\begin{definition}
+    Let \(a,b\in\R\).
+    \begin{enumerate}
+        \item If \(a-b\in\mathbb{P}\), we denote that \(a>b\) or \(b<a\).
+        \item If \(a-b\in\mathbb{P}\cup\{0\}\), we denote that \(a\ge b\) or \(b\le a\).
+    \end{enumerate}
+    \highlight{Note:} For all \(a,b\in\R\), there is one and only one of following holds:
+    \[a<b,\ a=b,\ a>b\]
+    And we call them a is \highlight{greater than}, \highlight{equal to}, or \highlight{less than} b respectively.\\
+\end{definition}
+
+\begin{theorem} Let \(a,b,c\in\R\).
+    \begin{enumerate}
+        \item If \(a>b\) and \(b>c\), then \(a>c\).
+        \item If \(a>b\), then \(a+c>b+c\).
+        \item If \(a>b\) and \(c>0\), then \(ca>cb\).\\If \(a>b\) and \(c<0\), than \(ca<cb\).
+    \end{enumerate}
+    \begin{proof}\ 
+
+        1.By definition, \(a-b\in\mathbb{P}\) and \(b-c\in\mathbb{P}\). Then
+        \[(a-b)+(b-c)=a-c\in\mathbb{P}\Rightarrow a>c\]
+        2. By definition, \(a-b\in\mathbb{P}\), then 
+        \[(a+c)-(b+c)\in\mathbb{P}\Rightarrow a+c>b+c\]
+        3. By dfinition, \(a-b\in\mathbb{P}\), then 
+        \[\text{If }c>0,\ c\in\mathbb{P},\ ca-cb=c(a-b)\in\mathbb{P}\Rightarrow ca>cb\]
+        \[\text{If }c<0,\ -c\in\mathbb{P},\ cb-ca=(-c)(a-b)\in\mathbb{P}\Rightarrow cb>ca\]
+    \end{proof}
+\end{theorem}
+
+\newpage
+
+\begin{theorem}\ 
+    \begin{enumerate}
+        \item If \(a\in\R\) and \(a\neq 0\), then \(a^2>0\).
+        \item 1>0
+        \item If \(n\in\N\), then \(n>0\).
+    \end{enumerate}
+    \begin{proof}\ 
+        \begin{enumerate}
+            \item Since \(a\neq0\), there are only two cases: 
+            \begin{itemize}
+                \item If \(a\in\mathbb{P}\), then \(a^2\in\mathbb{P}\).
+                \item If \(-a\in\mathbb{P}\), then \((-a)(-a)=a^2\in\mathbb{P}\). Proof of \((-a)(-a)=a^2\) is exercise
+            \end{itemize}
+            \item \(1\in\mathbb{P}\), so \(1^2\in\mathbb{P}\) by (1)
+            \item For all \(n\in\N\), \(n=(((1+1)+1)+\dots+1)+1\). Thus, this is true by induction.
+        \end{enumerate}
+        
+    \end{proof}
+\end{theorem}
+
+\begin{theorem}
+    If \(a\in\R,\ 0<a<\varepsilon\) for all \(\varepsilon>0\), then \(a=0\).
+    \begin{proof}
+        Assume that \(a>0\). Then if we take \(\varepsilon_0=\dfrac{1}{2}a\), we have \(0<\varepsilon_0<a\) a contradiction.
+        
+        Thus we conclude that \(a=0\).
+    \end{proof}
+\end{theorem}
+
+\begin{theorem}
+    If \(ab>0\), then either 
+    \begin{itemize}
+        \item \(a>0\) and \(b>0\), or 
+        \item \(a<0\) and \(b<0\)
+    \end{itemize}
+    \begin{proof}[Proof. Exercise.]
+        
+    \end{proof}
+\end{theorem}
+
+\begin{corollary}
+    If \(ab<0\), then either 
+    \begin{itemize}
+        \item \(a>0\) and \(b<0\), or 
+        \item \(a<0\) and \(b>0\)
+    \end{itemize}
+    \begin{proof}[Proof. Exercise.]
+        
+    \end{proof}
+\end{corollary}
+
+\begin{proposition}
+    Let \(a\ge 0,\ b\ge 0\). Then 
+    \[a<b \text{ iff }a^2<b^2\text{ iff }\sqrt{a}<\sqrt{b}\]
+    \begin{proof}\ 
+        \begin{itemize}
+            \item If \(a=0\), then it holds.
+            \item If \(a>0\), then 
+            \[b^2-a^2=(b+a)(b-a)>0\Leftrightarrow b-a>0\]
+            And \(\sqrt{a}<\sqrt{b}\Leftrightarrow a<b\) is a consequence of \(a<b\Leftrightarrow a^2<b^2\)
+        \end{itemize}
+    \end{proof}
+\end{proposition}
+
+\newpage
+
+\begin{theorem}[\highlight{Arithmetic-geometric Mean Inequality}]
+    For all \(a,b\in\R,\ a,b\ge0\), \(\ds \sqrt{ab}\le\frac{a+b }{2}\). Moreover, the inequality holds iff \(a=b\). 
+    \begin{proof}
+        If \(a\neq b\), \(\sqrt{a}\neq\sqrt{b}\), then 
+        \begin{align*}
+            (\sqrt{a}-\sqrt{b})^2&>0\\
+            a+b-2\sqrt{ab}&>0\\
+            \sqrt{ab}<\frac{a+b }{2}
+        \end{align*}
+        (\(\Leftarrow\)) If \(a=b\), then the equality holds.
+
+        (\(\Rightarrow\)) If \(\ds\sqrt{ab}<\frac{a+b }{2}\), then we reverse the previous working, 
+        \[(\sqrt{a}-\sqrt{b})^2=0\]
+        \[a=b\]
+    \end{proof}
+\end{theorem}
+
+\begin{theorem}[\highlight{Bernoulli's Inequality}]
+    If \(x>-1\), then for all \(n\in\N\),
+    \[(1+x)^n\ge 1+nx\]
+    \begin{proof}
+        We will prove this by mathematical induction.
+        \begin{itemize}
+            \item \(n=1\), then \(1+x\ge 1+x\), so \(P(1)\) holds.
+            \item Assume \(P(k)\) holds for all \(k\in\N\). We want to show that \(P(k+1)\) holds.
+            \begin{align*}
+                (1+x)^{k+1}&=(1+x)^k(1+x)\\
+                &\ge (1+kx)(1+x)=1+(k+1)x+kx^2\\
+                &\ge 1+(k+1)x
+            \end{align*}
+            Thus \(P(k+1)\) holds.
+        \end{itemize}
+        We conclude that \(P(n)\) holds for all \(n\in\N\).
+    \end{proof}
+    
+\end{theorem}
+
+\newpage
+\subsection{Absolute Value and the Real Line}
 
 % \newpage
 
