@@ -286,9 +286,150 @@
 \newpage
 \subsection{Absolute Value and the Real Line}
 
-% \newpage
+\begin{definition}
+    The \highlight{absolute value} of a real number \(a\), denoted by \(\abs{a}\), is defined by 
+    \[\abs{a}=\begin{cases*}
+        a& if \(a>0\)\\
+        -a& if \(a<0\)\\
+        0& if \(a=0\)
+    \end{cases*}\]
+\end{definition}
 
-% \subsection{The Completeness Property of $\R$}
+\begin{theorem}\ 
+    \begin{enumerate}
+        \item \(\abs{ab}=\abs{a}\cdot\abs{b}\) for all \(a,b\in\R\).
+        \item \(\abs{a}^2=\abs{a^2}\) for all \(a\in\R\).
+        \item If \(c\in\R,\ c\ge 0\), then 
+        \[\abs{a}\le c\text{ iff }-c\le a\le c\]
+        \item \(-\abs{a}\le a\le \abs{a}\).
+    \end{enumerate}
+    \begin{proof}[Proof. Exercise.]
+        
+    \end{proof}
+\end{theorem}
+
+\begin{theorem}[\highlight{Triangle Inequality}]
+    Let \(a,b\in\R\). Then 
+    \[\abs{a+b}\le \abs{a}+\abs{b}\]
+    \begin{proof}
+        By previous theorem(4), we have 
+        \[-\abs{a}\le a\le \abs{a}\text{ and } -\abs{b}\le b\le \abs{b}\]
+        \[-(\abs{a}+\abs{b})\le a+b\le \abs{a}+\abs{b}\]
+        Thus, by previuos theorem(3),
+        \[\abs{a+b}\le\abs{a}+\abs{b}\]
+    \end{proof}
+\end{theorem}
+
+\begin{remark}
+    \(ab\ge 0\) iff \(\abs{a+b}\le\abs{a}+\abs{b}\)
+    \begin{proof}[Proof. Exercise.]
+        
+    \end{proof}
+\end{remark}
+
+\begin{corollary}
+    Let \(a,b\in\R\). Then 
+    \begin{enumerate}
+        \item \(\abs{\abs{a}-\abs{b}}\le\abs{a-b}\).
+        \item \(\abs{a-b}\le\abs{a}+\abs{b}\).
+    \end{enumerate}
+    \begin{proof}\ 
+        \begin{enumerate}
+            \item We write \(a=a-b+b\). By triangle inequality, 
+            \[\abs{a}=\abs{(a-b)+b}\le\abs{a-b}+\abs{b}\]
+            \[\abs{a}-\abs{b}\le\abs{a-b}\]
+            Similarly \[\abs{b}-\abs{a}\le\abs{a-b}\]
+            We thereby conclude that (1) holds.
+            \item We "put \(-b\) in \(b\)" of triangle inequality:
+            \[\abs{a-b}\le\abs{a}+\abs{b}\]
+        \end{enumerate}
+    \end{proof}
+\end{corollary}
+
+\begin{corollary}
+    If \(a_1,\ a_2,\ \dots,\ a_n\in\R\), then 
+    \[\abs{a_1+a_2+\dots+a_n}\le\abs{a_1}+\abs{a_2}+\dots+\abs{a_n}\]
+    \begin{proof}
+        \begin{align*}
+            \abs{a_1+a_2+\dots+a_n}&\le\abs{a_1+a_2+\dots+a_{n-1}}+\abs{a_n}\\
+            &\le \abs{a_1+a_2+\dots+a_{n-2}}+\abs{a_{n-1}}+\abs{a_n}\\
+            & \dots\\
+            &\le \abs{a_1}+\abs{a_2}+\dots+\abs{a_n}
+        \end{align*}
+    \end{proof}
+\end{corollary}
+
+\begin{definition}
+    Let \(a\in\R\), \(\varepsilon>0\). Then the \highlight{\(\varepsilon\)-neighborhood of \(a\)} is the set 
+    \[\neighbor{\varepsilon}{a}=\{x\in\R|\abs{x-a}<\varepsilon\}\]
+    \begin{center}
+        \begin{tikzpicture}
+            \draw[thick,->] (-8.9,0) -- (2,0) node[anchor=north west] {x};
+            \filldraw[black] (-6,0) circle (2pt);
+            \draw (-6,-0.5) node{\(a-\varepsilon\)};
+            \filldraw[black] (-2,0) circle (2pt);
+            \draw (-2,-0.5) node{\(a+\varepsilon\)};
+            \filldraw[black] (-4,0) circle (2pt);
+            \draw (-4,-0.5) node{\(a\)};
+        \end{tikzpicture}
+    \end{center}
+\end{definition}
+
+\begin{theorem}
+    Let \(a\in\R\). If \(\forall \varepsilon>0,\ x\in\neighbor{\varepsilon}{a}\), then \(x=a\). 
+    \begin{proof}
+        By definition of neighborhood, \(\forall \epsilon>0, \abs{x-a}<\varepsilon\). Thus by previous theorem,
+        \[\abs{x-a}=0\Rightarrow x-a=0\Rightarrow x=a\]
+    \end{proof}
+\end{theorem}
+
+\begin{proposition}
+    Let \(a,b\in\R\) with \(a<b\). Consider the \highlight{open interval} 
+    \[(a,b)=\{x|a<x<b\}\]
+    Then for all \(x\in(a,b),\ \exists\varepsilon>0\st\)
+    \[\neighbor{\varepsilon}{x}\subseteq(a,b)\]
+    \begin{proof}
+        Choose \(\varepsilon=\min\{\abs{x-a},\ \abs{x-b}\}\). Suppose \(y\in\neighbor{\varepsilon}{x}\), then 
+        \[\abs{x-y}<\varepsilon\]
+        \[x-\varepsilon<y<x+\varepsilon\]
+        So it is either 
+        \begin{itemize}
+            \item \(-a<-b<y<b\) if \(a>b\), or 
+            \item \(-b<-a<y<a\) if \(a<b\)
+        \end{itemize}
+        We conclude that \(y\in(a,b)\)
+    \end{proof}
+\end{proposition}
+
+\newpage
+
+\begin{proposition}
+    Let \(a,b\in\R\) with \(a<b\). Consider the \highlight{closed interval} 
+    \[[a,b]=\{x|a\le x\le b\}\]
+    Then for all \(\varepsilon>0\),
+    \[\neighbor{\varepsilon}{x}\not\subseteq(a,b)\]
+    \begin{proof}[Proof. Exercise.]
+        
+    \end{proof}
+\end{proposition}
+
+\begin{proposition}
+    Let \(x,y,a,b\in\R\). If \(x\in\neighbor{\varepsilon}{a},\ y\in\neighbor{\varepsilon}{b}\), then 
+    \[x+y\in\neighbor{2\varepsilon}{a+b}\]
+    \begin{proof} By definintion of neighborhood,
+        \begin{align*}
+            \abs{(x+y)-(a+b)}&=\abs{(x-a)+(y-b)}\\
+            &\le\abs{x-a}+\abs{y-b}\\
+            &<\varepsilon+\varepsilon=2\varepsilon
+        \end{align*}
+        Thus \(x+y\in\neighbor{2\varepsilon}{a+b}\).
+    \end{proof}
+\end{proposition}
+
+\newpage
+
+\subsection{The Completeness Property of $\R$}
+
 
 
 % \newpage
