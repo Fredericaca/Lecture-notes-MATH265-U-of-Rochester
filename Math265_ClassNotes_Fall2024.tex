@@ -2391,5 +2391,227 @@ Consider \(f(x)=\sin(\dfrac{1}{x})\). As \(x\) approaches 0, the function value 
         The same argument applies to \(b\). Thus, we conclude that \(f\) has a continuous extension to the interval \([a,b]\)
     \end{proof}
 \end{theorem}
+
+\newpage
+\subsection*{5.6\ \ Monotone and Inverse Functions}
+
+\highlight{Note:} In this section, we will be focusing on \highlight{monotone functions} on an \highlight{interval} \(I\). 
+Specifically, we will discuss \highlight{increasing functions}. It is easy to derive corresponding results for decreasing functions wit similar proof techniques.\\
+
+\begin{theorem}
+    Let \(I\subseteq\R\) be an interval and let \(f:I\rightarrow\R\) be increasing on \(I\). Suppose that \(c\in I\) is NOT an endpoint of \(I\). Then 
+    \begin{enumerate}
+        \item \(\ds\limx{c- }{f }=\sup\{f(x):x\in I,\ x<c\}\)
+        \item \(\ds\limx{c+ }{f }=\inf\{f(x):x\in I,\ x<c\}\)
+    \end{enumerate}
+    \textbf{Recall:} \(\ds\limx{c-}{f(x)=L}\) if \(\forall \varepsilon>0, \exists\delta>0\st\forall x\in I\) 
+    \[0<c-x<\delta\Rightarrow\abs{f(x)-L}<\varepsilon\]
+    \begin{proof}[Proof. (1)] 
+        By monotonicity of \(f\), \(\forall x<c\),
+        \[f(x)\le f(c)\]
+        Thus, the set is non-empty, and \(f(c)\) is the upper bound of it. This indicates that 
+        \[\exists L=\sup\{f(x):x\in I, x<c\}\]
+        Then \(\forall\varepsilon>0,\ L-\varepsilon\) is not an upper bound of the set. Hence \(\exists x_\varepsilon\in I, x_\varepsilon<c\st\)
+        \[L-\varepsilon<f(x_\varepsilon)\le L\]
+        We choose \(\delta=c-x_\varepsilon\). Then \(\forall x\in I,\ 0<c-x<\delta\rightarrow x_\epsilon<x\). Thus,
+        \[-\varepsilon<f(x_\delta)-L\le f(x)-L\le 0<\varepsilon\]
+        \[\abs{f(x)-L}<\varepsilon\]
+        Thus \[L=\limx{c- }{f(x)}\]
+        The proof of (2) is similar.
+    \end{proof}
+\end{theorem}
+
+\begin{corollary}[\highlight{One-sided Limits Criterion for Continuity}]
+    Let \(I\subseteq\R\) be an interval and let \(f:I\rightarrow\R\) be increasing on \(I\). Suppose that \(c\in I\) is NOT an endpoint of \(I\). 
+    Then the following statements are equivalent:
+    \begin{itemize}
+        \item \(f\) is continuous at \(c\).
+        \item \(\ds \limx{c-}{f(x)}=f(c)=\limx{c+}{f(x)}\).
+        \item \(\ds \sup\{f(x):x\in,\ x<c\}=f(c)=\inf\{f(x):x\in I,\ x>c\}\).
+    \end{itemize}
+
+    \begin{proof}[Proof. Exercise.]
     
+    \end{proof}
+\end{corollary}
+
+\newpage
+
+\textbf{Recall. } A function \(f:I\rightarrow\R\) has \highlight{inverse function} if and only if \(f\) is \highlight{injective}. 
+
+\textbf{Note:} It is not difficult to prove that a \highlight{strictly monotone} function is \highlight{injective} and thus has an inverse.\\
+
+\begin{theorem}[\highlight{Continuous Inverse Theorem}]\ \\
+    Let \(I\subseteq\R\) be an interval and let \(f:I\rightarrow\R\) be \highlight{strictly monotone} and \highlight{continuous} on \(I\).
+    Then the inverse function \(g:f(I)\rightarrow I,\ g(y)=f^{-1}(y)\) is \highlight{strictly monotone} and \highlight{continuous} on \(f(I)\).
+
+    \begin{proof}
+        WLOG, we assume that \(f\) is \textbf{strictly increasing}. We will first prove that \(g\) is strictly increasing.
+
+        Suppose \(\exists y_1,\ y_2\in f(I), y_1<y_2\), then \(\exists x_1,\ x_2\in I\st\)
+        \(f(x_1)=y_1,\ f(x_2)=y_2\)
+        \begin{enumerate}
+            \item Assume that \(x_1=x_2\). 
+            
+            Then, \(y_1=f(x_1)=f(x_2)=y_2\) contradicts assumption. So \(x_1\neq x_2\).
+            \item Assume that \(x_1>x_2\). 
+            
+            Then \(y_1=f(x_1)>f(x_2)=y_2\) contradicts assumption. So \(x_1\not>x_2\).
+        \end{enumerate}
+        Thus, \(x_1<x_2\). It follows that \[g(y_1)<g(y_2)\]
+        We conclude that \(g\) is strictly monotone.
+
+        Subsequently, we will prove that \(g\) is \textbf{continuous}.
+
+        Assume \(g\) is discontinuous. Then, by inverse of previous criterion, \(\exists c\in f(I),\ \) \\\(c\text{ is not endpoints of } f(I)\st\)
+        \[\lim_{y\rightarrow c-}{g(y)}<\lim_{y\rightarrow c+}{g(y)}\]
+        Let \(x_0\in(\ds\lim_{y\rightarrow c-}{g(y)},\ \lim_{y\rightarrow c+}{g(y)})\ \backslash\ g(c)\).
+        Then \[x_0\not\in g(f(I))\subseteq I\]
+        which contradicts that fact that \(x_0\in I \)
+        \centerfig[0.55]{conti-inverse.jpg}
+    \end{proof}
+\end{theorem}
+
+\newpage
+
+\section*{8\ \ Sequence of Functions}
+\subsection*{8.1\ \ Pointwise and Uniform Convergence}
+\begin{definition}[\highlight{Sequence of Functions}]
+    Let \(A\subseteq\R\). 
+    
+    We say that \(\seqfun{x}\) is a \highlight{sequence of functions} on \(A\) to \(\R\) if 
+    \[\forall n\in\N,\ \exists f_n:A\rightarrow\R\]
+\end{definition}
+
+\begin{definition}[\highlight{Convergence of Sequence of Functions}]
+    Let \(\seqfun[n ]{x}\) be a sequence of functions on \(A\) to \(\R\). Let \(A_0\subseteq A\), and \(f:A_0\rightarrow\R\). 
+    
+    We say that \(\seq{x}{n}\) \highlight{converges on \(A_0\) to \(f\)} if \(\forall x\in A_0\), 
+    \[\limn{\seqfun{x}}=f(x)\text{ or }f_n\rightarrow f\text{ on }A_0\]
+    We call \(f\) the \highlight{limit of \(f_n\) on \(A_0\)}. Or we say that \highlight{\((f_n)\) converges pointwise on \(A_0\)}.\\
+\end{definition}
+
+\begin{lemma}[\highlight{\(\varepsilon-\delta\) Definition}]
+    Let \(A_0\subseteq A\subseteq\R\), \(f:A_0\rightarrow\R\). 
+    A sequence of functions \(\seqfun[n ]{x }:A\rightarrow\R\) converges pointwise to \(f\) if and only if 
+
+    \(\forall \varepsilon>0, \exists N(\varepsilon,\ x)\in\N\st \forall n\ge N(\varepsilon,\ x),\)
+    \[\abs{f_n(x)-f(x)}<\varepsilon\]
+    \begin{remark}
+        We emphasize that the choice of \(N(\varepsilon,\ x)\) depends on \highlight{both} \(\varepsilon\) and \(x\).\\
+    \end{remark}
+\end{lemma}
+
+\begin{example}\(\ds \forall x\in\R,\ \limn{\frac{x }{n }}=0\). Let \(f_n(x)=\dfrac{x }{n },\ f(x)=0\). We have 
+    \[\limn{\seqfun[n ]{x }}=\lim(\frac{x }{n })=x\limn{\frac{1 }{n }}=x\cdot 0=0=f(x)\]
+    Thus \(\seqfun[n ]{x }\rightarrow 0\) pointwise on \(\R\). 
+    \centerfig[0.4]{fn(x)_xn}
+
+    Or, \(\forall \varepsilon>0, \)
+    \[\abs{\frac{x }{n }-0}=\frac{\abs{x }}{n}<\varepsilon\]
+    So, it surffices to choose \(K(\varepsilon,\ x)=\ds\left\lceil\frac{\abs{x}}{\varepsilon}\right\rceil\).
+\end{example}
+
+\newpage
+
+\begin{example} Consider \(\forall x\in\R,\ n\in\N,\ g_n(x)=x^n\). 
+
+    By previous example, we know that 
+    \[\lim(x^n)=\begin{cases*}
+        0 & if \(-1<x<1\),\\
+        1 & if \(x=1\)
+    \end{cases*}\]
+    And if \(x=-1,\ g_n(-1)=(-1)^n\) is divergent. 
+
+    If \(\abs{x}>1\), \((x^n)\) is divergent as well.
+
+    Define \(g:(-1,1]\rightarrow \R,\ g(x)=\lim(x^n)\). Then, 
+    \[g_n\rightarrow g \text{ on } (-1,1]\]
+
+\end{example}
+
+\begin{definition}[\highlight{Uniform Convergence}]
+    A sequence of \(\seqfun[n ]{x }\) functions on \(A\subseteq\R\) to \(\R\) \highlight{converges uniformly} on \(A_0\subseteq A\) to a function \(f:A_0\rightarrow\R\) if and only if 
+    \(\forall \varepsilon>0,\ \exists K(\varepsilon)\in\N\st\forall n\ge K(\varepsilon),\ \forall x\in A_0\),
+    \[\abs{f_n(x)-f(x)}<\varepsilon\]
+    In this case, we say that \((f_n)\) is \highlight{uniformly convergent} on \(A_0\).\\
+    \begin{remark}
+        The choice of \(K(\varepsilon)\) depends on \highlight{only} \(\varepsilon\).\\
+    \end{remark}
+\end{definition}
+
+\begin{example}
+    \(f_n(x)=\dfrac{\sin(nx+n)}{n}\) converges uniformly to \(f(x)=0\).
+    \begin{proof}
+        \[\abs{f_n(x)-f(x)}=\abs{\frac{\sin(nx+n)}{n}}<\frac{1 }{n }<\varepsilon\]
+        So \(N=\left\lceil\dfrac{1}{\varepsilon}\right\rceil\) will satisfies the condition.
+
+    \end{proof}
+\end{example}
+
+\begin{lemma}
+    A sequence of \(\seqfun[n ]{x }\) functions on \(A\subseteq\R\) to \(\R\) is \highlight{NOT uniformly convergent} on \(A_0\subseteq A\) to a function \(f:A_0\rightarrow\R\) if and only if 
+    \begin{itemize}
+        \item there exists \(\varepsilon_0>0\st\forall N\in\N,\ \exists x\in A_0,\ \exists n\ge N\st\)
+        \[\abs{f_n(x)-f(x)}\ge\varepsilon_0\]
+        \item there exists \(\varepsilon_0>0\), a subsequence \((f_{n_k})\) of \((f_n)\), and a sequence \(\seq{x }{k }\in A_0\st\) 
+        \[\abs{f_{n_k}(x_k)-f(x_k)}\ge\varepsilon_0,\ \forall k\in\N\]
+    \end{itemize}
+    
+    \begin{proof}[Proof. Exercise.]
+        
+    \end{proof}
+\end{lemma}
+
+\newpage
+
+\begin{example}
+    \(f_n(x)=\dfrac{x }{n }\) does NOT converge unifromly to \(f(x)=0\) on \(\R\).
+    \begin{proof}
+        Let \(\varepsilon_0=1\)
+        \begin{enumerate}
+            \item When \(n_1=1,\ x_1=1\), we have \(\abs{f_1(x_1)-f(x_1)}= 1\)
+            \item When \(n_2=2,\ x_2=2\), we have \(\abs{f_2(x_2)-f(x_2)}= 1\)
+            \item So choose \(x_k=k,\ n_k=k\), we have 
+            \[\abs{f_{n_k}(x_k)-f(x_k)}=\abs{\frac{x_k }{n_k}-0}=1\ge \varepsilon_0\]
+        \end{enumerate}
+        By preceding lemma, \((f_n)\) does NOT congerge to \(f\) uniformly on \(\R\)
+    \end{proof}
+\end{example}
+
+\begin{example} Let \(f_n:\R\rightarrow\R\), \(f_n(x)=\dfrac{x^2+nx}{n}\)
+    
+    \highlight{Claim:} \(f_n\) does NOT uniformly converge to \(f(x)=x\) on \(\R\).
+    \begin{proof}
+        Choose \(\varepsilon_0=1\). \(\forall k\in\N\), if we choose \(n_k=k,\ x_k=-k\)
+        \begin{align*}
+            \abs{f_{n_k}(x_k)-f(x_k)}&=\abs{\frac{x_k^2+n_kx_k}{n_k}-x_k}\\
+            &=\abs{\frac{(-k)^2+k\cdot(-k)}{k}-(-k)}\\
+            &=k\ge 1
+        \end{align*} 
+        Thus, by previous lemma, \(f_n\) does NOT uniformly converge to \(f\) on \(\R\).
+    \end{proof}
+
+    \highlight{Claim:} \((f_n)\rightarrow f\) uniformly on \([0,1]\).
+    \begin{proof}
+        \(\forall \varepsilon>0\). Observe that \(\forall x\in[0,1],\ n\in\N\),
+        \[\abs{\frac{x^2+nx}{n}-x}=\abs{x^2}\le \frac{1}{n}<\varepsilon\]
+        Thus, it suffices to choose \(N=\left\lceil\dfrac{1}{n}\right\rceil\)
+    \end{proof}
+\end{example}
+
+\begin{example}
+    Let \(f_n:[0,1]\rightarrow\R,\ f_n(x)=x^n\).
+
+    \highlight{Claim:} \(f_n\) does NOT converge uniformly onn \([0,1)\). 
+
+    Choose \(\varepsilon_0=\dfrac{1}{2}.\ \forall k\in\N,\ \exists n_k\in\N\st\)
+    \[n_k=k,\ x_k=(\frac{1}{2})^{\frac{1}{k}}\]
+    Then \begin{align*}
+        \abs{f_{n_k}(x_k)-f(x_k)}&=\abs{x_k^{n_k}-0}\\
+        &=(x_k)^k=\frac{1}{2}\ge\varepsilon_0
+    \end{align*}
+    We conclude that \(f_n\) is not uniformly convergent to \(f\) on \([0,1]\).
+\end{example}
+
 \end{document}
