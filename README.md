@@ -19,7 +19,7 @@ Change the following line of code in the Math265_ClassNotes_Fall2024.tex.
 
 ## Textbook, schedule, grading rubrics
 - [Introduction to Real Analysis, 4th Edition, by Robert G. Bartle, Donald R. Sherbert](/Introduction%20to%20Real%20Analysis.pdf)
-- [Schedule](/Schedule.png)
+- [Schedule](/Schedule.png). Yes, we **skipped differentiation** in *Real Analysis* course. Ridiculous.
   ![Schedule](/Schedule.png)
 - [Grading](/Grading.png)
   ![Grading](/Grading.png)

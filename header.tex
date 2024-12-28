@@ -29,6 +29,8 @@
 \usepackage{tikz}
 \usepackage{wrapfig}
 \usepackage{mathtools}
+\usepackage{caption}
+\usepackage{subcaption}
 
 % Theorems-renew
 \theoremstyle{definition}
@@ -70,10 +72,12 @@
 
 %Sequence
 \newcommand{\seq}[2]{(#1_{#2})}
+\newcommand{\seqfun}[2][n]{(f_{#1}(#2))}
 
 %Abbv
 \newcommand{\st}{\text{ s.t. }}
 \newcommand{\limx}[2]{\lim_{x\rightarrow #1} {#2}}
+\newcommand{\limn}[1]{\lim_{n\rightarrow\infty} {#1}}
 \newcommand{\ds}{\displaystyle}
 
 %RenewCommand
@@ -95,12 +99,6 @@
     \centering
   \end{wrapfigure}
 }
-% \newcommand{\centerfig}[1]{
-%   \begin{figure}[h]
-%     \includegraphics[width=0.6\textwidth]{image/#1}
-%     \centering
-%   \end{figure}
-% }
 \newcommand{\centerfig}[2][0.6]{
   \begin{figure}[h]
     \includegraphics[width=#1 \textwidth]{image/#2}
