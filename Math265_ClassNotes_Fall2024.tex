@@ -662,7 +662,7 @@
     \[n_y-1\le y<n_y\]
     \begin{proof}
         Construct \[E_y=\{m\in\N:y<m\}\]
-        By Archimedea Property, \(E_y\neq\phi\).
+        By Archimedean Property, \(E_y\neq\phi\).
         By Well-Ordering of \(\N\), \(\exists n_y\in\N\st\)
         \[\exists n_y=\min E_y\Rightarrow y<n_y\]
         Since we cannot have \(y<n_y-1\)
@@ -673,9 +673,86 @@
 \begin{theorem} (\highlight{Existence of \(\sqrt{2}\)})
     \(\exists x\in\R,\ x>0\st x^2=2\)
     \begin{proof}
+        Let \(S=\{s\in\R:s^2<2\}\).
+        \highlight{Claim:} \(\sup S\) satisfies \((\sup S)^2=2\).
+
+        Since \(1^2=1<2\), \(1\in S\), so \(S\) is nonempty.
+
+        Assume 2 is not an upper bound of \(S\). Then, \(\exists s\in S\st  s>2\). Thus 
+        \[s^2>4\ \wedge\  s^2<2\]
+        a contradiction. Thus, 2 is an upper bound of \(S\). \(\forall s\in S, s\le 2\).
+
+        By Completeness Theorem Property, \(\exists x=\sup S\in\R\). 
         
+        Since we want to show \(x^2=2\). it suffices to show that 
+        \[x^2\ge 2\ \wedge x^2\le 2\]
+        We will prove those two statement by contradiction.
+        \begin{itemize}
+            \item Assume \(x^2<2\). Then \(\forall n\in \N\)
+            \[(x+\dfrac{1}{n})^2=x^2+\frac{2x }{n } +\frac{1}{ n^2 }=x^2+\frac{1}{n }(2x+\frac{1}{n } )\le x^2+\frac{1}{n }(2x+1)\]
+            \highlight{Goal:} Choose a \(N\in\N\) large enough such that \((x+\dfrac{1}{n })^2<2\). Thus, 
+            \begin{align*}
+                x^2+\frac{1}{n}(2x+1)&<2\\
+                \frac{1}{n }(2x+1)&<2-x^2\\
+                \frac{1}{n}&<\frac{2-x^2}{2x+1 }\\
+                n&>\frac{2x+1}{2-x^2}
+            \end{align*}
+            Thus by Archimedean Property, \(\exists n\in\N,\ n=\ds\left\lceil\frac{2x+1}{2-x^2}\right\rceil\st \)
+            \[(x+\frac{1}{n })^2\le x^2+\frac{1 }{n }(2x+1)<2\]
+            \[x+\frac{1 }{n }\in S\]
+            which is a contradiction to \(x=\sup S\).
+            \item Assume \(x^2>2\). Then \(\forall m\in\N\), 
+            \[(x-\frac{1}{m})^2=x^2-\frac{2x }{n }+\frac{1 }{m^2 }>x^2-\frac{2x }{m}\]
+            \highlight{Goal:} find \(m\in\N\) large enough such that  \((x-\frac{1}{m })^2>2\). It follows that 
+            \begin{align*}
+                x^2-\frac{2x }{m }&>2\\
+                \frac{2x }{m }&<x^2-2\\
+                m&>\frac{2x }{x^2-2}
+            \end{align*}
+            By Archimedean Property, \(\exists m\in\N,\ m=\ds\left\lceil\frac{2x}{x^2-2}\right\rceil\st\)
+            \[(x-\frac{1}{m })^2>x^2-\frac{2x }{x^2-2 }>2\]
+            thus \((x-\frac{1}{m })^2\) is an upper bound of \(S\). However, since 
+            \[x<x-\frac{1}{m }\]
+            so \(x\) is NOT an supremum of \(S\), which is a contradiction. 
+        \end{itemize}
+        Thus, we conclude that \(\exists x\in\R\st x^2=2\).\\
     \end{proof}
 \end{theorem}
+
+\begin{remark}
+    By Binomial Expansion, one may show the existence of positive \(n\)-th roots for all \(n\in\N\).\\
+\end{remark}
+
+\begin{theorem}[\highlight{Rationals Are Dense in \(\R\)}]
+    If \(x,y\in\R\) with \(x<y\), then there exists a \highlight{rational} \highlight{number} \(r\in\Q\) such that \(x<r<y\).
+    \begin{proof}
+        WLOG, we may assume that \(x,y>0\).
+
+        Since \(y-x>0\Rightarrow\dfrac{1}{y-x}>0,\exists n\in\N\st n>\dfrac{1}{y-x}\) by Archimedean Property. Thus 
+        \[1<ny-nx\Rightarrow nx+1<ny\]
+        By Archimedean Property, \(\exists m\in\N\st\)
+        \[m-1\le nx<m\]
+        \[nx<m\le nx+1<ny\]
+        \[x<\frac{m }{n }<y\]
+    \end{proof}
+\end{theorem}
+
+\newpage
+
+\begin{corollary}[\highlight{Irrationals Are Dense in \(\R\)}]
+    If \(x,y\in\R\) with \(x<y\), then there exists an \highlight{irrational number} \(z\in\Q\) such that \(x<z<y\).
+    \begin{proof}
+        Apply the density theorem of rationals to real number \(\dfrac{x }{\sqrt{2}}\) and \(\dfrac{y }{\sqrt{2}}\), we have 
+        \[\frac{x }{\sqrt{2}}<r<\frac{y }{\sqrt{2}}\]
+        \[x<\sqrt{2}r<y\]
+        \highlight{Goal:} Prove \(\sqrt{2}r\) is irrational by contradiction.
+        
+        Assume that \(\sqrt{2}r\) is rational. Then \(\exists p,q\in\Z,\ q\neq0\st\)
+        \[\sqrt{2}r=\frac{p }{q}\]
+        \[\sqrt{2}=\frac{p}{q}r\in\Q\]
+        which is a contradiction since \(\sqrt{2}\in\R\backslash\Q\). Thus we conclude that \(\sqrt{2}r\in\R\backslash\Q\).
+    \end{proof}
+\end{corollary}
 
 % \newpage
 % \subsection{Intervals}
