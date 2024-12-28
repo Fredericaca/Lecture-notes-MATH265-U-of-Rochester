@@ -537,11 +537,145 @@
 
 \begin{axiom}[\highlight{Completeness Property of \(\R\)}]
     
-\end{axiom} Every nonempty set of real numbers has a supremum in \(\R\cup\{\infty\}\).
+\end{axiom} Every nonempty set of real numbers has a supremum in \(\R\cup\{\infty\}\). It is also called \highlight{least-upper-bound-property} or \highlight{LUP} or \(\R\).
 
 \newpage
 
-% \subsection{Applications of Supremum}
+\subsection{Applications of Supremum}
+
+\begin{definition}
+    Let \(S\subseteq\R,\ a\in\R\). We define 
+    \[a+S=\{a+s:\forall s\in S\}\]
+    More generally, 
+    \[A+B=\{a+b:\forall a\in A,\ b\in B\}\]
+\end{definition}
+
+\begin{proposition}\(\sup (a+S)=a+\sup S\)
+    \begin{proof}
+        Let \(u=\sup S\). Then \(\forall s\in S,\ u\ge s\). Thus 
+        \[a+u\ge a+s\]
+        It follows that \(a+u\) is an upper bound of \(a+S\). Thus,
+        \[\sup(a+S)\le a+u\]
+        Let \(v\) be an upper bound of \(a+S\), so \(\forall s\in S\)
+        \begin{align*}
+            v&\ge a_s\\
+            v-a&\ge s\\
+        \end{align*}
+        Thus \(v-a\) is an upper bound of \(S\).
+        \begin{align*}
+            v-a&\ge\sup S=u\\
+            v&\ge a+u\\
+            \sup(a+S)&\ge a+u
+        \end{align*}
+        Thus, 
+        \[a+\sup(S)=\sup(a+S)\]
+    \end{proof}
+\end{proposition}
+
+\begin{proposition}
+    Suppose \(A,B\subseteq\R\). Then
+    \[\sup(A+B)=\sup A+\sup B\]
+    \begin{proof}[Proof. Exercise.]
+        
+    \end{proof}
+\end{proposition}
+
+\begin{proposition}
+    Suppose \(A,B\subseteq\R\) satisfying \(\forall a\in A,\ b\in B,\ a\le b\). Then 
+    \[\sup A\le \inf B\]
+    \begin{proof}
+        \(\forall a\in A,\ b\in B,\ a\le b\Rightarrow b\) is an upper bound for A.
+        \[\sup A\le b\]
+        Thus \(\sup A\) is a lower bound for \(B\).
+        \[\sup A\le\inf B\] 
+    \end{proof}
+\end{proposition}
+
+\begin{exercise}
+    Provide an example of \(A,B\subseteq\R\st \forall a\in A,\ b\in B,\ a<b\) but 
+    \[\sup A=\inf B\]
+    \begin{example}
+        \[A=(2,3),\ B=[3,4]\]
+    \end{example}
+\end{exercise}
+
+\newpage
+
+\begin{proposition}
+    Let \(D\subseteq\R,\ f,g:D\rightarrow\R\). If \(\forall x\in D,\ f(x)\le g(x)\), then 
+    \[\sup_{x\in D}f(x)\le \sup_{x\in D}g(x)\]
+    \begin{proof}
+        \(\exists u=\sup g(D)\). Then \(\forall x\in D,\)
+        \[f(x)\le g(x)\le\sup g(D)\]
+        so \(\sup g(D)\) is an upper boudn of \(f(D)\). Thus 
+        \[\sup f(D)\le \sup g(D)\]
+    \end{proof}
+\end{proposition}
+
+\begin{remark}
+    \(\forall x\in D,\ f(x)\le g(x)\) does not imply any relation between \(\sup f(D)\) and \(\inf g(D)\).\\
+\end{remark}
+\begin{proposition}
+    If \(\forall x,y\in D,\ f(x)\le g(y)\), then we may conclude that \(\sup f(D)\le \inf g(D)\).
+    \begin{proof}
+        It is a direct consequence of proposition.
+    \end{proof}
+\end{proposition}
+
+\newpage
+
+\begin{theorem}[\highlight{Archimedean Property}]
+    \(\forall x\in R,\ \exists n_x\in\N\st x\le n_x\).
+    \begin{proof}
+        Assume \(\forall n\in\N,\ n<x\). We have \[\sup \N\le x\].
+        Consider \(\sup \N-1\). Then \(\exists n\in\N\st \)
+        \[\sup\N-1<n\]
+        \[\sup\N<1+n\in\N\]
+        thus \(\sup\N\) is NOT an upper boudn of \(\N\), which is a contradiction.
+    \end{proof}
+\end{theorem}
+
+\begin{corollary}
+    If \(S=\{\dfrac{1}{n }:\forall n\in\N\}\), then
+    \[\inf S=0\]
+    \begin{proof}
+        \(\forall \varepsilon>0\), by Archimedean Property, \(\exists n\in\N\st\)
+        \[\frac{1}{\varepsilon}<n\Rightarrow\frac{1}{n}<\varepsilon\]
+        \[0\le \inf S\le\frac{1}{n }<\varepsilon\]
+        By previous theorem of \(\varepsilon\), \[\inf S=0\]
+    \end{proof}
+\end{corollary}
+
+\begin{corollary}
+    \(\forall y>0,\ \exists n_y\in\N\st\)
+    \[0<\frac{1}{n_y }<y\]
+    \begin{proof}
+        Let \(x=\dfrac{1}{y }\in\R\). By Archimedean Property, \(\exists m_y\in\N\st\)
+        \[m_y\ge x=\frac{1}{y}\]
+        Let \(n_y=m_y+1\in\N\). Then 
+        \[n_y>\frac{1}{y}\Rightarrow0<\frac{1}{n_y }<y\]
+    \end{proof}
+\end{corollary}
+
+\begin{corollary}
+    \(\forall y>0,\exists n_y\in\N\st\)
+    \[n_y-1\le y<n_y\]
+    \begin{proof}
+        Construct \[E_y=\{m\in\N:y<m\}\]
+        By Archimedea Property, \(E_y\neq\phi\).
+        By Well-Ordering of \(\N\), \(\exists n_y\in\N\st\)
+        \[\exists n_y=\min E_y\Rightarrow y<n_y\]
+        Since we cannot have \(y<n_y-1\)
+        \[n_y-1\le y<n_y\]
+    \end{proof}
+\end{corollary}
+
+\begin{theorem} (\highlight{Existence of \(\sqrt{2}\)})
+    \(\exists x\in\R,\ x>0\st x^2=2\)
+    \begin{proof}
+        
+    \end{proof}
+\end{theorem}
 
 % \newpage
 % \subsection{Intervals}
