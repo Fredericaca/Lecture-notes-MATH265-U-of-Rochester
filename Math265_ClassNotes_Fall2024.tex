@@ -1284,7 +1284,7 @@ where instead of writing \(a(1), a(2), \dots\), we write it as \(a_1, a_2, \dots
 
 \begin{notation}
 
-\[(a_n)_{n=1}^\infty  \text{ or }  (a_n)_{n\in\N}  \text{ or }  (a_n)  \text{ or }  (a_n|n\in \N)\]\\
+    \[(a_n)_{n=1}^\infty  \text{ or }  (a_n)_{n\in\N}  \text{ or }  (a_n)  \text{ or }  (a_n|n\in \N)\]\\
 \end{notation}
 
 \begin{definition}[\textbf{Converge to x}]
@@ -1298,7 +1298,6 @@ where instead of writing \(a(1), a(2), \dots\), we write it as \(a_1, a_2, \dots
     has \highlight{no limit} in $\R$.\\
 \end{definition}
 
-\newpage
 \begin{theorem}[\textbf{Uniqueness of Limit}]
     A sequence in $\R$ can have \highlight{at most one} limit. Or, the limit of a sequence is \highlight{unique} if the limit exists 
 \end{theorem}
@@ -1335,7 +1334,7 @@ where instead of writing \(a(1), a(2), \dots\), we write it as \(a_1, a_2, \dots
         \Rightarrow & \lim_{n \to \infty}\frac{1}{n} = 0
     \end{align*}
 \end{proof}
-\newpage
+
 \begin{theorem}
     Let \((x_n)\) be a sequence of real numbers, and let \(x \in \R\). The following are equivalent:
 \begin{enumerate}
@@ -1361,6 +1360,8 @@ where instead of writing \(a(1), a(2), \dots\), we write it as \(a_1, a_2, \dots
     \[\lim_{n\to\infty}(-1)^n\text{ does not exist.}\]\\
 \end{remark}
 
+\newpage
+
 \begin{definition}[\textbf{m-tail}]
     If \((x_n)\) is a sequence of real numbers and \(m \in \N\), then the \highlight{m-tail} of \((x_n)\) is the sequence 
     \[\{x_{n+m}:n\in\N\}=\{x_{m+1}, x_{m+2}, \dots\}\]
@@ -1377,7 +1378,6 @@ where instead of writing \(a(1), a(2), \dots\), we write it as \(a_1, a_2, \dots
     Consider \({N_\varepsilon}':=N_\varepsilon + m\) then
     \[n+m \ge {N_\varepsilon}' \Rightarrow n\ge N_\varepsilon \Rightarrow n+m\ge N_\varepsilon \Rightarrow \abs{x_{n+m}-x}<\varepsilon\]
     It follows that \[n\ge N_\varepsilon \Rightarrow n+m \ge N_\varepsilon \Rightarrow \abs{x_{n+m}-x}<\varepsilon\]
-    \newpage
     \((\Leftarrow)\)\\
     Suppose \(x_{n+m}\rightarrow x\).
     \[\forall \varepsilon>0,\exists N_\varepsilon>0 \text{ such that } \abs{x_{n+m}<\varepsilon}, \forall n\ge N_\varepsilon\]
@@ -1393,6 +1393,8 @@ where instead of writing \(a(1), a(2), \dots\), we write it as \(a_1, a_2, \dots
 \begin{remark}
     We say that a sequence \((x_n)\) \highlight{ultimately} has a property if that property holds for some tail of \((x_n)\)\\
 \end{remark}
+
+\newpage
 
 \begin{theorem}
     Let \(x_n\) be a sequence of real numbers. 
