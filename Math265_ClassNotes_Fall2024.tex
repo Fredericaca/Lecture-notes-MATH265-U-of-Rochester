@@ -754,8 +754,133 @@
     \end{proof}
 \end{corollary}
 
-% \newpage
-% \subsection{Intervals}
+\newpage
+
+\subsection{Intervals}
+
+\begin{definition}[\highlight{Intervals}]
+    Let \(a,b\in\R\). If \begin{itemize}
+        \item \(a<b\), then define \highlight{open interval} to be the set \((a,b)=\{x\in\R:a<x<b\}\)
+        \item \(a\le b\), then define \highlight{closed interval} to be the set \([a,b]=\{x\in\R:a\le x\le b\}\)
+        \item \(a<b\), then define \highlight{half-open interval} to be the set \([a,b)=\{x\in\R:a\le x<b\}\), or 
+        \((a,b]=\{x\in\R:a<x\le b\}\)\\
+    \end{itemize}
+\end{definition}
+
+\begin{theorem}[\highlight{Characterization Theorem}]
+    If \(S\subseteq\R\st S\) contains at least 2 points and satisfies
+    \[\forall x,y\in S \ \wedge\ x<y\Rightarrow[x,y]\subseteq S\]
+    then \(S\) is an \highlight{interval}.
+    \begin{proof}
+        Let \(a=\inf S,\ b=\sup S\). Then \(S\subseteq[a,b]\).
+        If \(a=-\infty\) or \(b=\infty\), treat the boundary as open and this remains true.
+
+        \highlight{Goal:} Show that \(S\supseteq(a,b)\)
+
+        If \(z\in(a,b)\), then \(z\) is NOT a lower bound of \(S\). So \(\exists x\in S\) with \(a<x<z\). 
+        
+        Similarly, \(x\) is NOT an upper bound of \(S\), so \(\exists y\in S\) with \(z<y<b\). Thus
+        \[z\in[x,y]\subseteq S\]
+        Therefore, the desire result then follows only on whether \(S\) includes \(a,b\).\\
+    \end{proof}
+\end{theorem}
+
+\begin{definition}[\highlight{Nested Seqence of Intervals}]
+    A sequence of intervals \(\ds\{I_n\}_n\in\N\) is \highlight{nested} if 
+    \[I_1\supseteq I_2\supseteq\dots\supseteq I_n\supseteq I_{n+1}\supseteq\dots\]
+\end{definition}
+
+\begin{example}
+    Consider \(I_n=[0,\dfrac{1 }{n }]\). Then \(\forall n\in\N\), 
+    \[I_n\supseteq I_{n+1}\]
+    \highlight{Claim:} \(\ds\bigcap_{n=1}^{\infty}I_n=\{0\}\).
+    \begin{proof}\ 
+
+        (\(\supseteq\)):\(\forall n\in\N,\ 0\in I_n\).
+
+        (\(\subseteq\)): Assume \(\exists x\in\R\backslash\{0\}\st x\in\ds\bigcap_{n=1}^{\infty}I_n\)
+        Assume \(x>0\). Then by Archimedean Property, \(\exists n\in\N\st n>\dfrac{1 }{x}\Rightarrow x>\dfrac{1 }{n}\). Thus \(x\notin I_n\), which is a contradiction. 
+        
+        Since \(x\) can not be negative, we conclude that \(x=0\) and \(\ds\bigcap_{n=1}^{\infty}I_n\subseteq\{0\}\) 
+    \end{proof}
+\end{example}
+
+\newpage
+
+\begin{remark}
+    Not all nested sequence of intervals has single common point.
+    \begin{itemize}
+        \item \(I_n=[0,1+\dfrac{1}{n}]\Rightarrow\ds\bigcap_{n=1}^{\infty}I_n=[0,1] \)
+        \item \(I_n=[0,\dfrac{1}{n}]\Rightarrow\ds\bigcap_{n=1}^{\infty}I_n=\phi \)\\
+    \end{itemize}
+\end{remark}
+
+\begin{theorem}[\highlight{Nested Interval Property}]\ 
+
+    If \(\forall n\in\N,\ \exists a_n,b_n\in\R\st I_n=[a_n,b_n]\) is a nested sequence of \highlight{closed} intervals, 
+    then there exists a real number \(\xi\) such that \(\forall n\in\N,\ \xi\in I_n\)
+    \begin{proof}
+        Observe that \(\forall n\in\N,\ a_n\le b_1\).
+
+        Hence \(\{a_n:\forall n\in\N\}\) is bounded above. 
+        
+        Let \(\xi=\sup\{a_n:\forall n\in\N\}\), then \(\forall n\in\N,\ \xi\ge a_n\). 
+
+        It suffices to show \(\forall n\in\N,\ \xi\le b_n\).
+
+        Observe that \(\forall n\in\N,\ b_n\) is an upper bound of \(\{a_n:\forall n\in\N\}\). Thus by definition of supremum, \(\forall n\in\N\)
+        \[\xi\le b_n\]
+        We thereby conclude that \(\forall n\in\N,\ \xi\in I_n\).\\
+    \end{proof}
+\end{theorem}
+
+\begin{theorem}
+    If \(\forall n\in\N,\ \exists a_n,b_n\in\R\st I_n=[a_n,b_n]\) is a nested sequence of \highlight{closed} intervals, 
+    and the length \(b_n-a_n\) satisfies
+    \[\inf\{b_n-a_n:\forall n\in\N\}=0\]
+    then \(\xi\in\ds\bigcap_{n=1}^{\infty}I_n\) is unique.
+    \begin{proof}
+        Assume \(\exists\xi,\ \eta\in\R\st\)
+        \[\xi,\eta\in\ds\bigcap_{n=1}^{\infty}I_n\]
+        
+        Thus 
+        \[0\le\abs{\xi-\eta}\le \inf\{b_N-a_N\}=0\]
+        We thereby conclude that \(\xi=\eta\).\\
+    \end{proof}
+\end{theorem}
+
+\newpage
+\begin{theorem}
+    \(\R\) is uncoutable.
+    \begin{proof}
+        \highlight{Goal:} Show that \(I=[0,1]\) is uncountable.
+
+        Assume \(I=[0,1]\) is countable. Then we can enumerate the set as 
+        \[I_0=\{x_1,\ x_2,\ \dots,\ x_n,\dots\}\]
+        For all \(n\in\N\), we choose a closed bounded interval \(I_{n}\in I_{n-1}\st x_n\notin I_n\). Then we have 
+        \[I_1\supseteq I_2\supseteq\dots\]
+        By Nested Interval Property, \(\exists \xi\in\ds\bigcap_{n=1}^{\infty}I_n\). It follows that \(\forall n\in\N, \xi\neq x_n\). 
+
+        This means that \(I_0\) is not a complete listing of elements of \(I_0\), which contradicts to contability of \(I_0\) we assumed. 
+        We thereby conclude that \(I\) is an uncountable set.
+    \end{proof}
+    \begin{proof}[Alternative Proof: Cantor's Diagonal Argument]\ 
+
+        Assume \([0,1]\) is countable. Then 
+        \[[0,1]=\{x_1,\ x_2,\ \dots,\ x_i,\ \dots\},\ \forall i\in\N\]
+        Consider the decimal representation of \(x_i\):
+        \[x_1=0.b_{11}b_{12}b_{13}...\]
+        \[x_2=0.b_{21}b_{22}b_{23}...\]
+        \[x_i=0.b_{i1}b_{i2}b_{i3}...\]
+        for all \(j\in\N\st b_{ij}\in\{0,1,\dots,9\}\). Here we define 
+        \[y=0.y_1y_2\dots\in[0,1]\text{ where }y_k=\begin{cases*}
+            1& if \(b_{kk}\neq 1\)\\
+            0& if \(b_{kk}=1\)
+        \end{cases*},\ \forall k\in\N\]
+        Then \(\forall i\in\N, y\neq x_i\) since \(y_i\neq b_{ii}\). Thus \(y\notin [0,1]\), a contradiction.
+    \end{proof}
+\end{theorem}
+
 
 \newpage
 \section{Sequences and Series}
