@@ -27,22 +27,352 @@
 \newpage
 
 \section{Preliminaries}
-% \newpage
 
 \subsection{Sets and Functions}
 
-% \newpage
+\begin{definition}[\highlight{Image and Inverse Image}]
+    Let \(A,B\subseteq\R,\ f:A\rightarrow B\).
+
+    If \(E\subseteq A\), then the \highlight{image} of \(E\) is the set 
+    \[f(E)=\{f(x):x\in E\}\subseteq B\]
+
+    If \(H\subseteq B\), the \highlight{inverse image} of \(H\) is the set 
+    \[f^{-1}(H)=\{x\in A:f(x)\in H\}\subseteq A\]
+\end{definition}
+
+\begin{definition}
+    Let \(A,B\subseteq\R,\ f:A\rightarrow B\).
+    \begin{itemize}
+        \item \(f\) is \highlight{injective} (or \highlight{one-to-one}) if 
+        \[f(x_1)= f(x_2)\Rightarrow x_1=x_2\]
+        \item \(f\) is \highlight{surjective} (or \highlight{onto}) if 
+        \[f(A)=B\]
+        \item \(f\) is \highlight{bijective} if it is both injective and surjective\\
+    \end{itemize}
+\end{definition}
+
+\begin{definition}[\highlight{Inverse Function}]
+    
+\end{definition}
+Let \(A,B\subseteq\R,\ f:A\rightarrow B\). If \(f\) is bijective, then we can define a function \(g:B\Rightarrow A\) such that 
+\[g(y)=x\text{ if and only if(iff or }\Leftrightarrow \text{) }f(x)=y\]
+g is called \highlight{inverse function} of \(f\) and denoted by \(g=f^{-1}\)\\
+
+\begin{definition}
+    Let \(A,B\subseteq\R,\ f:A\rightarrow B,\ A_1\subseteq A\). The \highlight{restriction of \(f\) to \(A_1\)} is the function
+    \(f|_{A_1}:A_1\rightarrow B\) defined by 
+    \[f|_{A_1}(x)=f(x)\text{ for all }x\in A_1\]
+\end{definition}
+
+\begin{example}
+    Let \(f:\R\rightarrow\R,\ f(x)=x^2\). Notice that \(f\) is not injective. However, 
+    \[f|_{[0,\infty)}:[0,\infty)\rightarrow\R\]
+    is injective.
+    \begin{proof}
+        Suppose there are \(x_1,\ x_2\ge 0\) such that \(f|_{[0,\infty)}(x_1)=f|_{[0,\infty)}(x_2)\). Then 
+        \[x_1^2=x_2^2\]
+        \[(x_1+x_2)(x_1-x_2)=0\]
+        Thus \(x_1=-x_2\) or \(x_1=x_2\). Since \(x_1,x_2\) are positive, 
+        \[x_1=x_2=0\text{ or }x_1=x_2\]
+        Hence, \(x_1=x_2\) and we conclude that \(f|_{[0,\infty)}\) is injective.
+    \end{proof}
+\end{example}
+
+\newpage
+
+\begin{definition}[\highlight{Relation}]
+    Let \(A,B\subseteq\R\). A \highlight{relation} \(R\) from \(A\) to \(B\) is a subset of \(R\subseteq A\times B\). 
+    We write \(aRb\) or \(a\sim b\) to express \((a,b)\in R\) \\
+\end{definition}
+
+\begin{example}\ 
+    \begin{itemize}
+        \item Equality relation on \(\R\), denoted by \(=\), is defined by 
+        \[R=\{(x,y)\in\R\times\R:x=y\}=\{(x,x):x\in\R\}\]
+    \end{itemize}
+\end{example}
+
+\begin{definition}[\highlight{Equivalence Relation}]
+    Let \(A\subseteq\R\). A relation \(R\) from \(A\) to \(A\) is an \highlight{equivalent relation} if it satisfies all of following:
+    \begin{enumerate}
+        \item \(\forall a\in A,\ aRa\) (\textit{Reflexivity})
+        \item If for \(a,b\in A,\ aRb\), then \(bRa\). (\textit{Symmetry})
+        \item If for \(a,b,c\in A,\ aRb\) and \(bRc\), then \(aRc\). (\textit{Transitivity})\\
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[\highlight{Equivalence Class}]
+    Let \(A\subseteq\R\) with an equivalent relation \(\sim\). 
+    An \highlight{equivalence class} under \(\sim\) is a subset \(B\subseteq A\) such that for some \(a\in A\)
+    \[\forall b\in B,\ a\sim b\Leftrightarrow a\in B\]
+\end{definition}
+
+\begin{example}
+    Define relation \(R\) by \(a R b\Leftrightarrow 3|a-b\). Then \(R\) is an equivalent relation(Try to prove it!)
+
+    Define \(3\Z=\{n\in\Z:3|n\}\subset\Z\). Then \(3\Z\) is an equivalence class under \(R\)
+    \begin{proof}
+        Let \(a\in 3\Z, b\in\Z\). Suppose \(aRb\), then 
+        \[3|a-b\]
+        \[a-b=3n\text{ for some }n\in\N\]
+        \[b=a-3n\]
+        Since \(a\in 3\Z\), \(a=3m\) for some \(m\in\N\). Thus, 
+        \[b=3m-3n=3(m-n)\in 3\Z\]
+    \end{proof}
+\end{example}
+
+\begin{proposition}
+    Let \(S\) be a non-empty set, and \(\sim\) be an equivalent relation on \(S\). Then for any distinct equivalent classes \(A,B\) under \(R\), 
+    \[A\cap B=\phi\]
+    that is, equivalence classes of an equivalence relation are disjoints.
+    \begin{proof}
+        Let \(A,B\) be two distinct equivalence classes under \(\sim\) in \(S\)
+        
+        Assume \(\exists c\in A\cap B\), then \(\forall a\in A,\ a\sim c\) and \(\forall b\in B,\ b\sim c\). Thus by transitivity, 
+        \[\forall a\in A,\ b\in B,\ a\sim b\]
+        Thus \[A\subseteq B \text{ and }B\subseteq A\]
+        \[A=B\]
+        which contradicts to the fact that \(A\neq B\).
+    \end{proof}
+\end{proposition}
+
+\begin{proposition}
+    Let \(S\) be a non-empty set, and \(\sim\) be an equivalent relation on \(S\). For all element \(x\in A\), \(x\) is confined in a unique equivalence class denoted by \([x]_\sim\)
+    \begin{proof}[Proof. Exercise.]
+    \end{proof}
+\end{proposition}
+
+\begin{definition}[\highlight{Quotient}]
+    Let \(S\) be a non-empty set, and \(\sim\) be an equivalent relation on \(S\). The \highlight{quotient} of \(S\) under \(\sim\) is the set \(S/\sim\) defined by 
+    \[S/\sim\ =\{[x]_\sim:x\in S\}\]
+\end{definition}
+
+\begin{example}
+    \(\Z/\sim\ =\{3\Z,\ 1+3\Z,\ 2+3\Z\}=\{\dots,[-1]_\sim,\ [0]_\sim,\ [1]_\sim,\ \dots\}\)
+\end{example}
+
+\newpage
 
 \subsection{Mathematical Induction}
-
-% \newpage
+The reader should consult pages \(12-15\) on the textbook.
+\newpage
 
 \subsection{Finite and Infinite Sets}
+\begin{definition}[\highlight{Cardinality}]\ 
+    The number of elements a set \(S\) have is called the \highlight{cardinality} \highlight{of \(S\)}. 
+    
+    \begin{itemize}
+        \item The empty set \(\phi\) has \(0\) elements, called \highlight{cardinality 0}, denoted by 
+        \[\abs{\phi}=\#\phi=card(\phi)=0\]
+        \item Let \(n\in\N\), a set \(S\in\R\) has \(n\) elements, called \highlight{cardinality n} 
+        denoted by 
+        \[\abs{S}=\#S=card(S)=n\]
+        if there exists a bijection
+        \[f:\N_n\rightarrow S\]
+    \end{itemize}
+\end{definition}
+
+\begin{definition} Let \(S\) be any set.
+    \begin{itemize}
+        \item S is said to be \highlight{finite} if it is empty or has cardinality n for some \(n\in\N\).
+        \item S is said to be \highlight{infinite} if it is not finite.\\
+    \end{itemize}
+\end{definition}
+
+\begin{theorem}[\highlight{Uniqueness Theorem}]
+    If \(S\) is a finite set, then the number of elements in \(S\) is a unique number in \(\N\).\\
+\end{theorem}
+
+\begin{theorem}
+    The set \(\N\) of natural numbers is an infinite set.
+    \begin{proof}
+        Assume \(\N\) is finite. Then there exists a natural number \(n\in\N\) such that 
+        \[\abs{\N}=n\]
+        However, if we choose the first \(n+1\) elements in \(\N\), then 
+        \[\{1,\ 2,\ \dots,\ n,\ n+1\}\subset\N\]
+        \[\abs{\{1,\ 2,\ \dots,\ n,\ n+1\}}=n+1<\abs{\N}=n\]
+        which is a contradiction.
+    \end{proof}
+\end{theorem}
+
+\newpage
+
+\begin{theorem}\ 
+    \begin{enumerate}
+        \item[\textbf{(a)}] Let \(A,B\) be sets and \(\exists m,n\in\N\st\abs{A}=m,\ \abs{B}=n,\ A\cap B=\phi\), then 
+        \[\abs{A\cup B}=m+n\]
+        \item[\textbf{(b)}] Let \(A\) be a set with \(\abs{A}=m\) for some \(m\in\N\) and \(C\subseteq A\) be a set with \(\abs{C}=1\), then 
+        \[\abs{A\backslash C}=m-1\]
+        \item[\textbf{(c)}] If \(C\) is an infinite set and \(B\) is a finite set, then 
+        \[C\backslash B\text{ is an infinite set}\]
+    \end{enumerate}
+
+    \begin{proof}
+        \textbf{(a)}
+        By definition of cardinality, there exists two bijective function \[f:\N_m\rightarrow A,\ g:\N_n\rightarrow B\]
+        We define \(h:\N_{n+m}\rightarrow A\cup B\) such that 
+        \[h(x)=\begin{cases*}
+            f(x)& if \(x\le m\)\\
+            g(x-m)& if \(x> m\)
+        \end{cases*}\]
+        \begin{itemize}
+            \item \highlight{Claim}: \(h\) is injective.
+            
+            Suppose \(\exists x_1,x_2\in \N_{n+m}\st h(x_1)=h(x_2)\).
+            
+            \textbf{Case 1}: \(x_1,x_2\le m\). Then \(f(x_1)=f(x_1)\Rightarrow x_1=x_2\) since \(f\) is injective.
+
+            \textbf{Case 2}: \(x_1\le m,x_2> m\). Then \(f(x_1)=g(x_2-m)\) contradiction. Impossible.
+
+            \textbf{Case 3}: \(x_1,x_2> m\). Then \(g(x_1-m)=g(x_2-m)\Rightarrow x_1=x_2\) since \(g\) is injective.
+
+            We conclude that \(h\) is injective
+
+            \item \highlight{Claim}: \(h\) is surjective.
+            
+            Let \(y\in A\cup B\).
+
+            \textbf{Case 1}: \(y\in A\). Then \(\exists x\in\N_m\subseteq\N_{n+m}\st f(x)=y\) since \(f\) is onto.
+
+            \textbf{Case 2}: \(y\in B\). Then \(\exists x\in\N_n\subseteq\N_{n+m}\st g(x)=y\) since \(f\) is onto. 
+
+            Since \(x+m\in\N_{m+n}\) and \(x+m>m\),
+            \[h(x+m)=g(x+m-m)=g(x)=y\]
+            We conclude that \(h\) is surjective.
+        \end{itemize}
+        \textbf{(b)(c)}: \textit{Exercise.}
+    \end{proof}
+\end{theorem}
+
+\newpage
+
+\begin{theorem}
+    Let \(S,\ T\) be set such that \(S\subseteq T\). Then 
+    \begin{enumerate}
+        \item If \(T\) is finite, then \(S\) is finite.
+        \item If \(S\) is infinite, then \(T\) is infinite
+    \end{enumerate}
+
+    \begin{proof}
+        \textbf{(a)} Prove by induction on cardinality of \(T\).
+
+        For \(\abs{T}=0\), \(T=\phi\Rightarrow S=\phi\). Thus \(S\) is finite for \(\abs{T}=0\)
+
+        Suppose that the claim holds for all \(S\subseteq T\) where \(\abs{T}=k\).\
+
+        If \(\abs{T}=k+1\), there are two cases:
+        
+        \textbf{Case 1}: If \(S=T\), then \(S\) is finite.
+
+        \textbf{Case 2}: \(\exists t\in T\st t\notin S\), then 
+        \[\abs{T\backslash\{t\}}=k\text{ and }S\subseteq T\backslash\{t\}\]
+        Then \(S\) is finite by induction hypothesis.
+        Thus, we can prove for the rest of cases by induction.
+
+        \textbf{(b)} This assertion is the contrapositive of \((a)\).\\
+    \end{proof}
+\end{theorem}
+
+\begin{definition}\ 
+    \begin{itemize}
+        \item A set is said to be \highlight{countably infinite} if there exists a bijection of \(\N\) onto \(S\).
+        \item A set is said to be \highlight{countable} if it is either finite or countably infinite.
+        \item A set is said to be \highlight{uncountable} if it is not countable.\\
+    \end{itemize}
+\end{definition}
+
+\begin{example}\ 
+    \begin{itemize}
+        \item \(\N\) is countably infinite.
+        \item \(S=\{2,3,4,\dots\}\subseteq\N\) is countably infinite.
+        \item The set of even natural numbers is countably infinite.
+        \item \(\Z\) is countably infinite.\\
+    \end{itemize}
+\end{example}
+\newpage
+\begin{theorem}
+    If \(A,B\) are both countably infinite, then \(A\cup B\) is countably infinite.
+    \begin{proof}
+        By definition of countably infinity, \(\exists f:\N\rightarrow A,\ g:\N\rightarrow B\) bijective.
+
+        Define \(h:\N\rightarrow A\cup B\) by 
+        \[h(n)=\begin{cases*}
+            f(\dfrac{n+1}{2}) & if \(n\) is odd\\
+            g\left(\dfrac{n }{2}\right)  & if \(n\) is even
+        \end{cases*}\]
+        It suffices to show that \(h\) is surjective.
+        
+        Let \(x\in A\cup B\). If \(x\in A\), then since \(f\) is surjective, \(\exists n\in\N\st f(n)=x\).
+
+        Consider \(m=2n-1\). Then \[h(m)=f(\frac{m+1}{2})=f(n)=x\]
+        We leave the rest of proof as exercise.
+
+    \end{proof}
+\end{theorem}
+
+\begin{theorem}
+    The set \(\N\times\N\) is countably infinite.
+    \begin{proof}
+        \(\forall m,n\in\N\), we can enumerate these \((m,n)\) pairs as 
+        \[(1,1),\ (1,2), (2,1),\ (1,3),\ (2,2),\ (3,1),\ (1,4),\dots\]
+        \centerfig[0.3]{nxn_enumerate.png}
+
+        We see that the total number of points in diagonals 1 through \(k\) is given by\(\psi:\N\rightarrow\N\)
+        \[\psi(k)=\begin{cases*}
+            0 & if \(k=0\)\\
+            \dfrac{1}{2}k(k+1) & if \(k\in\N\)
+        \end{cases*}\]
+        We define \(h:\N\times\N\rightarrow\N\) by 
+        \begin{align*}
+            h(m,n)&=\psi(m+n-2)+m\\
+            &=\frac{1}{2}(m+n-2)(m+n-1)+m
+        \end{align*}
+        \highlight{Claim}: \(h\) is a bijection. See Appendix B.
+    \end{proof}
+\end{theorem}
+
+\newpage
+
+\begin{theorem}
+    The following statement are equivalent (Abbv.: TFAE):
+    \begin{itemize}
+        \item[(a)] \(S\) is a countable set.
+        \item[(b)] There exists a surjection of \(\N\) onto \(S\).
+        \item[(c)] There exists an injection of \(S\) onto \(\N\)
+    \end{itemize}
+    \begin{proof}\ 
+        \begin{itemize}
+            \item (a)\(\Rightarrow\)(b): Suppose \(S\) is a countable set.
+            \begin{itemize}
+                \item If \(S\) is finite, then \(\exists f:\N_n\rightarrow S\) a bijection for some \(n\in\N\), and 
+                
+                \(\exists g:\N\rightarrow\N_n\st\forall m\in\N,\ g(m)=m\mod n\). Thus \(g\) is onto. We have
+                \[f\circ g:\N\rightarrow S\text{ is onto by exercise in homework}\] 
+                \item If \(S\) is countably infinite, then \(\exists f:\N\rightarrow S\) onto.
+                
+            \end{itemize}
+    
+            \item (b)\(\Rightarrow\)(c): Suppose \(\exists f:\N\rightarrow S\) onto. Define \(g:S\rightarrow\N\) by 
+            \[g(s)=\min\{n\in\N:f(n)=s\}\]
+            Suppose \(\exists s,t\in S\st g(s)=g(t)=n\) for some \(n\in\N\). We have 
+            \[f(g(s))=s\text{ and }f(g(t))=t\]
+            \[s=t\]
+            Thus \(g\) is injective.
+    
+            \item (c)\(\Rightarrow\)(a): Suppose \(\exists f:S\rightarrow\N\) injective. Then \(\exists \hat{f}:S\rightarrow f(S)\) a bijection.
+            
+            Since \(f(S)\subseteq\N\), \(f(S)\) is countable by the previous theorem.
+            Hence \[\exists h:\N\rightarrow f(s)\]
+            It follows that 
+            \[\hat{f}\circ h:\N\rightarrow S\] is a bijection.
+        \end{itemize}
+        
+    \end{proof}
+\end{theorem}
 
 \newpage
 
 \section{The Real Numbers}
-
 \subsection{The Algebraic and Order Properties of \(\R\)}
 
 \begin{axiom}[\highlight{Algebraic Property of \(\R\)}]
