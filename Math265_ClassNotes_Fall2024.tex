@@ -315,7 +315,7 @@
         By previous theorem(4), we have 
         \[-\abs{a}\le a\le \abs{a}\text{ and } -\abs{b}\le b\le \abs{b}\]
         \[-(\abs{a}+\abs{b})\le a+b\le \abs{a}+\abs{b}\]
-        Thus, by previuos theorem(3),
+        Thus, by previous theorem(3),
         \[\abs{a+b}\le\abs{a}+\abs{b}\]
     \end{proof}
 \end{theorem}
@@ -416,7 +416,7 @@
 \begin{proposition}
     Let \(x,y,a,b\in\R\). If \(x\in\neighbor{\varepsilon}{a},\ y\in\neighbor{\varepsilon}{b}\), then 
     \[x+y\in\neighbor{2\varepsilon}{a+b}\]
-    \begin{proof} By definintion of neighborhood,
+    \begin{proof} By definition of neighborhood,
         \begin{align*}
             \abs{(x+y)-(a+b)}&=\abs{(x-a)+(y-b)}\\
             &\le\abs{x-a}+\abs{y-b}\\
@@ -607,7 +607,7 @@
     \begin{proof}
         \(\exists u=\sup g(D)\). Then \(\forall x\in D,\)
         \[f(x)\le g(x)\le\sup g(D)\]
-        so \(\sup g(D)\) is an upper boudn of \(f(D)\). Thus 
+        so \(\sup g(D)\) is an upper bound of \(f(D)\). Thus 
         \[\sup f(D)\le \sup g(D)\]
     \end{proof}
 \end{proposition}
@@ -631,7 +631,7 @@
         Consider \(\sup \N-1\). Then \(\exists n\in\N\st \)
         \[\sup\N-1<n\]
         \[\sup\N<1+n\in\N\]
-        thus \(\sup\N\) is NOT an upper boudn of \(\N\), which is a contradiction.
+        thus \(\sup\N\) is NOT an upper bound of \(\N\), which is a contradiction.
     \end{proof}
 \end{theorem}
 
@@ -851,7 +851,7 @@
 
 \newpage
 \begin{theorem}
-    \(\R\) is uncoutable.
+    \(\R\) is uncountable.
     \begin{proof}
         \highlight{Goal:} Show that \(I=[0,1]\) is uncountable.
 
@@ -861,7 +861,7 @@
         \[I_1\supseteq I_2\supseteq\dots\]
         By Nested Interval Property, \(\exists \xi\in\ds\bigcap_{n=1}^{\infty}I_n\). It follows that \(\forall n\in\N, \xi\neq x_n\). 
 
-        This means that \(I_0\) is not a complete listing of elements of \(I_0\), which contradicts to contability of \(I_0\) we assumed. 
+        This means that \(I_0\) is not a complete listing of elements of \(I_0\), which contradicts the assumption that \(I_0\) is countable. 
         We thereby conclude that \(I\) is an uncountable set.
     \end{proof}
     \begin{proof}[Alternative Proof: Cantor's Diagonal Argument]\ 
@@ -1244,9 +1244,9 @@ where instead of writing \(a(1), a(2), \dots\), we write it as \(a_1, a_2, \dots
                 \filldraw[black] (0,0) circle (2pt);
                 \draw (0,-0.5) node{0};
                 \filldraw[black] (-6,0) circle (2pt);
-                \draw (-6,-0.5) node{\(x+\varepsilon\)};
+                \draw (-6,-0.5) node{\(x-\varepsilon\)};
                 \filldraw[black] (-2,0) circle (2pt);
-                \draw (-2,-0.5) node{\(x-\varepsilon\)};
+                \draw (-2,-0.5) node{\(x+\varepsilon\)};
                 \filldraw[black] (-4,0) circle (2pt);
                 \draw (-4,-0.5) node{\(x\)};
             \end{tikzpicture}
@@ -1325,7 +1325,7 @@ where instead of writing \(a(1), a(2), \dots\), we write it as \(a_1, a_2, \dots
 \end{theorem}
 
 \begin{theorem}
-    Suppose \(\seq{x}{n}\) is a sequence of non-negative real numbers, satisfiying \(x_n\rightarrow x\).
+    Suppose \(\seq{x}{n}\) is a sequence of non-negative real numbers, satisfying \(x_n\rightarrow x\).
     Then \(\sqrt{x_n}\rightarrow\sqrt{x}\).
     \begin{proof} Let \(\forall \varepsilon>0\)
 
@@ -1380,7 +1380,7 @@ where instead of writing \(a(1), a(2), \dots\), we write it as \(a_1, a_2, \dots
 
 \begin{theorem}[\textbf{Monotone Convergence Therorem}]
     A monotone sequence of real numbers is \highlight{convergent} iff it is bounded. 
-Moreover, if \((x_n)\) is increaseing, then 
+Moreover, if \((x_n)\) is increasing, then 
 \[\lim(x_n) = \sup{\{x_n:n\in\N\}}\]
     If \((x_n)\) is decreasing, then 
     \[\lim(x_n) = \inf{\{x_n:n\in\N\}}\]
@@ -1399,7 +1399,7 @@ Moreover, if \((x_n)\) is increaseing, then
     Write \(x = \sup{\{x_n:n\in\N\}}\).
 
     Let \(\varepsilon>0\). Since \(x = \sup{(x_n)}\):
-    \[x-\varepsilon \text{ is NOT an upper boudn of } \seq{x}{n}\]
+    \[x-\varepsilon \text{ is NOT an upper bound of } \seq{x}{n}\]
     Then 
     \[\exists N\in\N \st x_N > x-\varepsilon\]
     Since \(\seq{x}{n}\) is increasing,
@@ -1514,7 +1514,7 @@ Textbook p.75: A sequence that converges to \(\sqrt{a}\) for \(a>0\).\newpage
 \end{example}
 
 \begin{definition}[\textbf{Subsequences}]
-    Let \((x_n)\) be a real sequence and consider a strickly increasing seqence of natural numbers 
+    Let \((x_n)\) be a real sequence and consider a strictly increasing sequence of natural numbers 
     \(n_1<n_2<n_3<\dots\)
     The sequence \[(x_{n_k}\,:\,k\in\N)\]
     is called a \highlight{subsequence} of \((x_n)\)\\
@@ -1607,7 +1607,7 @@ Textbook p.75: A sequence that converges to \(\sqrt{a}\) for \(a>0\).\newpage
             \end{tikzpicture}
         \end{center}
 
-        \highlight{Case 1: }\((x_n)\) has infinitelyy many peaks
+        \highlight{Case 1: }\((x_n)\) has infinitely many peaks
 
         List the peaks of \((x_n)\) in order of increasing index \[x_{n_1},x_{n_2},\dots\]
         \(\Rightarrow (x_{n_i})\) is a decreasing sequence.
@@ -1835,7 +1835,7 @@ Textbook p.75: A sequence that converges to \(\sqrt{a}\) for \(a>0\).\newpage
         
         For any \(n\) for which \(x^*+\varepsilon < x_n\), \(v<x_n\). Thus there are only finitely many such n.
 
-        If \(x^*-\varepsilon \notin X\), then there are infinityly many \(n\) such that \(x^* - \varepsilon<x_n\)
+        If \(x^*-\varepsilon \notin X\), then there are infinitely many \(n\) such that \(x^* - \varepsilon<x_n\)
     \end{proof}
     \newpage
 
@@ -2249,7 +2249,7 @@ Let \(f:A\rightarrow B\) be a function where \(A,B\subseteq \R\). Let \(a\in A,L
 \end{theorem}
 
 \begin{definition}[\textbf{Delta-Epsilon Definition of Limit}]
-    Let \(A\subseteq\R\), \(c\) is a cluste point of \(A\), \(f:A\rightarrow\R\). A real number L is the \highlight{limit of f at c} if 
+    Let \(A\subseteq\R\), \(c\) is a cluster point of \(A\), \(f:A\rightarrow\R\). A real number L is the \highlight{limit of f at c} if 
 
     \(\forall \varepsilon>0, \exists\delta>0 \st \forall x\in A,\)
     \[0<\abs{x-c }<\delta \rightarrow \abs{f(x)-L}<\varepsilon\]
@@ -2395,7 +2395,7 @@ Let \(f:A\rightarrow B\) be a function where \(A,B\subseteq \R\). Let \(a\in A,L
 \end{example}
 
 \begin{remark}[\highlight{Factoring }\(\abs{x-c}\)]
-    Since we have the premice of \(\abs{x-c }<\delta\) for free, it would be much easier for us to 
+    Since we have the premise of \(\abs{x-c }<\delta\) for free, it would be much easier for us to 
     confine \(\abs{f(x)-L}\) if we factor \(\abs{x-c}\) from the difference.
 \end{remark}
 
@@ -2586,7 +2586,7 @@ Let \(f:A\rightarrow B\) be a function where \(A,B\subseteq \R\). Let \(a\in A,L
 \end{theorem}
 
 \begin{remark}
-    Always check conditions befor applying: this is true only if both \(f\) and \(g\) has a limit at \(c\) !
+    Always check conditions before applying: this is true only if both \(f\) and \(g\) has a limit at \(c\) !
 \end{remark}
 
 \newpage
@@ -2606,7 +2606,7 @@ Let \(f:A\rightarrow B\) be a function where \(A,B\subseteq \R\). Let \(a\in A,L
 \begin{theorem}
     Let \(A\subseteq\R;\ f,g:A\rightarrow\R\), \(c \) be a cluster point of \(A\). 
     
-    If \(\exists a,b\in\R, \forall x\in A, x\neq c\) satisfiying 
+    If \(\exists a,b\in\R, \forall x\in A, x\neq c\) satisfying 
     \[a\le f(x)\le b\text{ and }\limx{c}{f}=L\]
     then \[a\le\limx{c}{f}\le b\]
     \begin{proof}
@@ -2826,7 +2826,7 @@ Let \(f:A\rightarrow B\) be a function where \(A,B\subseteq \R\). Let \(a\in A,L
     \begin{itemize}
         \item \(\sin(x)\) is continuous on \(\R\).
         \begin{proof}
-            Notice that \(\forall x, y, z\in \R\), we have 3 inequalitis:
+            Notice that \(\forall x, y, z\in \R\), we have 3 inequalities:
             \[\abs{\sin(z)\le \abs{z},\ \abs{\cos(z)}\le 1},\ \sin(x)-\sin(y)=2\sin[\dfrac{1}{2}(x-y)]\cdot \cos[\dfrac{1}{2}(x+y)]\]
             Hence if \(c\in\R\), we have 
             \[\abs{\sin(x)-\sin(c)}\le 2\cdot \frac{1}{2}\abs{x-c}\cdot 1=\abs{x-c}\]
@@ -2894,7 +2894,7 @@ Continuous function on \highlight{closed bounded interval} has many good propert
         Since \(I\) is bounded, the sequence \(\seq{x }{n }\in I\) is bounded. Therefore, 
         by the Bolzano-Weierstrass Theorem, there exists a convergent subsequence \(\seq{x}{n_k}\rightarrow x\) for some number \(x\in I\). 
         Since \(f\) is continuous on \(I\), \[f(x_{n_k})\rightarrow f(x)\]
-        We thereby conclude that \(f(x_{n_k})\) is a bounded sequence, which is a contradiction to unboundedness of \(f(x_{n_k})\)
+        We thereby conclude that \(f(x_{n_k})\) is a bounded sequence, which contradicts the fact that \(f(x_{n_k})\) is unbounded.
         \[\forall k\in\N, n_k\in\N,\ \abs{f(x_{n_k})}>n_k\ge k\]
     \end{proof}
 
@@ -2902,7 +2902,7 @@ Continuous function on \highlight{closed bounded interval} has many good propert
         We will give 3 counter-examples to show that all of three conditions are necessary for Boundedness Theorem to be true.
         \begin{itemize}
             \item Interval must be \highlight{closed}\\
-            \textbf{Counter-example:} \(f(x)=\dfrac{1}{x }\) on \((0,1]\) is countinous but unbounded.
+            \textbf{Counter-example:} \(f(x)=\dfrac{1}{x }\) on \((0,1]\) is continuos but unbounded.
             \item Interval must be \highlight{bounded}\\
             \textbf{Counter-example:} \(g(x)=x\) is continuous but unbounded on \([0,\infty)\).
             \item The function must be \highlight{continous}\\
@@ -2978,7 +2978,7 @@ The proof of next theorem provides an algorithm, know as \highlight{Bisection Me
         \end{itemize}
         Then by Nested Interval Property, \[\exists c\in [a,b]\st \forall n\in\N,\ c\in I_n,\ \bigcap_{n=1}^{\infty}I_n=\{c\}\]
         Also notice that \[a_n<c<b_n\Rightarrow\lim\seq{a }{n }\le c\le\lim\seq{b }{n }\]
-        By Sqeeze Theorem \[\lim\seq{a }{n }= c=\lim\seq{b }{n }\]
+        By Squeeze Theorem \[\lim\seq{a }{n }= c=\lim\seq{b }{n }\]
         Notice that \[\begin{cases*}
             f(a_n)<0 \Rightarrow &\(\lim f(a_n)\le 0\)\\
             0<f(b_n) \Rightarrow &\(0 \le\lim f(b_n)\)\\
@@ -2998,7 +2998,7 @@ The proof of next theorem provides an algorithm, know as \highlight{Bisection Me
         \[g(a)<0<g(b)\]
         By previous theorem, \(\exists c,\ a<c<b\st 0=g(c)=f(c)-k\). Thus 
         \[f(c)=k\]
-        The similar proof also allpies for \(b<a\).
+        The similar proof also applies for \(b<a\).
     \end{proof}
 \end{theorem}
 
@@ -3016,7 +3016,7 @@ The proof of next theorem provides an algorithm, know as \highlight{Bisection Me
     Let \(I=[a,b],\ f:I\rightarrow\R\) be continuous on \(I\). Then 
     \[f(I)=[\inf f(I), \sup f(I)]\]
     \begin{proof}
-        Let \(m=\inf f(I),\ M=\sup f(I)\). We know by the Maximum-Mininum Theorem that 
+        Let \(m=\inf f(I),\ M=\sup f(I)\). We know by the Maximum-Minimum Theorem that 
         \(m,M\in f(I)\). Thus 
         \[f(I)\subseteq[m,M]\]
         Then by Bolzano's Intermediate Value Theorem, \(\forall k\in[m,M], \exists c_k\in I\st\)
@@ -3076,7 +3076,7 @@ Consider \(f(x)=\sin(\dfrac{1}{x})\). As \(x\) approaches 0, the function value 
     It suffices to choose \(\delta(\varepsilon, u)=\inf\{\dfrac{1}{2}u, \dfrac{1}{2}u^2\varepsilon\}\). 
     
     Notice that there is no way to choose a \(\delta\) that will work for all \(u>0\). \(\delta\) must depends on the position of \(u\). 
-    As \(u\) tends to 0, the persissible value of \(\delta\) tends to 0.
+    As \(u\) tends to 0, the permissible value of \(\delta\) tends to 0.
     
 \end{example}
 \begin{figure}[h]
@@ -3142,7 +3142,7 @@ Consider \(f(x)=\sin(\dfrac{1}{x})\). As \(x\) approaches 0, the function value 
 \begin{remark}[\highlight{Lipschitze Function and Gradient}]
     Rewrite the condition, we have \[\abs{\frac{f(x)-f(u)}{x-u}}\le K\]
     It follows that the absolute value is the gradient of a line segment joining the points \((x,f(x)),\ (u,f(u))\). 
-    Thus, \(f\) is Lipschitz if and only if the gradient of all line segments joining two points on the graph of \(y=f(x)\) over \(I\) are boudned by some \(K\).\\
+    Thus, \(f\) is Lipschitz if and only if the gradient of all line segments joining two points on the graph of \(y=f(x)\) over \(I\) are bounded by some \(K\).\\
 \end{remark}
 
 \begin{theorem}
@@ -3327,7 +3327,7 @@ Specifically, we will discuss \highlight{increasing functions}. It is easy to de
 
     Or, \(\forall \varepsilon>0, \)
     \[\abs{\frac{x }{n }-0}=\frac{\abs{x }}{n}<\varepsilon\]
-    So, it surffices to choose \(K(\varepsilon,\ x)=\ds\left\lceil\frac{\abs{x}}{\varepsilon}\right\rceil\).
+    So, it suffices to choose \(K(\varepsilon,\ x)=\ds\left\lceil\frac{\abs{x}}{\varepsilon}\right\rceil\).
 \end{example}
 
 \newpage
@@ -3384,7 +3384,7 @@ Specifically, we will discuss \highlight{increasing functions}. It is easy to de
 \newpage
 
 \begin{example}
-    \(f_n(x)=\dfrac{x }{n }\) does NOT converge unifromly to \(f(x)=0\) on \(\R\).
+    \(f_n(x)=\dfrac{x }{n }\) does NOT converge uniformly to \(f(x)=0\) on \(\R\).
     \begin{proof}
         Let \(\varepsilon_0=1\)
         \begin{enumerate}
@@ -3393,7 +3393,7 @@ Specifically, we will discuss \highlight{increasing functions}. It is easy to de
             \item So choose \(x_k=k,\ n_k=k\), we have 
             \[\abs{f_{n_k}(x_k)-f(x_k)}=\abs{\frac{x_k }{n_k}-0}=1\ge \varepsilon_0\]
         \end{enumerate}
-        By preceding lemma, \((f_n)\) does NOT congerge to \(f\) uniformly on \(\R\)
+        By preceding lemma, \((f_n)\) does NOT converge to \(f\) uniformly on \(\R\)
     \end{proof}
 \end{example}
 
