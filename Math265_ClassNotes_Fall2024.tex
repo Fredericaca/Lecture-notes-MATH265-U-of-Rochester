@@ -372,6 +372,62 @@ The reader should consult pages \(12-15\) on the textbook.
 
 \newpage
 
+\begin{theorem}
+    \(\Q\) is \highlight{countable}.
+    \begin{proof}
+        Define \(f:\N\times\N\to\Q_+\) where \(\Q_+=\{x\in\Q:x>0\}\) by 
+
+        \[f(m,n)=\dfrac{n }{m }\]
+        It is easy to see that \(f\) is surjective(Try to prove it!).  
+
+        Since \(\N\times\N\) is countable, \(\exists g:\N\to\N\times\N\) a bijection. 
+        
+        We compose \(f\) and \(g\) to get: 
+        \[f\circ g:\N\rightarrow\Q_+\]
+        Thus \(\Q_+\) is countable by the previous theorem.
+
+        Similarly, we can prove that \(\Q_-=\{x\in\Q:x<0\}\) is countable.
+        Thus, \(\Q=\Q_-\cup\Q_+\cup\{0\}\) is countable by the previous theorem.\\
+    \end{proof}
+\end{theorem}
+
+\begin{theorem}[\highlight{union of countable sets is countable}]
+    If \(A_n\) is a countable set for \(n\in\N\), then the union 
+    \[A=\bigcup_{n=1}^{\infty}A_n\]
+    is countable. That is, the union of countable sets is countable.
+    \begin{proof}
+        \(\forall n\in\N,\ \exists \psi_n:\N\to A_n\) a bijection. 
+
+        Define \(f:\N\times\N\to A\) by 
+        \[f(m,n)=\psi_m(n)\]
+        Then \(f\) is surjective (Try to prove it!).
+
+        Since \(\N\times\N\) is countable, by previous theorem, \(\exists g:\N\to\N\times\N\) a bijection. Thus 
+        \[f\circ g:\N\to A\]
+        We conclude that by definition, \(A\) is countable.\\
+    \end{proof}
+\end{theorem}
+
+\begin{theorem}[\highlight{Cantor's Theorem}]
+    If \(A\) is a set, there is no surjection of \(A\) onto the power set of \(A\).
+    \begin{proof}
+        Assume \(\exists \psi:A\to P(A)\). For any element \(a\in A,\ \psi(a)\subseteq A\). Thus either \(a\in\psi(a)\) or \(a\) does not belong to this set. We define 
+        \[D=\{a\in A:a\neq \psi(a)\}\]
+        Since \(D\subseteq A\), if \(\psi\) is a surjection, then \(\exists a_0\in A\st D=\psi(a_0)\).
+        \begin{itemize}
+            \item If \(a_0\in D\), then since \(D=\psi(a_0)\), we must have \(a_0\in\psi(a_0)\) a contradiction to definition of \(D\).
+            \item Similarly, if \(a_0\notin\psi(a_0)\), then \(a_0\notin\psi(a_0)\) so that \(a_0\in D\), which is also a contradiction.
+        \end{itemize}
+        We thereby conclude that \(\psi\) cannot be a surjection.
+    \end{proof}
+\end{theorem}
+
+\begin{remark}
+    This implies that the power set of natural number \(\mathcal{P}(\N)\) is uncountable.
+\end{remark}
+
+\newpage
+
 \section{The Real Numbers}
 \subsection{The Algebraic and Order Properties of \(\R\)}
 
