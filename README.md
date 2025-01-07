@@ -1,4 +1,4 @@
-# MATH265:RealAnalysis_Class_Notes_UofR
+# Lecture notes of MATH265 Real Analysis at University of Rochester 
 ## What is this project?
 MATH265 RealAnalysis class notes in pdf+latex. Project inspired by [*Dexter Chua*](https://dec41.user.srcf.net/notes/). For me it is a great rapid note-taking practice on laptop. All tex and pdf files are open-source and free to view, copy and edit for study purpose. Great to see if you also suffer from Math. We got average 60% this semester 😭😭😭. 
 
