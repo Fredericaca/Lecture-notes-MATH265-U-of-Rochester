@@ -3,7 +3,7 @@
 MATH265 Real Analysis class notes in pdf+latex. Project inspired by [*Dexter Chua*](https://dec41.user.srcf.net/notes/). For me it is a great rapid note-taking practice on laptop. All tex and pdf files are open-source and free to view, copy and edit for study purpose. Great to see if you also suffer from Math. We got average 60% this semester 😭😭😭. 
 
 ## Credit
-All notes are taken by **Kaifeng Lu** on **MATH265 FALL 2024** by **Professor Wei-chung Huang**
+All notes are taken by **Kaifeng Lu** on **MATH265 FALL 2024** by **Professor Wei-chung Huang** at **University of Rochester**
 
 ## Latex on Overleaf
 Also available on Overleaf:
