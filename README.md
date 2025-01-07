@@ -9,11 +9,11 @@ All notes are taken by **Kaifeng Lu** on **MATH265 FALL 2024** by **Professor We
 Also available on Overleaf:
 https://www.overleaf.com/read/txvtjmjcxknb#1e3523
 
-Note: You need to change the file path of **header.tex** in Math265_ClassNotes_Fall2024.tex before compile(this project assmumes that audiences will have basic latex editing experience for background). Here is how:
+Note: You need to change the file path of **header.tex** in Math265_ClassNotes_Fall2024.tex before compile(this project assmumes that audiences will have some experience in latex editing). Here is how:
 
 Change the following line of code in the Math265_ClassNotes_Fall2024.tex. 
 ```
-\input{your/path/of/header.tex}
+\input{your/path/to/header.tex}
 ```
 # Additional Resource:
 
